@@ -16,4 +16,8 @@ public class MainController implements Initializable{
 		System.out.println("yop");
 	}
 
+	public void nouvellePartie(ActionEvent e) {
+		System.out.println("Nouvelle Partie !!!");
+	}
+
 }

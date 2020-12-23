@@ -9,3 +9,15 @@
     -fx-background-size: cover;
     background-size: cover;
 }
+.inspecteurButton {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+.inspecteurButton:focused {
+    -fx-border-color: transparent, black;
+    border-color: transparent, black;
+}
+.inspecteurButton:pressed {
+    -fx-background-color: black;
+    background-color: black;
+}
