@@ -6,19 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
 
-	
 	@Override
-	public void start(Stage primaryStage) throws Exception{
-		Parent root =FXMLLoader.load(getClass().getResource("Main.fxml"));	
+	public void start(Stage primaryStage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		primaryStage.setTitle("Mr Jack Pocket");
-		
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toString());
-		
-		primaryStage.setScene(scene);
+
+		Scene Mainscene = new Scene(root);
+		Mainscene.getStylesheets().add(getClass().getResource("application.css").toString());
+
+		primaryStage.setScene(Mainscene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
