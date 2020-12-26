@@ -1,7 +1,7 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 #BorderPane {
-    -fx-background-image: url("../background.jpg");
-    background-image: url("../background.jpg");
+    -fx-background-image: url('../districts/background.jpg');
+    background-image: url('../districts/background.jpg');
     -fx-background-position: center center;
     background-position: center center;
     -fx-background-repeat: no-repeat;
@@ -20,4 +20,59 @@
 .inspecteurButton:pressed {
     -fx-background-color: black;
     background-color: black;
+}
+
+.TBert {
+    -fx-background-image: url('../districts/TBert.png');
+    background-image: url('../districts/TBert.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TGoodley {
+    -fx-background-image: url('../districts/TGoodley.png');
+    background-image: url('../districts/TGoodley.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TGull {
+    -fx-background-image: url('../districts/TGull.png');
+    background-image: url('../districts/TGull.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TLane {
+    -fx-background-image: url('../districts/TLane.png');
+    background-image: url('../districts/TLane.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TLestrade {
+    -fx-background-image: url('../districts/TLestrade.png');
+    background-image: url('../districts/TLestrade.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TMadame {
+    -fx-background-image: url('../districts/TMadame.png');
+    background-image: url('../districts/TMadame.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TPizer {
+    -fx-background-image: url('../districts/TPizer.png');
+    background-image: url('../districts/TPizer.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TSmith {
+    -fx-background-image: url('../districts/TSmith.png');
+    background-image: url('../districts/TSmith.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
+}
+.TStealthy {
+    -fx-background-image: url('../districts/TStealthy.png');
+    background-image: url('../districts/TStealthy.png');  
+    -fx-background-size: cover;
+    background-size: cover; 
 }

@@ -47,28 +47,28 @@
 				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Button id="button01" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="1" />
-				<Button id="button02" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="2" />
-				<Button id="button03" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="3" />
-				<Button id="button04" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-				<Button id="button05" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-				<Button id="button06" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-				<Button id="button07" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-				<Button id="button08" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-				<Button id="button09" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-				<Button id="button10" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="3" />
-				<Button id="button11" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="2" />
-				<Button id="button12" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="1" />
+				<Button fx:id="button01" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="1" />
+				<Button fx:id="button02" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="2" />
+				<Button fx:id="button03" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="3" />
+				<Button fx:id="button04" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+				<Button fx:id="button05" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+				<Button fx:id="button06" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+				<Button fx:id="button07" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+				<Button fx:id="button08" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+				<Button fx:id="button09" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<Button fx:id="button10" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="3" />
+				<Button fx:id="button11" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="2" />
+				<Button fx:id="button12" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="inspecteurButton" GridPane.rowIndex="1" />
 
-				<Button id="button0" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-				<Button id="button1" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<Button id="button2" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-				<Button id="button3" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-				<Button id="button4" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-				<Button id="button5" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-				<Button id="button6" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-				<Button id="button7" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />				
-				<Button id="button8" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<Button fx:id="button0" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+				<Button fx:id="button1" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<Button fx:id="button2" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+				<Button fx:id="button3" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+				<Button fx:id="button4" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+				<Button fx:id="button5" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+				<Button fx:id="button6" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+				<Button fx:id="button7" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />				
+				<Button fx:id="button8" layoutX="10.0" layoutY="10.0" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 			</children>
 		</GridPane>
 	</center>
