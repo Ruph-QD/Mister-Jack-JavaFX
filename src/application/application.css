@@ -9,6 +9,13 @@
     -fx-background-size: cover;
     background-size: cover;
 }
+
+.tuileButton:disabled{
+    -fx-opacity: 0.7;
+    opacity: 0.7;
+}
+
+
 .inspecteurButton {
     -fx-background-color: transparent;
     background-color: transparent;
@@ -21,58 +28,56 @@
     -fx-background-color: black;
     background-color: black;
 }
+.inspecteurButton:disabled{
+    -fx-opacity: 1;
+    opacity: 1;
+}
+.Sherlock{-fx-background-image: url('../detectives/Sherlock.png');    background-image: url('../detectives/Sherlock.png');  -fx-background-size: cover;   background-size: cover;}
+.Tobi{-fx-background-image: url('../detectives/Tobi.png');    background-image: url('../detectives/Tobi.png');  -fx-background-size: cover;   background-size: cover;}
+.Watson{-fx-background-image: url('../detectives/Watson.png');    background-image: url('../detectives/Watson.png');  -fx-background-size: cover;   background-size: cover;}
 
-.TBert {
-    -fx-background-image: url('../districts/TBert.png');
-    background-image: url('../districts/TBert.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TGoodley {
-    -fx-background-image: url('../districts/TGoodley.png');
-    background-image: url('../districts/TGoodley.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TGull {
-    -fx-background-image: url('../districts/TGull.png');
-    background-image: url('../districts/TGull.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TLane {
-    -fx-background-image: url('../districts/TLane.png');
-    background-image: url('../districts/TLane.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TLestrade {
-    -fx-background-image: url('../districts/TLestrade.png');
-    background-image: url('../districts/TLestrade.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TMadame {
-    -fx-background-image: url('../districts/TMadame.png');
-    background-image: url('../districts/TMadame.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TPizer {
-    -fx-background-image: url('../districts/TPizer.png');
-    background-image: url('../districts/TPizer.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TSmith {
-    -fx-background-image: url('../districts/TSmith.png');
-    background-image: url('../districts/TSmith.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
-.TStealthy {
-    -fx-background-image: url('../districts/TStealthy.png');
-    background-image: url('../districts/TStealthy.png');  
-    -fx-background-size: cover;
-    background-size: cover; 
-}
+
+.TBert {-fx-background-image: url('../districts/TBert.png');    background-image: url('../districts/TBert.png');  -fx-background-size: cover;   background-size: cover; }
+.TBert90 {-fx-background-image: url('../districts/TBertR90.png');   background-image: url('../districts/TBertR90.png');  -fx-background-size: cover;    background-size: cover; }
+.TBert180 {-fx-background-image: url('../districts/TBertR180.png'); background-image: url('../districts/TBertR180.png');  -fx-background-size: cover;   background-size: cover; }
+.TBert270 {-fx-background-image: url('../districts/TBertR270.png'); background-image: url('../districts/TBertR270.png');  -fx-background-size: cover;   background-size: cover; }
+
+.TGoodley {    -fx-background-image: url('../districts/TGoodley.png');    background-image: url('../districts/TGoodley.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley90 {    -fx-background-image: url('../districts/TGoodleyR90.png');    background-image: url('../districts/TGoodleyR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley180 {    -fx-background-image: url('../districts/TGoodleyR180.png');    background-image: url('../districts/TGoodleyR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley270 {    -fx-background-image: url('../districts/TGoodleyR270.png');    background-image: url('../districts/TGoodleyR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TGull {    -fx-background-image: url('../districts/TGull.png');    background-image: url('../districts/TGull.png');      -fx-background-size: cover;    background-size: cover; }
+.TGull90 {    -fx-background-image: url('../districts/TGullR90.png');    background-image: url('../districts/TGullR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TGull180 {    -fx-background-image: url('../districts/TGullR180.png');    background-image: url('../districts/TGullR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TGull270 {    -fx-background-image: url('../districts/TGullR270.png');    background-image: url('../districts/TGullR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TLane {    -fx-background-image: url('../districts/TLane.png');    background-image: url('../districts/TLane.png');      -fx-background-size: cover;    background-size: cover; }
+.TLane90 {    -fx-background-image: url('../districts/TLaneR90.png');    background-image: url('../districts/TLaneR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TLane180 {    -fx-background-image: url('../districts/TLaneR180.png');    background-image: url('../districts/TLaneR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TLane270 {    -fx-background-image: url('../districts/TLaneR270.png');    background-image: url('../districts/TLaneR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TLestrade {    -fx-background-image: url('../districts/TLestrade.png');    background-image: url('../districts/TLestrade.png');      -fx-background-size: cover;    background-size: cover; }
+.TLestrade90 {    -fx-background-image: url('../districts/TLestradeR90.png');    background-image: url('../districts/TLestradeR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TLestrade180 {    -fx-background-image: url('../districts/TLestradeR180.png');    background-image: url('../districts/TLestradeR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TLestrade270 {    -fx-background-image: url('../districts/TLestradeR270.png');    background-image: url('../districts/TLestradeR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TMadame {    -fx-background-image: url('../districts/TMadame.png');    background-image: url('../districts/TMadame.png');      -fx-background-size: cover;    background-size: cover; }
+.TMadame90 {    -fx-background-image: url('../districts/TMadameR90.png');    background-image: url('../districts/TMadameR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TMadame180 {    -fx-background-image: url('../districts/TMadameR180.png');    background-image: url('../districts/TMadameR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TMadame270 {    -fx-background-image: url('../districts/TMadameR270.png');    background-image: url('../districts/TMadameR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TPizer {    -fx-background-image: url('../districts/TPizer.png');    background-image: url('../districts/TPizer.png');      -fx-background-size: cover;    background-size: cover; }
+.TPizer90 {    -fx-background-image: url('../districts/TPizerR90.png');    background-image: url('../districts/TPizerR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TPizer180 {    -fx-background-image: url('../districts/TPizerR180.png');    background-image: url('../districts/TPizerR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TPizer270 {    -fx-background-image: url('../districts/TPizerR270.png');    background-image: url('../districts/TPizerR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TSmith {    -fx-background-image: url('../districts/TSmith.png');    background-image: url('../districts/TSmith.png');      -fx-background-size: cover;    background-size: cover; }
+.TSmith90 {    -fx-background-image: url('../districts/TSmithR90.png');    background-image: url('../districts/TSmithR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TSmith180 {    -fx-background-image: url('../districts/TSmithR180.png');    background-image: url('../districts/TSmithR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TSmith270 {    -fx-background-image: url('../districts/TSmithR270.png');    background-image: url('../districts/TSmithR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+.TStealthy {    -fx-background-image: url('../districts/TStealthy.png');    background-image: url('../districts/TStealthy.png');      -fx-background-size: cover;    background-size: cover; }
+.TStealthy90 {    -fx-background-image: url('../districts/TStealthyR90.png');    background-image: url('../districts/TStealthyR90.png');      -fx-background-size: cover;    background-size: cover; }
+.TStealthy180 {    -fx-background-image: url('../districts/TStealthyR180.png');    background-image: url('../districts/TStealthyR180.png');      -fx-background-size: cover;    background-size: cover; }
+.TStealthy270 {    -fx-background-image: url('../districts/TStealthyR270.png');    background-image: url('../districts/TStealthyR270.png');      -fx-background-size: cover;    background-size: cover; }

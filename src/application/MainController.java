@@ -39,68 +39,105 @@ public class MainController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1){
+		/**Initialisation du projet */
+		disableAll();
 	}
 	
 	public void pushed(ActionEvent e) {
+		/**Lorsqu'on appuie sur un bouton qui a la méthode pushed */
 		System.out.println("yop");
 	}
 
 	public void nouvellePartie(ActionEvent e) {
-		this.plateau = new Plateau();
+		/**Lance une nouvelle partie */
+		this.plateau = new Plateau(); 						//créer le plateau
 		this.listeTuiles = this.plateau.getPlateau();
-		//this.button0.setStyle("-fx-background-image: url('TBert.png');");
-		//this.button0.getStyleClass().add("TStealthy");
-		for (Tuiles tuile : this.listeTuiles){			
-			System.out.println(tuile.getImageAffichee());
+		for (Tuiles tuile : this.listeTuiles){				//parcours les tuiles du plateau
 			switch (tuile.getPosition()) {
+				/*
+					les différents case servent à identifier le bouton auquel il faut changer le style
+					on est obligé de remove tous les style possible
+					puis d'ajouter le style souhaité
+				*/
 				case 0:
-					this.button0.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button0.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
+					this.button0.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button0.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 1:
-					this.button1.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button1.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
+					this.button1.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button1.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 2:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button2.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button2.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button2.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button2.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 3:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button3.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button3.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button3.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button3.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 4:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button4.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button4.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button4.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button4.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 5:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button5.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button5.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button5.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button5.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 6:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button6.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button6.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button6.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button6.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 7:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button7.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button7.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button7.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button7.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 8:
-					//this.button0.setStyle("-fx-background-image: url("+tuile.getImageAffichee()+");-fx-background-size: cover;");
-					this.button8.getStyleClass().removeAll("TBert","TGoodley","TGull","TLane","TLestrade","TMadame","TPizer","TSmith","TStealthy");
-					this.button8.getStyleClass().add(tuile.convert(tuile.getImageAffichee()));
+					this.button8.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button8.getStyleClass().add(tuile.getImageAffichee());
 					break;
 			}
 		}
-		System.out.println("finis");
-	}
+		this.button01.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button02.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button03.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button04.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button05.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button06.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button07.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button08.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button09.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button10.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button11.getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		this.button12.getStyleClass().removeAll("Sherlock","Tobi","Watson");
 
+
+		this.button04.getStyleClass().add("Sherlock");							//on ajoute sherlock
+		this.button08.getStyleClass().add("Tobi");								//on ajoute Tobi
+		this.button12.getStyleClass().add("Watson");							//on ajoute watson
+	}
+	public void disableAll(){
+		/**Disable tous les bouton du plateau */
+		button0.setDisable(true);
+		button1.setDisable(true);
+		button2.setDisable(true);
+		button3.setDisable(true);
+		button3.setDisable(true);
+		button4.setDisable(true);
+		button5.setDisable(true);
+		button6.setDisable(true);
+		button7.setDisable(true);
+		button8.setDisable(true);
+		button01.setDisable(true);
+		button02.setDisable(true);
+		button03.setDisable(true);
+		button04.setDisable(true);
+		button05.setDisable(true);
+		button06.setDisable(true);
+		button07.setDisable(true);
+		button08.setDisable(true);
+		button09.setDisable(true);
+		button10.setDisable(true);
+		button11.setDisable(true);
+		button12.setDisable(true);
+	}
 }

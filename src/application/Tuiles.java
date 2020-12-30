@@ -82,27 +82,4 @@ public class Tuiles {
 	public String getImageAffichee(){
 		return this.imageAffichee;
 	}
-	public String convert(String image){
-		if (image.equals("../districts/TBert.png")){
-			return "TBert";
-		}else if (image.equals("../districts/TGoodley.png")){
-			return "TGoodley";
-		}else if (image.equals("../districts/TGull.png")){
-			return "TGull";
-		}else if (image.equals("../districts/TLane.png")){
-			return "TLane";
-		}else if (image.equals("../districts/TLestrade.png")){
-			return "TLestrade";
-		}else if (image.equals("../districts/TMadame.png")){
-			return "TMadame";
-		}else if (image.equals("../districts/TPizer.png")){
-			return "TPizer";
-		}else if (image.equals("../districts/TSmith.png")){
-			return "TSmith";
-		}else if (image.equals("../districts/TStealthy.png")){
-			return "TStealthy";
-		} 
-		System.out.println("erreur");
-		return "TBert";
-	}
 }
