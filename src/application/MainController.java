@@ -141,4 +141,11 @@ public class MainController implements Initializable{
 		button11.setDisable(true);
 		button12.setDisable(true);
 	}
+
+	public void tournerTuiles(ActionEvent e){
+		
+		
+	}
 }
+
+
