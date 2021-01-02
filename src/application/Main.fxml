@@ -78,18 +78,18 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#tournerTuiles" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#intervertirTuiles" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#deplacerTobi" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#deplacerSherlock" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#choixDeplacement" text="Button" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#tournerTuiles" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#deplacerWatson" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#piocherCartes" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#tournerTuiles" text="Button" />
                </children>
             </HBox>
          </children>
