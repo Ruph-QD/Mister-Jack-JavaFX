@@ -141,4 +141,42 @@ public class MainController implements Initializable{
 		button11.setDisable(true);
 		button12.setDisable(true);
 	}
+
+	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
+		
+	}
+	
+	public void tournerTuiles(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+			
+	}
+	
+	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
+		
+	}
+	
+	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
+		
+	}
+	
+	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
+		
+	}
+	
+	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
+		// If Mr Jack -> Rajouter des sabliers 
+		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
+	}
+	
+	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
+
+
