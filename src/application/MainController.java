@@ -50,7 +50,7 @@ public class MainController implements Initializable{
 
 	public void nouvellePartie(ActionEvent e) {
 		/**Lance une nouvelle partie */
-		disableAll() ; 
+		disableAll();
 		this.plateau = new Plateau(); 						//créer le plateau
 		this.listeTuiles = this.plateau.getPlateau();
 		for (Tuiles tuile : this.listeTuiles){				//parcours les tuiles du plateau
