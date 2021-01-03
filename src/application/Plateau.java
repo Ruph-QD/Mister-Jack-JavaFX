@@ -40,13 +40,30 @@ public class Plateau {
 	        	this.plateau.get(k).setPosition(Integer.parseInt(positionnement.get(index)));
 				positionnement.remove(index);
 				indexMax--;
-	        } 
-	        for (int k = 0; k<9; k++)	 {	
-				Random r = new Random();
-				this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aléatoire entre 0 et 3 inclus
-				//this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(0));
+	        }
+	        
+	        for (int k = 0; k<9; k++){	
+				
+				if (k!=1 && k!=3 && k!=6)
+				{
+					Random r = new Random();
+					this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aléatoire entre 0 et 3 inclus
+					//this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(0));
+				}
 				this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(this.plateau.get(k).getAngle()));		//définis l'image qui doit être affichée
-	        }        
+			}
+	        
+	        //Gestion des trois cas murs face � inspecteurs
+	        int nume = 0;
+	        for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 1) {nume = k;}}
+	        this.plateau.get(nume).setAngle(1);
+	        this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
+	        for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 3) {nume = k;}}
+	        this.plateau.get(nume).setAngle(3);
+	        this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
+	        for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 6) {nume = k;}}
+	        this.plateau.get(nume).setAngle(0);
+	        this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
 	}
 	// Methodes 
 		public void PivoterTuiles(Tuiles tuiles,int indice_de_rotation) {         // Cette m�thode sert � tourner la tuile qu'on selectionne avec le jeton action correspondant (indice_de_rotation : si = 1 alors tourner de 90�, si = 2 alors tourner de 180�, si = 3 alors tourner de 270�)
