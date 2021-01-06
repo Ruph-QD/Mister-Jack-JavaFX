@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
 	<top>
       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -74,22 +75,38 @@
 		</GridPane>
 	</center>
    <right>
-      <VBox prefHeight="767.0" prefWidth="57.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="200.0" prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="150.0" prefWidth="300.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#intervertirTuiles" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#deplacerTobi" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#deplacerSherlock" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#choixDeplacement" text="Button" />
+                  <Button fx:id="action11" mnemonicParsing="false" onAction="#intervertirTuiles" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton1-1" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action21" mnemonicParsing="false" onAction="#deplacerTobi" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton2-1" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action31" mnemonicParsing="false" onAction="#deplacerSherlock" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton3-1" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action41" mnemonicParsing="false" onAction="#choixDeplacement" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton4-1" /><String fx:value="Action" /></styleClass>
+                  </Button>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="150.0" prefWidth="300.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#tournerTuiles" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#deplacerWatson" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#piocherCartes" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#tournerTuiles" text="Button" />
+                  <Button fx:id="action12" mnemonicParsing="false" onAction="#tournerTuiles" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton1-2" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action22" mnemonicParsing="false" onAction="#deplacerWatson" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton2-2" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action32" mnemonicParsing="false" onAction="#piocherCartes" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton3-2" /><String fx:value="Action" /></styleClass>
+                  </Button>
+                  <Button fx:id="action42" mnemonicParsing="false" onAction="#tournerTuiles" prefHeight="75.0" prefWidth="75.0">
+                     <styleClass><String fx:value="Jeton4-2" /><String fx:value="Action" /></styleClass>
+                  </Button>
                </children>
             </HBox>
          </children>

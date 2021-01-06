@@ -81,3 +81,18 @@
 .TStealthy90 {    -fx-background-image: url('../districts/TStealthyR90.png');    background-image: url('../districts/TStealthyR90.png');      -fx-background-size: cover;    background-size: cover; }
 .TStealthy180 {    -fx-background-image: url('../districts/TStealthyR180.png');    background-image: url('../districts/TStealthyR180.png');      -fx-background-size: cover;    background-size: cover; }
 .TStealthy270 {    -fx-background-image: url('../districts/TStealthyR270.png');    background-image: url('../districts/TStealthyR270.png');      -fx-background-size: cover;    background-size: cover; }
+
+
+.Jeton1-1{    -fx-background-image: url('../actions/Jeton1-Face1.png');    background-image: url('../actions/Jeton1-Face1.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton1-2{    -fx-background-image: url('../actions/Jeton1-Face2.png');    background-image: url('../actions/Jeton1-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+
+.Jeton2-1{    -fx-background-image: url('../actions/Jeton2-Face1.png');    background-image: url('../actions/Jeton2-Face1.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton2-2{    -fx-background-image: url('../actions/Jeton2-Face2.png');    background-image: url('../actions/Jeton2-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+
+.Jeton3-1{    -fx-background-image: url('../actions/Jeton3-Face1.png');    background-image: url('../actions/Jeton3-Face1.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton3-2{    -fx-background-image: url('../actions/Jeton3-Face2.png');    background-image: url('../actions/Jeton3-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+
+.Jeton4-1{    -fx-background-image: url('../actions/Jeton4-Face1.png');    background-image: url('../actions/Jeton4-Face1.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton4-2{    -fx-background-image: url('../actions/Jeton4-Face2.png');    background-image: url('../actions/Jeton4-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+
+.Action:disabled{    -fx-opacity: 0;    opacity: 0;}

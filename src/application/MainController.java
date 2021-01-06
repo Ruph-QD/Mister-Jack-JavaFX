@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable{
 	@FXML private BorderPane borderPane;
+
 	@FXML private Button button0;
 	@FXML private Button button1;
 	@FXML private Button button2;
@@ -33,6 +34,15 @@ public class MainController implements Initializable{
 	@FXML private Button button10;
 	@FXML private Button button11;
 	@FXML private Button button12;
+
+	@FXML private Button action11;
+	@FXML private Button action12;
+	@FXML private Button action21;
+	@FXML private Button action22;
+	@FXML private Button action31;
+	@FXML private Button action32;
+	@FXML private Button action41;
+	@FXML private Button action42;
 
 	private Plateau plateau;
 	private ArrayList<Tuiles> listeTuiles;
@@ -117,7 +127,7 @@ public class MainController implements Initializable{
 		this.button12.getStyleClass().add("Watson");							//on ajoute watson
 	}
 	public void disableAll(){
-		/**Disable tous les bouton du plateau */
+		/**Disable tous les boutons */
 		button0.setDisable(true);
 		button1.setDisable(true);
 		button2.setDisable(true);
@@ -140,6 +150,16 @@ public class MainController implements Initializable{
 		button10.setDisable(true);
 		button11.setDisable(true);
 		button12.setDisable(true);
+
+		action11.setDisable(true);
+		action12.setDisable(true);
+		action21.setDisable(true);
+		action22.setDisable(true);
+		action31.setDisable(true);
+		action32.setDisable(true);
+		action41.setDisable(true);
+		action42.setDisable(true);
+
 	}
 
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
