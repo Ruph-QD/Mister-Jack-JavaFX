@@ -8,11 +8,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable{
 	@FXML private BorderPane borderPane;
-
+//on récupère les textField et le bouton MrJack
+	@FXML private TextField fieldJack;
+	@FXML private TextField fieldInspe;
+	@FXML private Button MrJack;
+//on récupère les boutons du plateau
 	@FXML private Button button0;
 	@FXML private Button button1;
 	@FXML private Button button2;
@@ -34,7 +39,7 @@ public class MainController implements Initializable{
 	@FXML private Button button10;
 	@FXML private Button button11;
 	@FXML private Button button12;
-
+//on récupère les boutons actions
 	@FXML private Button action11;
 	@FXML private Button action12;
 	@FXML private Button action21;
@@ -44,8 +49,14 @@ public class MainController implements Initializable{
 	@FXML private Button action41;
 	@FXML private Button action42;
 
+	private Joueur joueur1;
+	private Joueur joueur2;
+
 	private Plateau plateau;
 	private ArrayList<Tuiles> listeTuiles;
+	private Pioche pioche;
+
+	private boolean carteMrJackVisible = false;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1){
@@ -53,14 +64,28 @@ public class MainController implements Initializable{
 		disableAll();
 	}
 	
-	public void pushed(ActionEvent e) {
-		/**Lorsqu'on appuie sur un bouton qui a la méthode pushed */
-		System.out.println("yop");
+	@FXML
+	public void seeJack(ActionEvent e) {
+		/**Permet de voir qui est MrJack*/
+		this.MrJack.getStyleClass().removeAll("Alibi","Lestrade","Bert","Pizer","Smith","Lane","Madame","Stealth","Goodley","Gull");
+		this.MrJack.getStyleClass().add( this.carteMrJackVisible ? "Alibi" : joueur1.getAlibi() );
+		this.carteMrJackVisible = (this.carteMrJackVisible ? false : true);
 	}
 
+	@FXML
 	public void nouvellePartie(ActionEvent e) {
 		/**Lance une nouvelle partie */
-		disableAll();
+		disableAll(); 										//on désactive tous les boutons 
+
+		//Creation des joueurs
+		this.joueur1 = new Joueur( ((this.fieldJack.getText()=="" ) ? "MrJack" : this.fieldJack.getText()), "MrJack");				//si le champs est vide, on donne le nom par défault
+		this.joueur2 = new Joueur( ((this.fieldInspe.getText()=="" ) ? "Inspecteur" : this.fieldInspe.getText()), "Inspecteur"); 	//si le champs est vide, on donne le nom par défault
+
+		//Creation de la pioche
+		this.pioche= new Pioche();
+		this.pioche.Piocher(this.joueur1); 					//pour donner la carte alibi sous lequel MrJack est cachée
+		this.MrJack.setDisable(false);
+		//Creation du jeu
 		this.plateau = new Plateau(); 						//créer le plateau
 		this.listeTuiles = this.plateau.getPlateau();
 		for (Tuiles tuile : this.listeTuiles){				//parcours les tuiles du plateau
@@ -126,6 +151,8 @@ public class MainController implements Initializable{
 		this.button08.getStyleClass().add("Tobi");								//on ajoute Tobi
 		this.button12.getStyleClass().add("Watson");							//on ajoute watson
 	}
+
+	@FXML
 	public void disableAll(){
 		/**Disable tous les boutons */
 		button0.setDisable(true);
@@ -160,33 +187,41 @@ public class MainController implements Initializable{
 		action41.setDisable(true);
 		action42.setDisable(true);
 
+		MrJack.setDisable(true);
 	}
 
+	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
 		
 	}
 	
+	@FXML
 	public void tournerTuiles(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
 			
 	}
 	
+	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
 		
 	}
 	
+	@FXML
 	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
 		
 	}
 	
+	@FXML
 	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
 		
 	}
 	
+	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 	}
 	
+	@FXML
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
 		
 	}

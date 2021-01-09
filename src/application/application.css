@@ -16,6 +16,18 @@
 }
 
 
+.Alibi{-fx-background-image: url('../alibis/alibi-card.png');    background-image: url('../alibis/alibi-card.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Lestrade{-fx-background-image: url('../alibis/InspLestrade-alibi.png');    background-image: url('../alibis/InspLestrade-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Bert{-fx-background-image: url('../alibis/JeremyBert-alibi.png');    background-image: url('../alibis/JeremyBert-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Pizer{-fx-background-image: url('../alibis/JohnPizer-alibi.png');    background-image: url('../alibis/JohnPizer-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Smith{-fx-background-image: url('../alibis/JohnSmith-alibi.png');    background-image: url('../alibis/JohnSmith-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Lane{-fx-background-image: url('../alibis/JosephLane-alibi.png');    background-image: url('../alibis/JosephLane-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Madame{-fx-background-image: url('../alibis/Madame-alibi.png');    background-image: url('../alibis/Madame-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Stealthy{-fx-background-image: url('../alibis/MissStealthy-alibi.png');    background-image: url('../alibis/MissStealthy-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Goodley{-fx-background-image: url('../alibis/SgtGoodley-alibi.png');    background-image: url('../alibis/SgtGoodley-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Gull{-fx-background-image: url('../alibis/WilliamGull-alibi.png');    background-image: url('../alibis/WilliamGull-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+
+
 .inspecteurButton {
     -fx-background-color: transparent;
     background-color: transparent;
