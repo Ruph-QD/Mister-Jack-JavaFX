@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
 	<top>
       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="1000.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -91,7 +91,7 @@
                   <Button fx:id="action11" mnemonicParsing="false" onAction="#intervertirTuiles" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton1-1" /><String fx:value="Action" /></styleClass>
                   </Button>
-                  <Button fx:id="action12" mnemonicParsing="false" onAction="#tournerTuiles" prefHeight="75.0" prefWidth="75.0">
+                  <Button fx:id="action12" mnemonicParsing="false" onAction="#tournerTuiles1" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton1-2" /><String fx:value="Action" /></styleClass>
                   </Button>
                </children>
@@ -121,9 +121,18 @@
                   <Button fx:id="action41" mnemonicParsing="false" onAction="#choixDeplacement" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton4-1" /><String fx:value="Action" /></styleClass>
                   </Button>
-                  <Button fx:id="action42" mnemonicParsing="false" onAction="#tournerTuiles" prefHeight="75.0" prefWidth="75.0">
+                  <Button fx:id="action42" mnemonicParsing="false" onAction="#tournerTuiles2" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton4-2" /><String fx:value="Action" /></styleClass>
                   </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="75.0" prefWidth="150.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="bValider" mnemonicParsing="false" onAction="#valider" scaleX="2.0" scaleY="2.0" styleClass="Action" text="VALIDER" translateX="50.0" translateY="25.0" />
+                     </children>
+                  </HBox>
                </children>
             </HBox>
          </children>

@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -48,13 +49,20 @@ public class MainController implements Initializable{
 	@FXML private Button action32;
 	@FXML private Button action41;
 	@FXML private Button action42;
+//bouton de validation d'action
+	@FXML private Button bValider;
 
 	private Joueur joueur1;
 	private Joueur joueur2;
+	private Joueur joueurActuel;
 
 	private Plateau plateau;
 	private ArrayList<Tuiles> listeTuiles;
 	private Pioche pioche;
+	private int tours;
+	private boolean actionFini = false;
+	
+	private int test;
 
 	private boolean carteMrJackVisible = false;
 
@@ -150,6 +158,46 @@ public class MainController implements Initializable{
 		this.button04.getStyleClass().add("Sherlock");							//on ajoute sherlock
 		this.button08.getStyleClass().add("Tobi");								//on ajoute Tobi
 		this.button12.getStyleClass().add("Watson");							//on ajoute watson
+		
+		this.tours = 1;
+		this.bValider.setDisable(false);
+		while (this.tours<2 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
+			int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
+			if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
+			if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
+			if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
+			if (hazard[3] == 0) {action41.setDisable(false);}else {action42.setDisable(false);}
+			
+			/*
+			//Mr jack/les enqueteurs commence par jouer un jeton
+			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;} 	
+			this.actionFini = false;
+			while (this.actionFini == false) {
+				
+			}
+			
+			//Les enquêteurs/Mrjack jouent les deux suivants
+			if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+			this.actionFini = false;
+			while (this.actionFini = false) {
+				//faire du thé
+				this.test = 0;
+			}
+			this.actionFini = false;
+			while (this.actionFini = false) {
+				//faire du thé
+			}
+			
+			//Mr jack/les enqueteurs finis par le dernier
+			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+			this.actionFini = false;
+			while (this.actionFini = false) {
+				//faire du thé
+			}
+			*/
+			this.tours++;
+			
+		}
 	}
 
 	@FXML
@@ -186,48 +234,117 @@ public class MainController implements Initializable{
 		action32.setDisable(true);
 		action41.setDisable(true);
 		action42.setDisable(true);
+		
+		bValider.setDisable(true);
 
 		MrJack.setDisable(true);
 	}
 
 	@FXML
-	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
+	public void enableTuiles(){
+		button0.setDisable(false);
+		button1.setDisable(false);
+		button2.setDisable(false);
+		button3.setDisable(false);
+		button3.setDisable(false);
+		button4.setDisable(false);
+		button5.setDisable(false);
+		button6.setDisable(false);
+		button7.setDisable(false);
+		button8.setDisable(false);
+	}
+	
+	@FXML
+	public void disableTuiles(){
+		button0.setDisable(true);
+		button1.setDisable(true);
+		button2.setDisable(true);
+		button3.setDisable(true);
+		button3.setDisable(true);
+		button4.setDisable(true);
+		button5.setDisable(true);
+		button6.setDisable(true);
+		button7.setDisable(true);
+		button8.setDisable(true);
+	}
+
+	
+	@FXML
+	public void valider(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		
+		action42.setDisable(true);
 		
 	}
 	
 	@FXML
-	public void tournerTuiles(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
-			
+	public void finAction() {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
+		this.actionFini = true;
+	}
+	
+	@FXML
+	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
+		action11.setDisable(true);
+		finAction();
+	}
+	
+	@FXML
+	public void tournerTuiles1(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		enableTuiles();
+		//while pour selectionner la tuile
+		//while pour la faire tourner
+		disableTuiles();
+		action12.setDisable(true);
+		finAction();
 	}
 	
 	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
-		
+		action21.setDisable(true);
+		finAction();
 	}
 	
 	@FXML
 	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
-		
+		action22.setDisable(true);
+		finAction();
 	}
 	
 	@FXML
 	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
-		
+		action31.setDisable(true);
+		finAction();
 	}
 	
 	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
+		
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
+		action32.setDisable(true);
+		finAction();
 	}
 	
 	@FXML
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
-		
+		action41.setDisable(true);
+		finAction();
 	}
 	
+	@FXML
+	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		action42.setDisable(true);
+		finAction();
+	}
 	
-	
+	private static int RandInt(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+	}
 	
 	
 	
