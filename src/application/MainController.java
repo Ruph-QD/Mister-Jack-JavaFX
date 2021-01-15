@@ -62,6 +62,9 @@ public class MainController implements Initializable{
 	private int tours;
 	private int jetonsUtilise;
 
+	private boolean intervertir;
+	private ArrayList<Button> tuileSelectionne;
+
 	private boolean carteMrJackVisible = false;
 
 	@Override
@@ -159,50 +162,12 @@ public class MainController implements Initializable{
 		
 		this.tours = 1;
 		nouveauTour();
-		/*
-		while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
-			int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
-			if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
-			if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
-			if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
-			if (hazard[3] == 0) {action41.setDisable(false);}else {action42.setDisable(false);}
-			
-			/*
-			//Mr jack/les enqueteurs commence par jouer un jeton
-			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;} 	
-			this.actionFini = false;
-			while (this.actionFini == false) {
-			}
-			
-			//Les enquêteurs/Mrjack jouent les deux suivants
-			if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-				this.test = 0;
-			}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-			}
-			
-			//Mr jack/les enqueteurs finis par le dernier
-			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-			}
-			
-			this.tours++;
-			
-		}
-		*/
 		
-		
+		this.tuileSelectionne=new ArrayList<Button>();
 	}
 	@FXML
 	public void nouveauTour(){
-		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
+		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on gï¿½nï¿½re les jetons alï¿½atoirements
 		if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
 		if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
 		if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
@@ -313,7 +278,8 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
-		bValider.setDisable(false);
+		this.intervertir=true;
+		enableTuiles();
 		action11.setDisable(true);
 	}
 	
@@ -347,6 +313,7 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
+		this.pioche.Piocher(this.joueurActuel);
 		bValider.setDisable(false);
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
@@ -365,6 +332,28 @@ public class MainController implements Initializable{
 		action42.setDisable(true);
 	}
 	
+	@FXML 
+	public void pushed(ActionEvent e){
+		if (this.intervertir && tuileSelectionne.size()>0){
+			this.tuileSelectionne.add((Button)e.getSource());
+			String style0 = this.tuileSelectionne.get(0).getStyleClass().get(2);
+			String style1 = this.tuileSelectionne.get(1).getStyleClass().get(2);
+
+			this.tuileSelectionne.get(0).getStyleClass().removeAll(style0);
+			this.tuileSelectionne.get(1).getStyleClass().removeAll(style1);
+
+			this.tuileSelectionne.get(0).getStyleClass().add(style1);
+			this.tuileSelectionne.get(1).getStyleClass().add(style0);
+			
+			this.bValider.setDisable(false);
+			this.tuileSelectionne.clear();
+		}else{
+			this.tuileSelectionne.add((Button)e.getSource());
+			this.tuileSelectionne.get(0).setDisable(true);
+		}
+		System.out.println(this.tuileSelectionne);
+	}
+
 	private static int RandInt(int min, int max) {
 
         if (min >= max) {
