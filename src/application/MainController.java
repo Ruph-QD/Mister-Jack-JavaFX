@@ -323,6 +323,11 @@ public class MainController implements Initializable{
 					this.tuileSelectionne.get(0).getStyleClass().add(style1);
 					this.tuileSelectionne.get(1).getStyleClass().add(style0);
 					
+					int numero0 = this.tuileSelectionne.get(0).getId().charAt(this.tuileSelectionne.get(0).getId().length()-1) - '0';
+					int numero1 = this.tuileSelectionne.get(1).getId().charAt(this.tuileSelectionne.get(1).getId().length()-1) - '0';
+
+					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1));
+
 					this.jetonSelect = 0;
 					disableTuiles();
 					this.tuileSelectionne.clear();
@@ -330,6 +335,7 @@ public class MainController implements Initializable{
 					this.tuileSelectionne.add((Button)e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
 				}
+				System.out.println();
 				break;
 			case 12:
 				disableTuiles();
