@@ -60,9 +60,7 @@ public class MainController implements Initializable{
 	private ArrayList<Tuiles> listeTuiles;
 	private Pioche pioche;
 	private int tours;
-	private boolean actionFini = false;
-	
-	private int test;
+	private int jetonsUtilise;
 
 	private boolean carteMrJackVisible = false;
 
@@ -160,8 +158,9 @@ public class MainController implements Initializable{
 		this.button12.getStyleClass().add("Watson");							//on ajoute watson
 		
 		this.tours = 1;
-		this.bValider.setDisable(false);
-		while (this.tours<2 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
+		nouveauTour();
+		/*
+		while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
 			int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
 			if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
 			if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
@@ -173,7 +172,6 @@ public class MainController implements Initializable{
 			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;} 	
 			this.actionFini = false;
 			while (this.actionFini == false) {
-				
 			}
 			
 			//Les enquêteurs/Mrjack jouent les deux suivants
@@ -194,9 +192,53 @@ public class MainController implements Initializable{
 			while (this.actionFini = false) {
 				//faire du thé
 			}
-			*/
+			
 			this.tours++;
 			
+		}
+		*/
+		
+		
+	}
+	@FXML
+	public void nouveauTour(){
+		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
+		if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
+		if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
+		if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
+		if (hazard[3] == 0) {action41.setDisable(false);}else {action42.setDisable(false);}
+		
+		if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+	}
+	
+	@FXML
+	public void utiliserJetons(ActionEvent e){
+		switch(this.jetonsUtilise) {
+		
+			case 0:
+				if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				//le bouton marque valider
+				this.jetonsUtilise++;
+				this.bValider.setDisable(true);
+				break;
+			case 1:
+				if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				//le bouton marque valider
+				this.jetonsUtilise++;
+				this.bValider.setDisable(true);
+				break;
+			case 2:
+				if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				//le bouton marque fin de tours
+				this.jetonsUtilise++;
+				this.bValider.setDisable(true);
+				break;
+			case 3:
+				this.jetonsUtilise = 0;
+				this.tours++;
+				nouveauTour();
+				this.bValider.setDisable(true);
+				break;
 		}
 	}
 
@@ -236,6 +278,7 @@ public class MainController implements Initializable{
 		action42.setDisable(true);
 		
 		bValider.setDisable(true);
+		
 
 		MrJack.setDisable(true);
 	}
@@ -267,73 +310,59 @@ public class MainController implements Initializable{
 		button7.setDisable(true);
 		button8.setDisable(true);
 	}
-
-	
-	@FXML
-	public void valider(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
-		
-		action42.setDisable(true);
-		
-	}
-	
-	@FXML
-	public void finAction() {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
-		this.actionFini = true;
-	}
 	
 	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
+		bValider.setDisable(false);
 		action11.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void tournerTuiles1(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		bValider.setDisable(false);
 		enableTuiles();
 		//while pour selectionner la tuile
 		//while pour la faire tourner
 		disableTuiles();
 		action12.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
+		bValider.setDisable(false);
 		action21.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
+		bValider.setDisable(false);
 		action22.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
+		bValider.setDisable(false);
 		action31.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
-		
+		bValider.setDisable(false);
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 		action32.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
+		bValider.setDisable(false);
 		action41.setDisable(true);
-		finAction();
 	}
 	
 	@FXML
 	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		bValider.setDisable(false);
 		action42.setDisable(true);
-		finAction();
 	}
 	
 	private static int RandInt(int min, int max) {
