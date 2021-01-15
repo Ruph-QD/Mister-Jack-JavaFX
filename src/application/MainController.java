@@ -161,44 +161,9 @@ public class MainController implements Initializable{
 		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
 		nouveauTour();
-		/*
-		while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
-			int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
-			if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
-			if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
-			if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
-			if (hazard[3] == 0) {action41.setDisable(false);}else {action42.setDisable(false);}
-			
-			/*
-			//Mr jack/les enqueteurs commence par jouer un jeton
-			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;} 	
-			this.actionFini = false;
-			while (this.actionFini == false) {
-			}
-			
-			//Les enquêteurs/Mrjack jouent les deux suivants
-			if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-				this.test = 0;
-			}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-			}
-			
-			//Mr jack/les enqueteurs finis par le dernier
-			if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-			this.actionFini = false;
-			while (this.actionFini = false) {
-				//faire du thé
-			}
-			
-			this.tours++;
-			
-		}
-		*/
+		
+		//while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
+		
 		
 		
 	}
@@ -247,37 +212,9 @@ public class MainController implements Initializable{
 	@FXML
 	public void disableAll(){
 		/**Disable tous les boutons */
-		button0.setDisable(true);
-		button1.setDisable(true);
-		button2.setDisable(true);
-		button3.setDisable(true);
-		button3.setDisable(true);
-		button4.setDisable(true);
-		button5.setDisable(true);
-		button6.setDisable(true);
-		button7.setDisable(true);
-		button8.setDisable(true);
-		button01.setDisable(true);
-		button02.setDisable(true);
-		button03.setDisable(true);
-		button04.setDisable(true);
-		button05.setDisable(true);
-		button06.setDisable(true);
-		button07.setDisable(true);
-		button08.setDisable(true);
-		button09.setDisable(true);
-		button10.setDisable(true);
-		button11.setDisable(true);
-		button12.setDisable(true);
-		action11.setDisable(true);
-		action12.setDisable(true);
-		action21.setDisable(true);
-		action22.setDisable(true);
-		action31.setDisable(true);
-		action32.setDisable(true);
-		action41.setDisable(true);
-		action42.setDisable(true);
-		
+		button0.setDisable(true);button1.setDisable(true);button2.setDisable(true);button3.setDisable(true);button3.setDisable(true);button4.setDisable(true);button5.setDisable(true);button6.setDisable(true);button7.setDisable(true);button8.setDisable(true);
+		button01.setDisable(true);button02.setDisable(true);button03.setDisable(true);button04.setDisable(true);button05.setDisable(true);button06.setDisable(true);button07.setDisable(true);button08.setDisable(true);button09.setDisable(true);button10.setDisable(true);button11.setDisable(true);button12.setDisable(true);
+		action11.setDisable(true);action12.setDisable(true);action21.setDisable(true);action22.setDisable(true);action31.setDisable(true);action32.setDisable(true);action41.setDisable(true);action42.setDisable(true);
 		bValider.setDisable(true);
 		MrJack.setDisable(true);
 	}
