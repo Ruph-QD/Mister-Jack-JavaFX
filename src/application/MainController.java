@@ -62,6 +62,9 @@ public class MainController implements Initializable{
 	private int tours;
 	private int jetonsUtilise;
 
+	private int jetonSelect;
+	private ArrayList<Button> tuileSelectionne;
+
 	private boolean carteMrJackVisible = false;
 
 	@Override
@@ -162,14 +165,11 @@ public class MainController implements Initializable{
 		this.jetonsUtilise = 0;
 		nouveauTour();
 		
-		//while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
-		
-		
-		
+		this.tuileSelectionne=new ArrayList<Button>();
 	}
 	@FXML
 	public void nouveauTour(){
-		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on génère les jetons aléatoirements
+		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on gï¿½nï¿½re les jetons alï¿½atoirements
 		if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
 		if (hazard[1] == 0) {action21.setDisable(false);}else {action22.setDisable(false);}
 		if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
@@ -249,40 +249,44 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
-		bValider.setDisable(false);
+		this.jetonSelect=11;
+		enableTuiles();
 		action11.setDisable(true);
 	}
 	
 	@FXML
 	public void tournerTuiles1(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		this.jetonSelect=12;
 		bValider.setDisable(false);
 		enableTuiles();
-		//while pour selectionner la tuile
-		//while pour la faire tourner
-		disableTuiles();
 		action12.setDisable(true);
 	}
 	
 	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
+		this.jetonSelect=21;
 		bValider.setDisable(false);
 		action21.setDisable(true);
 	}
 	
 	@FXML
 	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
+		this.jetonSelect=22;
 		bValider.setDisable(false);
 		action22.setDisable(true);
 	}
 	
 	@FXML
 	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
+		this.jetonSelect=31;
 		bValider.setDisable(false);
 		action31.setDisable(true);
 	}
 	
 	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
+		this.jetonSelect=32;
+		this.pioche.Piocher(this.joueurActuel);
 		bValider.setDisable(false);
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
@@ -291,16 +295,61 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
+		this.jetonSelect=41;
 		bValider.setDisable(false);
 		action41.setDisable(true);
 	}
 	
 	@FXML
 	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		this.jetonSelect=12;
 		bValider.setDisable(false);
+		enableTuiles();
 		action42.setDisable(true);
 	}
 	
+	@FXML 
+	public void pushed(ActionEvent e){
+		switch(jetonSelect) {
+			case 11:
+				if (tuileSelectionne.size()>0){
+					this.tuileSelectionne.add((Button)e.getSource());
+					String style0 = this.tuileSelectionne.get(0).getStyleClass().get(2);
+					String style1 = this.tuileSelectionne.get(1).getStyleClass().get(2);
+		
+					this.tuileSelectionne.get(0).getStyleClass().removeAll(style0);
+					this.tuileSelectionne.get(1).getStyleClass().removeAll(style1);
+		
+					this.tuileSelectionne.get(0).getStyleClass().add(style1);
+					this.tuileSelectionne.get(1).getStyleClass().add(style0);
+					
+					this.jetonSelect = 0;
+					disableTuiles();
+					this.tuileSelectionne.clear();
+				}else{
+					this.tuileSelectionne.add((Button)e.getSource());
+					this.tuileSelectionne.get(0).setDisable(true);
+				}
+				break;
+			case 12:
+				disableTuiles();
+				((Button)e.getSource()).setDisable(false);
+				
+				break;
+			case 21:
+				break;
+			case 22:
+				break;
+			case 31:
+				break;
+			case 32:
+				break;
+			case 41:
+				break;	
+		}
+		
+	}
+
 	private static int RandInt(int min, int max) {
 
         if (min >= max) {
