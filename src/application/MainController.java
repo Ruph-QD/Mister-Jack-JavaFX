@@ -158,6 +158,8 @@ public class MainController implements Initializable{
 		this.button12.getStyleClass().add("Watson");							//on ajoute watson
 		
 		this.tours = 1;
+		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
+		this.jetonsUtilise = 0;
 		nouveauTour();
 		/*
 		while (this.tours<9 && this.joueur1.getTemps()<9) {									// 8 tours max en commencant par le 1er
@@ -267,7 +269,6 @@ public class MainController implements Initializable{
 		button10.setDisable(true);
 		button11.setDisable(true);
 		button12.setDisable(true);
-
 		action11.setDisable(true);
 		action12.setDisable(true);
 		action21.setDisable(true);
@@ -278,8 +279,6 @@ public class MainController implements Initializable{
 		action42.setDisable(true);
 		
 		bValider.setDisable(true);
-		
-
 		MrJack.setDisable(true);
 	}
 
