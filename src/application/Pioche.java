@@ -38,4 +38,8 @@ public class Pioche {
             return nom;                 //on retourne le temps qui se trouve sur la carte
         }
     }
+
+    public ArrayList<Cartes> getCartes(){
+        return this.enJeu;
+    }
 }

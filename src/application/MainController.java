@@ -164,7 +164,6 @@ public class MainController implements Initializable{
 		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
 		nouveauTour();
-		
 		this.tuileSelectionne=new ArrayList<Button>();
 	}
 	@FXML
@@ -183,24 +182,27 @@ public class MainController implements Initializable{
 		switch(this.jetonsUtilise) {
 		
 			case 0:
-				if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
+				//if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 				//le bouton marque valider
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
 			case 1:
-				if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				//if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 				//le bouton marque valider
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
 			case 2:
-				if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
+				//if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 				//le bouton marque fin de tours
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
 			case 3:
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
 				this.jetonsUtilise = 0;
 				this.tours++;
 				nouveauTour();
@@ -220,37 +222,24 @@ public class MainController implements Initializable{
 	}
 
 	@FXML
-	public void enableTuiles(){
-		button0.setDisable(false);
-		button1.setDisable(false);
-		button2.setDisable(false);
-		button3.setDisable(false);
-		button3.setDisable(false);
-		button4.setDisable(false);
-		button5.setDisable(false);
-		button6.setDisable(false);
-		button7.setDisable(false);
-		button8.setDisable(false);
+	public void enableTuiles(boolean bool){
+		button0.setDisable(!bool);
+		button1.setDisable(!bool);
+		button2.setDisable(!bool);
+		button3.setDisable(!bool);
+		button3.setDisable(!bool);
+		button4.setDisable(!bool);
+		button5.setDisable(!bool);
+		button6.setDisable(!bool);
+		button7.setDisable(!bool);
+		button8.setDisable(!bool);
 	}
 	
-	@FXML
-	public void disableTuiles(){
-		button0.setDisable(true);
-		button1.setDisable(true);
-		button2.setDisable(true);
-		button3.setDisable(true);
-		button3.setDisable(true);
-		button4.setDisable(true);
-		button5.setDisable(true);
-		button6.setDisable(true);
-		button7.setDisable(true);
-		button8.setDisable(true);
-	}
 	
 	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
 		this.jetonSelect=11;
-		enableTuiles();
+		enableTuiles(true);
 		action11.setDisable(true);
 	}
 	
@@ -258,7 +247,7 @@ public class MainController implements Initializable{
 	public void tournerTuiles1(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
 		this.jetonSelect=12;
 		bValider.setDisable(false);
-		enableTuiles();
+		enableTuiles(true);
 		action12.setDisable(true);
 	}
 	
@@ -287,10 +276,12 @@ public class MainController implements Initializable{
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
 		this.jetonSelect=32;
 		this.pioche.Piocher(this.joueurActuel);
-		bValider.setDisable(false);
+		//for(int k =0;k<this.pioche.getCartes().size();k++){System.out.println(this.pioche.getCartes().get(k).getNom());}
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 		action32.setDisable(true);
+		this.jetonsUtilise++;
+		this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
 	}
 	
 	@FXML
@@ -304,7 +295,7 @@ public class MainController implements Initializable{
 	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
 		this.jetonSelect=12;
 		bValider.setDisable(false);
-		enableTuiles();
+		enableTuiles(true);
 		action42.setDisable(true);
 	}
 	
@@ -329,8 +320,10 @@ public class MainController implements Initializable{
 					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1));
 
 					this.jetonSelect = 0;
-					disableTuiles();
+					this.jetonsUtilise++;
+					enableTuiles(false);
 					this.tuileSelectionne.clear();
+					System.out.println(this.jetonsUtilise);
 				}else{
 					this.tuileSelectionne.add((Button)e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
@@ -338,7 +331,7 @@ public class MainController implements Initializable{
 				System.out.println();
 				break;
 			case 12:
-				disableTuiles();
+				enableTuiles(false);
 				((Button)e.getSource()).setDisable(false);
 				
 				break;
