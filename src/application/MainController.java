@@ -223,16 +223,7 @@ public class MainController implements Initializable{
 
 	@FXML
 	public void enableTuiles(boolean bool){
-		button0.setDisable(!bool);
-		button1.setDisable(!bool);
-		button2.setDisable(!bool);
-		button3.setDisable(!bool);
-		button3.setDisable(!bool);
-		button4.setDisable(!bool);
-		button5.setDisable(!bool);
-		button6.setDisable(!bool);
-		button7.setDisable(!bool);
-		button8.setDisable(!bool);
+		button0.setDisable(!bool);button1.setDisable(!bool);button2.setDisable(!bool);button3.setDisable(!bool);button3.setDisable(!bool);button4.setDisable(!bool);button5.setDisable(!bool);button6.setDisable(!bool);button7.setDisable(!bool);button8.setDisable(!bool);
 	}
 	
 	
@@ -331,9 +322,12 @@ public class MainController implements Initializable{
 				System.out.println();
 				break;
 			case 12:
-				enableTuiles(false);
+				enableTuiles(true);
 				((Button)e.getSource()).setDisable(false);
-				
+				this.jetonsUtilise++;
+				enableTuiles(false);
+				this.tuileSelectionne.clear();
+				System.out.println(this.jetonsUtilise);
 				break;
 			case 21:
 				break;
