@@ -3,26 +3,25 @@ package application;
 public class Inspecteurs {
 	
 	// ICI variables à définir pour les inspecteurs 
-	private int position;
+	private String position;
 	private String nom;       
 	
 	public Inspecteurs(String nom) {     // On définit ici le constructeur de la classe Inspecteurs
 		this.nom = nom;
-			if (nom=="Holmes"){
-				this.position=11;
+			if (nom=="Sherlock"){
+				this.position="04";
 			}else if (nom=="Watson"){
-				this.position=3;
+				this.position="12";
 			}else{
-				this.position=7;
+				this.position="08";
 			}
 	}
 
-	public void Avancer(int nombre){
-		/**On fait avancer l'inspecteur de nombre cases */
-		this.position = (this.position + nombre) %12; 	//les cases vont de 0 à 11 d'où %12
+	public void setPosition(String position){
+		this.position = position; 
 	}
 
-	public int getPosition(){
+	public String getPosition(){
 		return this.position;
 	}
 

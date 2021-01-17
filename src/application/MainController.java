@@ -19,6 +19,12 @@ public class MainController implements Initializable{
 	@FXML private TextField fieldInspe;
 	@FXML private Button MrJack;
 //on récupère les boutons du plateau
+/*		01|02|03
+	12 |1 |2 |3 |04
+	11 |8 |0 |4 |05
+	10 |7 |6 |7 |06
+		09|08|07
+*/
 	@FXML private Button button0;
 	@FXML private Button button1;
 	@FXML private Button button2;
@@ -41,20 +47,24 @@ public class MainController implements Initializable{
 	@FXML private Button button11;
 	@FXML private Button button12;
 //on récupère les boutons actions
-	@FXML private Button action11;
-	@FXML private Button action12;
-	@FXML private Button action21;
-	@FXML private Button action22;
-	@FXML private Button action31;
-	@FXML private Button action32;
-	@FXML private Button action41;
-	@FXML private Button action42;
+	@FXML private Button action11; 				//bouton intervertir tuiles
+	@FXML private Button action12;				//bouton tourner tuiles
+	@FXML private Button action21;				//bouton deplacer tobi
+	@FXML private Button action22;				//bouton deplacer Watson
+	@FXML private Button action31;				//bouton deplacer Sherlock
+	@FXML private Button action32;				//bouton piocher cartes
+	@FXML private Button action41;				//bouton choix de deplacement
+	@FXML private Button action42;				//bouton tourner tuile
 //bouton de validation d'action
 	@FXML private Button bValider;
-
+//poour stocker les joueurs
 	private Joueur joueur1;
 	private Joueur joueur2;
 	private Joueur joueurActuel;
+//pour stocker les inspecteurs
+	private Inspecteurs Tobi;
+	private Inspecteurs Sherlock;
+	private Inspecteurs Watson;
 
 	private Plateau plateau;
 	private ArrayList<Tuiles> listeTuiles;
@@ -142,6 +152,11 @@ public class MainController implements Initializable{
 					break;
 			}
 		}
+	//partie création des inspecteurs et 
+		this.Tobi = new Inspecteurs("Tobi");
+		this.Sherlock = new Inspecteurs("Sherlock");
+		this.Watson = new Inspecteurs("Watson");
+
 		this.button01.getStyleClass().removeAll("Sherlock","Tobi","Watson");
 		this.button02.getStyleClass().removeAll("Sherlock","Tobi","Watson");
 		this.button03.getStyleClass().removeAll("Sherlock","Tobi","Watson");
@@ -155,11 +170,12 @@ public class MainController implements Initializable{
 		this.button11.getStyleClass().removeAll("Sherlock","Tobi","Watson");
 		this.button12.getStyleClass().removeAll("Sherlock","Tobi","Watson");
 
-
-		this.button04.getStyleClass().add("Sherlock");							//on ajoute sherlock
-		this.button08.getStyleClass().add("Tobi");								//on ajoute Tobi
-		this.button12.getStyleClass().add("Watson");							//on ajoute watson
+		this.button04.getStyleClass().add("Sherlock");							
+		this.button08.getStyleClass().add("Tobi");								
+		this.button12.getStyleClass().add("Watson");							
 		
+
+
 		this.tours = 1;
 		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
@@ -245,6 +261,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=21;
+		this.button09.setDisable(false);
 		bValider.setDisable(false);
 		action21.setDisable(true);
 	}
@@ -294,6 +311,7 @@ public class MainController implements Initializable{
 	public void pushed(ActionEvent e){
 		switch(jetonSelect) {
 			case 11:
+				//intervertir Tuiles
 				if (tuileSelectionne.size()>0){
 					this.tuileSelectionne.add((Button)e.getSource());
 					String style0 = this.tuileSelectionne.get(0).getStyleClass().get(2);
@@ -322,6 +340,7 @@ public class MainController implements Initializable{
 				System.out.println();
 				break;
 			case 12:
+				//tourner Tuiles
 				enableTuiles(true);
 				((Button)e.getSource()).setDisable(false);
 				this.jetonsUtilise++;
@@ -330,6 +349,13 @@ public class MainController implements Initializable{
 				System.out.println(this.jetonsUtilise);
 				break;
 			case 21:
+				//déplacer Tobi
+				String oldPosition = this.Tobi.getPosition();
+				String newPosition = Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-2)-'0') + Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0');
+				this.Tobi.setPosition(newPosition);
+
+				((Button)e.getSource()).getStyleClass().add("Tobi");
+				((Button) borderPane.lookup("#button"+oldPosition)).getStyleClass().removeAll("Tobi");
 				break;
 			case 22:
 				break;

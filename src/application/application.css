@@ -29,8 +29,7 @@
 
 
 .inspecteurButton {
-    -fx-background-color: transparent;
-    background-color: transparent;
+
 }
 .inspecteurButton:focused {
     -fx-border-color: transparent, black;
@@ -41,7 +40,9 @@
     background-color: black;
 }
 .inspecteurButton:disabled{
-    -fx-opacity: 1;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-opacity:1;
     opacity: 1;
 }
 .Sherlock{-fx-background-image: url('../detectives/Sherlock.png');    background-image: url('../detectives/Sherlock.png');  -fx-background-size: cover;   background-size: cover;}
