@@ -242,6 +242,10 @@ public class MainController implements Initializable{
 		button0.setDisable(!bool);button1.setDisable(!bool);button2.setDisable(!bool);button3.setDisable(!bool);button3.setDisable(!bool);button4.setDisable(!bool);button5.setDisable(!bool);button6.setDisable(!bool);button7.setDisable(!bool);button8.setDisable(!bool);
 	}
 	
+	@FXML
+	public void disableTuilesInspect(boolean bool){
+		button01.setDisable(true);button02.setDisable(true);button03.setDisable(true);button04.setDisable(true);button05.setDisable(true);button06.setDisable(true);button07.setDisable(true);button08.setDisable(true);button09.setDisable(true);button10.setDisable(true);button11.setDisable(true);button12.setDisable(true);
+	}
 	
 	@FXML
 	public void intervertirTuiles(ActionEvent e) {  // Methode pour intervertir deux tuiles lorsqu'on a appuye sur le jeton action intervertir tuiles
@@ -261,7 +265,14 @@ public class MainController implements Initializable{
 	@FXML
 	public void deplacerTobi(ActionEvent e) {  // Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=21;
-		this.button09.setDisable(false);
+
+		String position = this.Tobi.getPosition();
+		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
+		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+
+		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
+		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
+
 		bValider.setDisable(false);
 		action21.setDisable(true);
 	}
@@ -356,6 +367,7 @@ public class MainController implements Initializable{
 
 				((Button)e.getSource()).getStyleClass().add("Tobi");
 				((Button) borderPane.lookup("#button"+oldPosition)).getStyleClass().removeAll("Tobi");
+				disableTuilesInspect(true);
 				break;
 			case 22:
 				break;
