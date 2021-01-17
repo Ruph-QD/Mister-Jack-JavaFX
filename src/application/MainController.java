@@ -280,6 +280,14 @@ public class MainController implements Initializable{
 	@FXML
 	public void deplacerWatson(ActionEvent e) {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=22;
+		
+		String position = this.Watson.getPosition();
+		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
+		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+
+		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
+		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
+		
 		bValider.setDisable(false);
 		action22.setDisable(true);
 	}
@@ -287,6 +295,14 @@ public class MainController implements Initializable{
 	@FXML
 	public void deplacerSherlock(ActionEvent e) {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=31;
+		
+		String position = this.Sherlock.getPosition();
+		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
+		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+
+		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
+		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
+		
 		bValider.setDisable(false);
 		action31.setDisable(true);
 	}
@@ -361,17 +377,33 @@ public class MainController implements Initializable{
 				break;
 			case 21:
 				//déplacer Tobi
-				String oldPosition = this.Tobi.getPosition();
-				String newPosition = Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-2)-'0') + Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0');
-				this.Tobi.setPosition(newPosition);
+				String oldPositionTobi = this.Tobi.getPosition();
+				String newPositionTobi = Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-2)-'0') + Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0');
+				this.Tobi.setPosition(newPositionTobi);
 
 				((Button)e.getSource()).getStyleClass().add("Tobi");
-				((Button) borderPane.lookup("#button"+oldPosition)).getStyleClass().removeAll("Tobi");
+				((Button) borderPane.lookup("#button"+oldPositionTobi)).getStyleClass().removeAll("Tobi");
 				disableTuilesInspect(true);
 				break;
 			case 22:
+				//deplacer Watson
+				String oldPositionWatson = this.Watson.getPosition();
+				String newPositionWatson = Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-2)-'0') + Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0');
+				this.Watson.setPosition(newPositionWatson);
+
+				((Button)e.getSource()).getStyleClass().add("Watson");
+				((Button) borderPane.lookup("#button"+oldPositionWatson)).getStyleClass().removeAll("Watson");
+				disableTuilesInspect(true);
 				break;
 			case 31:
+				// deplacer Sherlock
+				String oldPositionSherlock = this.Sherlock.getPosition();
+				String newPositionSherlock = Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-2)-'0') + Integer.toString(((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0');
+				this.Sherlock.setPosition(newPositionSherlock);
+
+				((Button)e.getSource()).getStyleClass().add("Sherlock");
+				((Button) borderPane.lookup("#button"+oldPositionSherlock)).getStyleClass().removeAll("Sherlock");
+				disableTuilesInspect(true);
 				break;
 			case 32:
 				break;

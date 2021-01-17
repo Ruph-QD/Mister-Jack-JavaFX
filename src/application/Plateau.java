@@ -70,22 +70,25 @@ public class Plateau {
 		Collections.sort(this.plateau,compareByPosition);
 	} 
 	
+	
+		public void PivoterTuiles(Tuiles tuile) {
+		tuile.setAngle((tuile.getAngle()+1)%4);
+		tuile.setImageAffichee(tuile.getImage(tuile.getAngle()));
+		}
+
+		public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {   // Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
+		int pos1 = tuile1.getPosition();
+		int pos2 = tuile2.getPosition();
+	
+		plateau.get(pos1).setPosition(pos2);
+		plateau.get(pos2).setPosition(pos1);
+	
+		Collections.swap(plateau, pos1, pos2);
+		}
+	
 	public ArrayList<Tuiles> getPlateau() {
 			return plateau;
 	}
 
-	public void PivoterTuiles(Tuiles tuile) {
-		tuile.setAngle((tuile.getAngle()+1)%4);
-		tuile.setImageAffichee(tuile.getImage(tuile.getAngle()));
-	}
-
-	public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {   // Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
-		int pos1 = tuile1.getPosition();
-		int pos2 = tuile2.getPosition();
-
-		plateau.get(pos1).setPosition(pos2);
-		plateau.get(pos2).setPosition(pos1);
-
-		Collections.swap(plateau, pos1, pos2);
-	}
+	
 }			
