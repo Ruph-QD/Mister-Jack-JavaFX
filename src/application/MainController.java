@@ -86,7 +86,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void seeJack(ActionEvent e) {
 		/**Permet de voir qui est MrJack*/
-		this.MrJack.getStyleClass().removeAll("Alibi","Lestrade","Bert","Pizer","Smith","Lane","Madame","Stealth","Goodley","Gull");
+		this.MrJack.getStyleClass().removeAll("Alibi","Lestrade","Bert","Pizer","Smith","Lane","Madame","Stealthy","Goodley","Gull");
 		this.MrJack.getStyleClass().add( this.carteMrJackVisible ? "Alibi" : joueur1.getAlibi() );
 		this.carteMrJackVisible = (this.carteMrJackVisible ? false : true);
 	}
