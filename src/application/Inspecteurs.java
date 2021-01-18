@@ -2,11 +2,11 @@ package application;
 
 public class Inspecteurs {
 	
-	// ICI variables à définir pour les inspecteurs 
+	// ICI variables à definir pour les inspecteurs 
 	private String position;
 	private String nom;       
 	
-	public Inspecteurs(String nom) {     // On définit ici le constructeur de la classe Inspecteurs
+	public Inspecteurs(String nom) {     // On definit ici le constructeur de la classe Inspecteurs
 		this.nom = nom;
 			if (nom=="Sherlock"){
 				this.position="04";

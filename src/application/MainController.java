@@ -14,11 +14,11 @@ import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable{
 	@FXML private BorderPane borderPane;
-//on récupère les textField et le bouton MrJack
+//on recupere les textField et le bouton MrJack
 	@FXML private TextField fieldJack;
 	@FXML private TextField fieldInspe;
 	@FXML private Button MrJack;
-//on récupère les boutons du plateau
+//on recupere les boutons du plateau
 /*		01|02|03
 	12 |1 |2 |3 |04
 	11 |8 |0 |4 |05
@@ -94,7 +94,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void nouvellePartie(ActionEvent e) {
 		/**Lance une nouvelle partie */
-		disableAll(); 										//on désactive tous les boutons 
+		disableAll(); 										//on desactive tous les boutons 
 
 		//Creation des joueurs
 		this.joueur1 = new Joueur( ((this.fieldJack.getText()=="" ) ? "MrJack" : this.fieldJack.getText()), "MrJack");				//si le champs est vide, on donne le nom par défault
@@ -110,9 +110,9 @@ public class MainController implements Initializable{
 		for (Tuiles tuile : this.listeTuiles){				//parcours les tuiles du plateau
 			switch (tuile.getPosition()) {
 				/*
-					les différents case servent à identifier le bouton auquel il faut changer le style
-					on est obligé de remove tous les style possible
-					puis d'ajouter le style souhaité
+					les differentes cases servent a identifier le bouton pour lequel il faut changer le style
+					on est oblige de remove tous les style possible
+					puis d'ajouter le style souhaite
 				*/
 				case 0:
 					this.button0.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
@@ -152,7 +152,7 @@ public class MainController implements Initializable{
 					break;
 			}
 		}
-	//partie création des inspecteurs et 
+	//partie creation des inspecteurs et 
 		this.Tobi = new Inspecteurs("Tobi");
 		this.Sherlock = new Inspecteurs("Sherlock");
 		this.Watson = new Inspecteurs("Watson");

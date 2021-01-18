@@ -23,12 +23,12 @@ public class Pioche {
         int indexMax= this.enJeu.size();
         int index = (int)(Math.random()*indexMax);
 
-        int temps=this.enJeu.get(index).getTemps();     //on récupère le temps de la carte
-        String nom = this.enJeu.get(index).getNom();    //on récupère le nom de la carte
+        int temps=this.enJeu.get(index).getTemps();     //on recupere le temps de la carte
+        String nom = this.enJeu.get(index).getNom();    //on recupere le nom de la carte
 
-        this.enJeu.remove(index);       //on enlève la carte du paquet
+        this.enJeu.remove(index);       //on enleve la carte du paquet
         if (indexMax==9) {
-            joueur.setAlibi(nom);       //on défnit le nom de carte du joueur MrJack
+            joueur.setAlibi(nom);       //on definit le nom de carte du joueur MrJack
             return null;                //ici le nom sur la carte n'est pas important
         }
         else if (joueur.isMrJack()) {   //si le joueur est MrJack

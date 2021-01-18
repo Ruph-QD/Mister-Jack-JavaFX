@@ -2,8 +2,8 @@ package application;
 
 public class Joueur {
 	private String nomJoueur; 	//le pseudo du joueur
-	private String role;		//Le rôle du joueur (MrJack ou Inspecteur)
-	private String alibi;		//Le nom sous lequel est caché MrJack
+	private String role;		//Le role du joueur (MrJack ou Inspecteur)
+	private String alibi;		//Le nom sous lequel est cache MrJack
 	private int temps;			//Le nombre de sablier du joueur
 	
 	public Joueur(String nomJoueur, String role) {

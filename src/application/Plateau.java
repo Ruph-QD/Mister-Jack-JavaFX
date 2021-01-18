@@ -48,13 +48,13 @@ public class Plateau {
 			if (k!=1 && k!=3 && k!=6)
 			{
 				Random r = new Random();
-				this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aléatoire entre 0 et 3 inclus
+				this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aleatoire entre 0 et 3 inclus
 				//this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(0));
 			}
-			this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(this.plateau.get(k).getAngle()));		//définis l'image qui doit être affichée
+			this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(this.plateau.get(k).getAngle()));		//definis l'image qui doit etre affichee
 		}
 		
-		//Gestion des trois cas murs face � inspecteurs
+		//Gestion des trois cas murs face aux inspecteurs
 		int nume = 0;
 		for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 1) {nume = k;}}
 		this.plateau.get(nume).setAngle(1);
