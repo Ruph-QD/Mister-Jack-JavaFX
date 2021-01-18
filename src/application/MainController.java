@@ -9,12 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable{
 	@FXML private BorderPane borderPane;
 //on recupere les textField et le bouton MrJack
+	@FXML private Label joueurActu;
 	@FXML private TextField fieldJack;
 	@FXML private TextField fieldInspe;
 	@FXML private Button MrJack;
@@ -180,6 +182,7 @@ public class MainController implements Initializable{
 		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
 		nouveauTour();
+		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
 	}
 	@FXML
@@ -199,6 +202,7 @@ public class MainController implements Initializable{
 		
 			case 0:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
+				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				//if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 				//le bouton marque valider
 				this.jetonsUtilise++;
@@ -212,6 +216,7 @@ public class MainController implements Initializable{
 				break;
 			case 2:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
+				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				//if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 				//le bouton marque fin de tours
 				this.jetonsUtilise++;
@@ -219,6 +224,7 @@ public class MainController implements Initializable{
 				break;
 			case 3:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
+				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				this.jetonsUtilise = 0;
 				this.tours++;
 				nouveauTour();
@@ -374,6 +380,7 @@ public class MainController implements Initializable{
 		action32.setDisable(true);
 		this.jetonsUtilise++;
 		this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
+		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 	}
 	
 	@FXML

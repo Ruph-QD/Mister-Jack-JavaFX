@@ -38,7 +38,7 @@
                   <TextField fx:id="fieldInspe" promptText="Detective" />
                </children>
             </HBox>
-            <Label fx:id="joueuractu" text="le joueur actuel est :" textFill="WHITE">
+            <Label fx:id="joueurActu" text="" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
