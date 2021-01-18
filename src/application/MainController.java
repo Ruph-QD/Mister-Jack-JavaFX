@@ -182,7 +182,7 @@ public class MainController implements Initializable{
 		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
 		nouveauTour();
-		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
 	}
 	@FXML
