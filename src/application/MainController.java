@@ -267,8 +267,27 @@ public class MainController implements Initializable{
 		this.jetonSelect=21;
 
 		String position = this.Tobi.getPosition();
-		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
-		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+		
+		String pos1 ="01";
+		String pos2 ="01";
+
+		if ((Integer.parseInt(position) +1)<10){
+			pos1 = ("0"+Integer.toString((Integer.parseInt(position) +1)));
+		}else if ((Integer.parseInt(position) +1) == 13) {
+			pos1 = "01";
+		}else{
+			pos1 = Integer.toString(((Integer.parseInt(position) +1)));
+		}
+
+		if ((Integer.parseInt(position) +2)<10){
+			pos2 = ("0"+Integer.toString((Integer.parseInt(position) +2)));
+		}else if ((Integer.parseInt(position) +2) == 13) {
+			pos2 = "01";
+		}else if ((Integer.parseInt(position) +2) == 14) {
+			pos2 = "02";
+		}else{
+			pos2 = Integer.toString(((Integer.parseInt(position) +2)));
+		}
 
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
@@ -282,8 +301,27 @@ public class MainController implements Initializable{
 		this.jetonSelect=22;
 		
 		String position = this.Watson.getPosition();
-		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
-		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+
+		String pos1 ="01";
+		String pos2 ="01";
+
+		if ((Integer.parseInt(position) +1)<10){
+			pos1 = ("0"+Integer.toString((Integer.parseInt(position) +1)));
+		}else if ((Integer.parseInt(position) +1) == 13) {
+			pos1 = "01";
+		}else{
+			pos1 = Integer.toString(((Integer.parseInt(position) +1)));
+		}
+
+		if ((Integer.parseInt(position) +2)<10){
+			pos2 = ("0"+Integer.toString((Integer.parseInt(position) +2)));
+		}else if ((Integer.parseInt(position) +2) == 13) {
+			pos2 = "01";
+		}else if ((Integer.parseInt(position) +2) == 14) {
+			pos2 = "02";
+		}else{
+			pos2 = Integer.toString(((Integer.parseInt(position) +2)));
+		}
 
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
@@ -297,8 +335,27 @@ public class MainController implements Initializable{
 		this.jetonSelect=31;
 		
 		String position = this.Sherlock.getPosition();
-		String pos1 = ((Integer.parseInt(position) +1)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +1))) : Integer.toString(((Integer.parseInt(position) +1))));
-		String pos2 = ((Integer.parseInt(position) +2)<10 ? ("0"+Integer.toString((Integer.parseInt(position) +2))) : Integer.toString(((Integer.parseInt(position) +2))));
+
+		String pos1 ="01";
+		String pos2 ="01";
+
+		if ((Integer.parseInt(position) +1)<10){
+			pos1 = ("0"+Integer.toString((Integer.parseInt(position) +1)));
+		}else if ((Integer.parseInt(position) +1) == 13) {
+			pos1 = "01";
+		}else{
+			pos1 = Integer.toString(((Integer.parseInt(position) +1)));
+		}
+
+		if ((Integer.parseInt(position) +2)<10){
+			pos2 = ("0"+Integer.toString((Integer.parseInt(position) +2)));
+		}else if ((Integer.parseInt(position) +2) == 13) {
+			pos2 = "01";
+		}else if ((Integer.parseInt(position) +2) == 14) {
+			pos2 = "02";
+		}else{
+			pos2 = Integer.toString(((Integer.parseInt(position) +2)));
+		}
 
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
