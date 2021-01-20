@@ -24,7 +24,7 @@ public class MainController implements Initializable{
 /*		01|02|03
 	12 |1 |2 |3 |04
 	11 |8 |0 |4 |05
-	10 |7 |6 |7 |06
+	10 |7 |6 |5 |06
 		09|08|07
 */
 	@FXML private Button button0;
@@ -60,8 +60,8 @@ public class MainController implements Initializable{
 //bouton de validation d'action
 	@FXML private Button bValider;
 //poour stocker les joueurs
-	private Joueur joueur1;
-	private Joueur joueur2;
+	private Joueur joueur1;						//MrJack
+	private Joueur joueur2;						//Inspecteur
 	private Joueur joueurActuel;
 //pour stocker les inspecteurs
 	private Inspecteurs Tobi;
@@ -117,39 +117,39 @@ public class MainController implements Initializable{
 					puis d'ajouter le style souhaite
 				*/
 				case 0:
-					this.button0.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button0.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button0.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 1:
-					this.button1.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button1.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button1.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 2:
-					this.button2.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button2.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button2.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 3:
-					this.button3.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button3.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button3.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 4:
-					this.button4.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button4.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button4.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 5:
-					this.button5.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button5.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button5.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 6:
-					this.button6.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button6.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button6.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 7:
-					this.button7.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button7.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button7.getStyleClass().add(tuile.getImageAffichee());
 					break;
 				case 8:
-					this.button8.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270");
+					this.button8.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
 					this.button8.getStyleClass().add(tuile.getImageAffichee());
 					break;
 			}
@@ -184,6 +184,8 @@ public class MainController implements Initializable{
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
+		this.listeTuiles.get(1).setAngle(0);
+		appelTemoin();
 	}
 	@FXML
 	public void nouveauTour(){
@@ -481,6 +483,212 @@ public class MainController implements Initializable{
 		
 	}
 
+	public void appelTemoin(){
+		/**Réalise l'appel à témoin */
+		//On parcourt les positions des inspecteurs et on regarde suivant leur position si la tuile est visible et si Mr est sur cette carte donc visible
+		String[] positionInsp = {this.Watson.getPosition(), this.Tobi.getPosition(), this.Sherlock.getPosition()};
+		ArrayList<Tuiles> tuilesVisibles = new ArrayList<Tuiles>();
+		boolean mrJackVisible = false;
+		for (int k=0; k<3;k++){
+			switch (Integer.parseInt(positionInsp[k])) {
+				case 1:
+					if (this.listeTuiles.get(1).getMur() !=2){
+						tuilesVisibles.add(this.listeTuiles.get(1));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(1).getMur() !=0 && this.listeTuiles.get(8).getMur() !=2){
+							tuilesVisibles.add(this.listeTuiles.get(8));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(8).getMur() !=0 && this.listeTuiles.get(7).getMur() !=2){
+								tuilesVisibles.add(this.listeTuiles.get(7));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 2:
+					if (this.listeTuiles.get(2).getMur() !=2){
+						tuilesVisibles.add(this.listeTuiles.get(2));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(2).getMur() !=0 && this.listeTuiles.get(0).getMur() !=2){
+							tuilesVisibles.add(this.listeTuiles.get(0));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(0).getMur() !=0 && this.listeTuiles.get(6).getMur() !=2){
+								tuilesVisibles.add(this.listeTuiles.get(6));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 3:
+					if (this.listeTuiles.get(3).getMur() !=2){
+						tuilesVisibles.add(this.listeTuiles.get(3));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(3).getMur() !=0 && this.listeTuiles.get(4).getMur() !=2){
+							tuilesVisibles.add(this.listeTuiles.get(4));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(4).getMur() !=0 && this.listeTuiles.get(5).getMur() !=2){
+								tuilesVisibles.add(this.listeTuiles.get(5));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 4:
+					if (this.listeTuiles.get(3).getMur() !=3){
+						tuilesVisibles.add(this.listeTuiles.get(3));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(3).getMur() !=1 && this.listeTuiles.get(2).getMur() !=3){
+							tuilesVisibles.add(this.listeTuiles.get(2));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(2).getMur() !=1 && this.listeTuiles.get(1).getMur() !=3){
+								tuilesVisibles.add(this.listeTuiles.get(1));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 5:
+					if (this.listeTuiles.get(4).getMur() !=3){
+						tuilesVisibles.add(this.listeTuiles.get(4));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(4).getMur() !=1 && this.listeTuiles.get(0).getMur() !=3){
+							tuilesVisibles.add(this.listeTuiles.get(0));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(0).getMur() !=1 && this.listeTuiles.get(8).getMur() !=3){
+								tuilesVisibles.add(this.listeTuiles.get(8));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 6:
+					if (this.listeTuiles.get(5).getMur() !=3){
+						tuilesVisibles.add(this.listeTuiles.get(5));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(5).getMur() !=1 && this.listeTuiles.get(6).getMur() !=3){
+							tuilesVisibles.add(this.listeTuiles.get(6));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(6).getMur() !=1 && this.listeTuiles.get(7).getMur() !=3){
+								tuilesVisibles.add(this.listeTuiles.get(7));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 7:
+					if (this.listeTuiles.get(5).getMur() !=0){
+						tuilesVisibles.add(this.listeTuiles.get(5));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(5).getMur() !=2 && this.listeTuiles.get(4).getMur() !=0){
+							tuilesVisibles.add(this.listeTuiles.get(4));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(4).getMur() !=2 && this.listeTuiles.get(3).getMur() !=0){
+								tuilesVisibles.add(this.listeTuiles.get(3));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 8:
+					if (this.listeTuiles.get(6).getMur() !=0){
+						tuilesVisibles.add(this.listeTuiles.get(6));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(6).getMur() !=2 && this.listeTuiles.get(0).getMur() !=0){
+							tuilesVisibles.add(this.listeTuiles.get(0));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(0).getMur() !=2 && this.listeTuiles.get(2).getMur() !=0){
+								tuilesVisibles.add(this.listeTuiles.get(2));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 9:
+					if (this.listeTuiles.get(7).getMur() !=0){
+						tuilesVisibles.add(this.listeTuiles.get(7));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(7).getMur() !=2 && this.listeTuiles.get(8).getMur() !=0){
+							tuilesVisibles.add(this.listeTuiles.get(8));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(8).getMur() !=2 && this.listeTuiles.get(1).getMur() !=0){
+								tuilesVisibles.add(this.listeTuiles.get(1));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 10:
+					if (this.listeTuiles.get(7).getMur() !=1){
+						tuilesVisibles.add(this.listeTuiles.get(7));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(7).getMur() !=3 && this.listeTuiles.get(6).getMur() !=1){
+							tuilesVisibles.add(this.listeTuiles.get(6));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(6).getMur() !=3 && this.listeTuiles.get(5).getMur() !=1){
+								tuilesVisibles.add(this.listeTuiles.get(5));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 11:
+					if (this.listeTuiles.get(8).getMur() !=1){
+						tuilesVisibles.add(this.listeTuiles.get(8));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(8).getMur() !=3 && this.listeTuiles.get(0).getMur() !=1){
+							tuilesVisibles.add(this.listeTuiles.get(0));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(0).getMur() !=3 && this.listeTuiles.get(4).getMur() !=1){
+								tuilesVisibles.add(this.listeTuiles.get(4));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				case 12:
+					if (this.listeTuiles.get(1).getMur() !=1){
+						tuilesVisibles.add(this.listeTuiles.get(1));
+						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+						if (this.listeTuiles.get(1).getMur() !=3 && this.listeTuiles.get(2).getMur() !=1){
+							tuilesVisibles.add(this.listeTuiles.get(2));
+							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+							if (this.listeTuiles.get(2).getMur() !=3 && this.listeTuiles.get(3).getMur() !=1){
+								tuilesVisibles.add(this.listeTuiles.get(3));
+								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+							}
+						}
+					}
+					break;
+				default:
+					System.out.println("erreur appelTemoin");
+			}
+		}
+		System.out.println(mrJackVisible);
+		String ancienneImage;
+		if (!mrJackVisible){
+			for (int k =0; k<tuilesVisibles.size();k++){
+				if(tuilesVisibles.get(k).getAngle()<4){	
+					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle()+4);
+					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
+					tuilesVisibles.get(k).setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle()));
+					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
+					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
+				}
+			}
+		}else{
+			for (int k =0;k<listeTuiles.size();k++){
+				if(!listeTuiles.contains(tuilesVisibles.get(k))){
+					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle()+4);
+					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
+					tuilesVisibles.get(k).setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle()));
+					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
+					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
+				}
+			}
+		}
+		tuilesVisibles.clear();
+	}
+
 	private static int RandInt(int min, int max) {
 
         if (min >= max) {
@@ -490,8 +698,6 @@ public class MainController implements Initializable{
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
 	}
-	
-	
 	
 	
 }

@@ -82,4 +82,10 @@ public class Tuiles {
 	public String getImageAffichee(){
 		return this.imageAffichee;
 	}
+
+	public int getMur(){
+		/**Return la position du mur qui marche de la même manière que l'angle (de 0 à 4), 4 étant pas de mur */
+		return (this.verso == "TLane" && this.angle > 3 ? 4 : this.angle%4);
+	}
+
 }

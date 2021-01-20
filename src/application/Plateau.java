@@ -16,7 +16,7 @@ public class Plateau {
 		this.plateau.add(new Tuiles("TLestrade","TLestrade90","TLestrade180","TLestrade270","Verso","Verso90","Verso180","Verso270",0));
 		this.plateau.add(new Tuiles("TBert","TBert90","TBert180","TBert270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TGoodley","TGoodley90","TGoodley180","TGoodley270","Verso","Verso90","Verso180","Verso270"));
-		this.plateau.add(new Tuiles("TGull","TGull90","TGull180","TGull270","Versog","Verso90","Verso180","Verso270"));
+		this.plateau.add(new Tuiles("TGull","TGull90","TGull180","TGull270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TLane","TLane90","TLane180","TLane270","Middle_verso","Middle_verso","Middle_verso","Middle_verso"));
 		this.plateau.add(new Tuiles("TMadame","TMadame90","TMadame180","TMadame270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TPizer","TPizer90","TPizer180","TPizer270","Verso","Verso90","Verso180","Verso270"));
