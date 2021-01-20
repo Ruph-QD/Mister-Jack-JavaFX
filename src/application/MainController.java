@@ -273,7 +273,6 @@ public class MainController implements Initializable{
 		this.jetonSelect=21;
 
 		String position = this.Tobi.getPosition();
-		
 		String pos1 ="01";
 		String pos2 ="01";
 
@@ -298,7 +297,6 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 
-		bValider.setDisable(false);
 		action21.setDisable(true);
 	}
 	
@@ -332,7 +330,6 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 		
-		bValider.setDisable(false);
 		action22.setDisable(true);
 	}
 	
@@ -341,7 +338,6 @@ public class MainController implements Initializable{
 		this.jetonSelect=31;
 		
 		String position = this.Sherlock.getPosition();
-
 		String pos1 ="01";
 		String pos2 ="01";
 
@@ -366,7 +362,6 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 		
-		bValider.setDisable(false);
 		action31.setDisable(true);
 	}
 	
@@ -386,8 +381,15 @@ public class MainController implements Initializable{
 	@FXML
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
 		this.jetonSelect=41;
-		bValider.setDisable(false);
 		action41.setDisable(true);
+		
+		String positionS = this.Sherlock.getPosition();
+		String positionW = this.Watson.getPosition();
+		String positionT = this.Tobi.getPosition();
+		
+		((Button) borderPane.lookup("#button"+positionS)).setDisable(false);
+		((Button) borderPane.lookup("#button"+positionW)).setDisable(false);
+		((Button) borderPane.lookup("#button"+positionT)).setDisable(false);
 	}
 	
 	@FXML
@@ -456,6 +458,7 @@ public class MainController implements Initializable{
 				this.Watson.setPosition(newPositionWatson);
 
 				((Button)e.getSource()).getStyleClass().add("Watson");
+				System.out.println(((Button)e.getSource()).getStyleClass());
 				((Button) borderPane.lookup("#button"+oldPositionWatson)).getStyleClass().removeAll("Watson");
 				disableTuilesInspect(true);
 				break;
@@ -472,6 +475,7 @@ public class MainController implements Initializable{
 			case 32:
 				break;
 			case 41:
+				
 				break;	
 		}
 		
