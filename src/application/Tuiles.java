@@ -42,7 +42,7 @@ public class Tuiles {
 	}
 	
 	public int getPosition() {	
-		return this.position;		
+		return this.position;
 	}
 
 	public void setAngle(int angle) {

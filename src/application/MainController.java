@@ -179,7 +179,6 @@ public class MainController implements Initializable{
 
 
 		this.tours = 1;
-		Button[] cInspecteurs = {this.button01,this.button02,this.button03,this.button04,this.button05,this.button06,this.button07,this.button08,this.button09,this.button10,this.button11,this.button12};
 		this.jetonsUtilise = 0;
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
@@ -264,8 +263,10 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void tournerTuiles1(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
+		
 		this.jetonSelect=12;
 		bValider.setDisable(false);
+		this.jetonsUtilise++;
 		enableTuiles(true);
 		action12.setDisable(true);
 	}
@@ -371,7 +372,7 @@ public class MainController implements Initializable{
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
 		this.jetonSelect=32;
 		this.pioche.Piocher(this.joueurActuel);
-		//for(int k =0;k<this.pioche.getCartes().size();k++){System.out.println(this.pioche.getCartes().get(k).getNom());}
+		//for(int k=0;k<this.pioche.getCartes().size();k++){System.out.println(this.pioche.getCartes().get(k).getNom());}
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 		action32.setDisable(true);
@@ -397,6 +398,7 @@ public class MainController implements Initializable{
 	@FXML
 	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
 		this.jetonSelect=12;
+		this.jetonsUtilise++;
 		bValider.setDisable(false);
 		enableTuiles(true);
 		action42.setDisable(true);
@@ -434,15 +436,13 @@ public class MainController implements Initializable{
 				}
 				System.out.println();
 				break;
+				
 			case 12:
 				//tourner Tuiles
-				enableTuiles(true);
-				((Button)e.getSource()).setDisable(false);
-				this.jetonsUtilise++;
-				enableTuiles(false);
-				this.tuileSelectionne.clear();
-				System.out.println(this.jetonsUtilise);
+			
+				
 				break;
+				
 			case 21:
 				//déplacer Tobi
 				String oldPositionTobi = this.Tobi.getPosition();
@@ -477,7 +477,6 @@ public class MainController implements Initializable{
 			case 32:
 				break;
 			case 41:
-				
 				break;	
 		}
 		
@@ -692,9 +691,7 @@ public class MainController implements Initializable{
 	private static int RandInt(int min, int max) {
 
         if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
+            throw new IllegalArgumentException("max must be greater than min");}
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
 	}
