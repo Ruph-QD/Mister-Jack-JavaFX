@@ -67,6 +67,7 @@ public class MainController implements Initializable{
 	private Inspecteurs Tobi;
 	private Inspecteurs Sherlock;
 	private Inspecteurs Watson;
+	private int reset = 0;
 
 	private Plateau plateau;
 	private ArrayList<Tuiles> listeTuiles;
@@ -128,7 +129,7 @@ public class MainController implements Initializable{
 		this.button08.getStyleClass().add("Tobi");								
 		this.button12.getStyleClass().add("Watson");							
 		
-		this.tours = 1;
+		this.tours = 0;
 		this.jetonsUtilise = 0;
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
@@ -259,7 +260,7 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 
-		action21.setDisable(true);
+		if (reset == 0) {action21.setDisable(true);}else {this.reset=0;} //condition pour le choix des inspecteurs
 	}
 	
 	@FXML
@@ -292,7 +293,7 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 		
-		action22.setDisable(true);
+		if (reset == 0) {action22.setDisable(true);}else {this.reset=0;} //condition pour le choix des inspecteurs
 	}
 	
 	@FXML
@@ -324,7 +325,7 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 		
-		action31.setDisable(true);
+		if (reset == 0) {action31.setDisable(true);}else {this.reset=0;} //condition pour le choix des inspecteurs
 	}
 	
 	@FXML
@@ -344,7 +345,6 @@ public class MainController implements Initializable{
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
 		this.jetonSelect=41;
 		action41.setDisable(true);
-		bValider.setDisable(false);
 
 		String positionS = this.Sherlock.getPosition();
 		String positionW = this.Watson.getPosition();
@@ -447,10 +447,13 @@ public class MainController implements Initializable{
 				//choisir inspecteurs
 				String nomInspecteur = ((Button)e.getSource()).getStyleClass().get(2);
 				if (nomInspecteur.equals("Tobi")){
+					this.reset=1;
 					this.action21.fire();
 				}else if(nomInspecteur.equals("Sherlock")){
+					this.reset=1;
 					this.action31.fire();
 				}else{
+					this.reset=1;
 					this.action22.fire();
 				}
 				break;	
