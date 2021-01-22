@@ -108,83 +108,34 @@ public class MainController implements Initializable{
 		//Creation du jeu
 		this.plateau = new Plateau(); 						//crÃ©er le plateau
 		this.listeTuiles = this.plateau.getPlateau();
-		for (Tuiles tuile : this.listeTuiles){				//parcours les tuiles du plateau
-			switch (tuile.getPosition()) {
-				/*
-					les differentes cases servent a identifier le bouton pour lequel il faut changer le style
+		for (int k =0;k<9;k++){
+				/*		
 					on est oblige de remove tous les style possible
 					puis d'ajouter le style souhaite
 				*/
-				case 0:
-					this.button0.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button0.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 1:
-					this.button1.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button1.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 2:
-					this.button2.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button2.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 3:
-					this.button3.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button3.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 4:
-					this.button4.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button4.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 5:
-					this.button5.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button5.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 6:
-					this.button6.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button6.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 7:
-					this.button7.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button7.getStyleClass().add(tuile.getImageAffichee());
-					break;
-				case 8:
-					this.button8.getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					this.button8.getStyleClass().add(tuile.getImageAffichee());
-					break;
-			}
+			((Button) borderPane.lookup("#button"+Integer.toString(k))).getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
+			((Button) borderPane.lookup("#button"+Integer.toString(k))).getStyleClass().add(listeTuiles.get(k).getImageAffichee());
 		}
-	//partie creation des inspecteurs et des boutons
+	//partie creation des inspecteurs et des boutons associÃ©s
 		this.Tobi = new Inspecteurs("Tobi");
 		this.Sherlock = new Inspecteurs("Sherlock");
 		this.Watson = new Inspecteurs("Watson");
 
-		this.button01.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button02.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button03.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button04.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button05.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button06.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button07.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button08.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button09.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button10.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button11.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-		this.button12.getStyleClass().removeAll("Sherlock","Tobi","Watson");
-
+		for(int k =1;k<13;k++){
+			((Button) borderPane.lookup("#button"+(k<10 ? '0'+Integer.toString(k) : Integer.toString(k)))).getStyleClass().removeAll("Sherlock","Tobi","Watson");
+		}
 		this.button04.getStyleClass().add("Sherlock");							
 		this.button08.getStyleClass().add("Tobi");								
 		this.button12.getStyleClass().add("Watson");							
 		
-		this.tours = 0;
+		this.tours = 1;
 		this.jetonsUtilise = 0;
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
 		//this.listeTuiles.get(1).setAngle(0);
 		//appelTemoin();
-		this.joueur1.addTemps(1);
-		System.out.println(this.joueur1.getTemps());	
-		}
+	}
 	@FXML
 	public void nouveauTour(){
 		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on gï¿½nï¿½re les jetons alï¿½atoirements
@@ -201,10 +152,10 @@ public class MainController implements Initializable{
 		if (this.tours==8) {
 			this.joueurActu.setText("BRAVO aux inspecteurs qui GAGNENT cette partie");
 		}else {
-			this.joueurActu.setText("BRAVO à Mr Jack qui GAGNE cette partie");
+			this.joueurActu.setText("BRAVO Ã  Mr Jack qui GAGNE cette partie");
 		};
 	}
-	
+
 	@FXML
 	public void Validation(ActionEvent e){
 		enableTuiles(false);
@@ -212,12 +163,12 @@ public class MainController implements Initializable{
 	}
 	
 	public void utiliserJetons(){
-		System.out.println("B activé");
+		System.out.println("B activÃ©");
 		switch(this.jetonsUtilise) {
-			
+		
 			case 0:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
-				this.joueurActu.setText("C'est à " + this.joueurActuel.getNom() + " de jouer");
+				this.joueurActu.setText("C'est Ã  " + this.joueurActuel.getNom() + " de jouer");
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
@@ -394,7 +345,7 @@ public class MainController implements Initializable{
 		this.jetonSelect=41;
 		action41.setDisable(true);
 		bValider.setDisable(false);
-		
+
 		String positionS = this.Sherlock.getPosition();
 		String positionW = this.Watson.getPosition();
 		String positionT = this.Tobi.getPosition();
@@ -442,7 +393,6 @@ public class MainController implements Initializable{
 					this.tuileSelectionne.get(0).setDisable(true);
 				}
 				break;
-				
 				
 			case 12:
 				//tourner Tuiles
@@ -495,6 +445,14 @@ public class MainController implements Initializable{
 				break;
 			case 41:
 				//choisir inspecteurs
+				String nomInspecteur = ((Button)e.getSource()).getStyleClass().get(2);
+				if (nomInspecteur.equals("Tobi")){
+					this.action21.fire();
+				}else if(nomInspecteur.equals("Sherlock")){
+					this.action31.fire();
+				}else{
+					this.action22.fire();
+				}
 				break;	
 		}
 		
@@ -717,5 +675,3 @@ public class MainController implements Initializable{
 	
 	
 }
-
-
