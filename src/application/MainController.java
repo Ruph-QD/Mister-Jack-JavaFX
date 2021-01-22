@@ -197,6 +197,7 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void utiliserJetons(ActionEvent e){
+		enableTuiles(false);
 		switch(this.jetonsUtilise) {
 		
 			case 0:
@@ -264,7 +265,6 @@ public class MainController implements Initializable{
 		
 		this.jetonSelect=12;
 		bValider.setDisable(false);
-		this.jetonsUtilise++;
 		enableTuiles(true);
 		action12.setDisable(true);
 	}
@@ -383,6 +383,7 @@ public class MainController implements Initializable{
 	public void choixDeplacement(ActionEvent e) {  // Methode pour deplacer au choix un des trois inspecteurs
 		this.jetonSelect=41;
 		action41.setDisable(true);
+		bValider.setDisable(false);
 		
 		String positionS = this.Sherlock.getPosition();
 		String positionW = this.Watson.getPosition();
@@ -396,7 +397,6 @@ public class MainController implements Initializable{
 	@FXML
 	public void tournerTuiles2(ActionEvent e){ // Methode pour tourner les tuiles apres avoir appuyer sur le jeton tourner tuiles
 		this.jetonSelect=12;
-		this.jetonsUtilise++;
 		bValider.setDisable(false);
 		enableTuiles(true);
 		action42.setDisable(true);
