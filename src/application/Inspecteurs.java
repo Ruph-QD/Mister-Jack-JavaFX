@@ -24,10 +24,4 @@ public class Inspecteurs {
 	public String getPosition(){
 		return this.position;
 	}
-
-	/*
-	public String[] AppelATemoin(){
-		//TODO:à faire
-	}
-	*/
 }

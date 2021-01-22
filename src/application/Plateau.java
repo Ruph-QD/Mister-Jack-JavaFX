@@ -24,16 +24,9 @@ public class Plateau {
 		this.plateau.add(new Tuiles("TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270"));
 		
 		
-		ArrayList<String> positionnement = new ArrayList<String>();				//tableau qui contient les positions (ne sert que pour l'initialisation du tableau)
-		positionnement.add("1");
-		positionnement.add("2");
-		positionnement.add("3");
-		positionnement.add("4");
-		positionnement.add("5");
-		positionnement.add("6");
-		positionnement.add("7");
-		positionnement.add("8");
-	
+		ArrayList<String> positionnement = new ArrayList<String>();									//tableau qui contient les positions (ne sert que pour l'initialisation du tableau)
+		for (int k =1; k<9;k++){positionnement.add(Integer.toString(k));}				
+
 		
 		int indexMax= positionnement.size();
 		for (int k = 1; k<9; k++) { 
@@ -44,50 +37,44 @@ public class Plateau {
 		}
 		
 		for (int k = 0; k<9; k++){	
-			
-			if (k!=1 && k!=3 && k!=6)
-			{
+			if (k!=1 && k!=3 && k!=6){
 				Random r = new Random();
 				this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aleatoire entre 0 et 3 inclus
-				//this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(0));
 			}
 			this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(this.plateau.get(k).getAngle()));		//definis l'image qui doit etre affichee
 		}
-		
-		//Gestion des trois cas murs face aux inspecteurs
-		int nume = 0;
-		for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 1) {nume = k;}}
-		this.plateau.get(nume).setAngle(1);
-		this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
-		for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 3) {nume = k;}}
-		this.plateau.get(nume).setAngle(3);
-		this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
-		for (int k = 0; k<9; k++) {if (this.plateau.get(k).getPosition() == 6) {nume = k;}}
-		this.plateau.get(nume).setAngle(0);
-		this.plateau.get(nume).setImageAffichee(this.plateau.get(nume).getImage(this.plateau.get(nume).getAngle()));
-		             
+
+		//on tri le ArrayList en fonction de position
 		Comparator<Tuiles> compareByPosition = (Tuiles tuile1, Tuiles tuile2) -> Integer.toString(tuile1.getPosition()).compareTo(Integer.toString(tuile2.getPosition()));
 		Collections.sort(this.plateau,compareByPosition);
+
+		//Gestion des trois cas murs face aux inspecteurs
+		this.plateau.get(1).setAngle(1);
+		this.plateau.get(1).setImageAffichee(this.plateau.get(1).getImage(this.plateau.get(1).getAngle()));
+		this.plateau.get(3).setAngle(3);
+		this.plateau.get(3).setImageAffichee(this.plateau.get(3).getImage(this.plateau.get(3).getAngle()));
+		this.plateau.get(6).setAngle(0);
+		this.plateau.get(6).setImageAffichee(this.plateau.get(6).getImage(this.plateau.get(6).getAngle()));
 	} 
 	
 	
-		public void PivoterTuiles(Tuiles tuile) {
+	public void PivoterTuiles(Tuiles tuile) {
 		tuile.setAngle((tuile.getAngle()+1)%4);
 		tuile.setImageAffichee(tuile.getImage(tuile.getAngle()));
-		}
+	}
 
-		public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {   // Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
+	public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {   // Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
 		int pos1 = tuile1.getPosition();
 		int pos2 = tuile2.getPosition();
-	
+
 		plateau.get(pos1).setPosition(pos2);
 		plateau.get(pos2).setPosition(pos1);
-	
+
 		Collections.swap(plateau, pos1, pos2);
-		}
+	}
 	
 	public ArrayList<Tuiles> getPlateau() {
-			return plateau;
+		return plateau;
 	}
 
 	
