@@ -181,8 +181,8 @@ public class MainController implements Initializable{
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
-		this.listeTuiles.get(1).setAngle(0);
-		appelTemoin();
+		//this.listeTuiles.get(1).setAngle(0);
+		//appelTemoin();
 	}
 	@FXML
 	public void nouveauTour(){
@@ -657,13 +657,13 @@ public class MainController implements Initializable{
 				case 12:
 					if (this.listeTuiles.get(1).getMur() !=1){
 						tuilesVisibles.add(this.listeTuiles.get(1));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(1).getMur() !=3 && this.listeTuiles.get(2).getMur() !=1){
 							tuilesVisibles.add(this.listeTuiles.get(2));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(2).getMur() !=3 && this.listeTuiles.get(3).getMur() !=1){
 								tuilesVisibles.add(this.listeTuiles.get(3));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -672,7 +672,6 @@ public class MainController implements Initializable{
 					System.out.println("erreur appelTemoin");
 			}
 		}
-		System.out.println(mrJackVisible);
 		String ancienneImage;
 		if (!mrJackVisible){
 			for (int k =0; k<tuilesVisibles.size();k++){
@@ -686,12 +685,12 @@ public class MainController implements Initializable{
 			}
 		}else{
 			for (int k =0;k<listeTuiles.size();k++){
-				if(!listeTuiles.contains(tuilesVisibles.get(k))){
-					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle()+4);
-					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
-					tuilesVisibles.get(k).setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle()));
-					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
-					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
+				if(!tuilesVisibles.contains(listeTuiles.get(k))){
+					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle()+4);
+					ancienneImage = listeTuiles.get(k).getImageAffichee();
+					listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(listeTuiles.get(k).getAngle()));
+					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
+					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().addAll(listeTuiles.get(k).getImageAffichee());
 				}
 			}
 		}
