@@ -7,15 +7,15 @@ public class Pioche {
 
     public Pioche(){
         this.enJeu = new ArrayList<Cartes>();
-        this.enJeu.add(new Cartes("Lestrade", 0));
-        this.enJeu.add(new Cartes("Bert", 1));
-        this.enJeu.add(new Cartes("Pizer", 1));
-        this.enJeu.add(new Cartes("Smith", 1));
-        this.enJeu.add(new Cartes("Lane", 1));
-        this.enJeu.add(new Cartes("Madame", 2));
-        this.enJeu.add(new Cartes("Stealthy", 1));
+        this.enJeu.add(new Cartes("Lestrade",0));
+        this.enJeu.add(new Cartes("Bert",    1));
+        this.enJeu.add(new Cartes("Pizer",   1));
+        this.enJeu.add(new Cartes("Smith",   1));
+        this.enJeu.add(new Cartes("Lane",    1));
+        this.enJeu.add(new Cartes("Madame",  2));
+        this.enJeu.add(new Cartes("Stealthy",1));
         this.enJeu.add(new Cartes("Goodley", 0));
-        this.enJeu.add(new Cartes("Gull", 1));
+        this.enJeu.add(new Cartes("Gull",    1));
     }
     
     public String Piocher(Joueur joueur){

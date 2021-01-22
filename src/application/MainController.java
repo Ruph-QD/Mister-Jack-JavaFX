@@ -153,7 +153,7 @@ public class MainController implements Initializable{
 					break;
 			}
 		}
-	//partie creation des inspecteurs et 
+	//partie creation des inspecteurs et des boutons
 		this.Tobi = new Inspecteurs("Tobi");
 		this.Sherlock = new Inspecteurs("Sherlock");
 		this.Watson = new Inspecteurs("Watson");
@@ -175,14 +175,16 @@ public class MainController implements Initializable{
 		this.button08.getStyleClass().add("Tobi");								
 		this.button12.getStyleClass().add("Watson");							
 		
-		this.tours = 1;
+		this.tours = 0;
 		this.jetonsUtilise = 0;
 		nouveauTour();
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 		this.tuileSelectionne=new ArrayList<Button>();
 		//this.listeTuiles.get(1).setAngle(0);
 		//appelTemoin();
-	}
+		this.joueur1.addTemps(1);
+		System.out.println(this.joueur1.getTemps());	
+		}
 	@FXML
 	public void nouveauTour(){
 		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on gï¿½nï¿½re les jetons alï¿½atoirements
@@ -194,36 +196,38 @@ public class MainController implements Initializable{
 		if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 	}
 	
+	public void finduJeu() {
+		System.out.println("GAME OVER");
+		if (this.tours==8) {
+			this.joueurActu.setText("BRAVO aux inspecteurs qui GAGNENT cette partie");
+		}else {
+			this.joueurActu.setText("BRAVO à Mr Jack qui GAGNE cette partie");
+		};
+	}
+	
 	@FXML
 	public void Validation(ActionEvent e){
 		enableTuiles(false);
 		utiliserJetons();
 	}
 	
-	@FXML
 	public void utiliserJetons(){
 		System.out.println("B activé");
 		switch(this.jetonsUtilise) {
 			
 			case 0:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
-				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
-				//if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-				//le bouton marque valider
+				this.joueurActu.setText("C'est à " + this.joueurActuel.getNom() + " de jouer");
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
 			case 1:
-				//if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-				//le bouton marque valider
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
 			case 2:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
-				//if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
-				//le bouton marque fin de tours
 				this.jetonsUtilise++;
 				this.bValider.setDisable(true);
 				break;
@@ -232,7 +236,8 @@ public class MainController implements Initializable{
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				this.jetonsUtilise = 0;
 				this.tours++;
-				nouveauTour();
+				appelTemoin();
+				if (this.tours<8 && this.joueur1.getTemps()<8) {nouveauTour();}else {finduJeu();}
 				this.bValider.setDisable(true);
 				break;
 		}
@@ -436,7 +441,6 @@ public class MainController implements Initializable{
 					this.tuileSelectionne.add((Button)e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
 				}
-				System.out.println();
 				break;
 				
 				
@@ -697,8 +701,10 @@ public class MainController implements Initializable{
 					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().addAll(listeTuiles.get(k).getImageAffichee());
 				}
 			}
+			this.joueur1.addTemps(1);
 		}
 		tuilesVisibles.clear();
+		System.out.println("temps : "+this.joueur1.getTemps());
 	}
 
 	private static int RandInt(int min, int max) {
