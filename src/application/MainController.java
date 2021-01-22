@@ -176,8 +176,6 @@ public class MainController implements Initializable{
 		this.button08.getStyleClass().add("Tobi");								
 		this.button12.getStyleClass().add("Watson");							
 		
-
-
 		this.tours = 1;
 		this.jetonsUtilise = 0;
 		nouveauTour();
@@ -251,7 +249,7 @@ public class MainController implements Initializable{
 	
 	@FXML
 	public void disableTuilesInspect(boolean bool){
-		button01.setDisable(true);button02.setDisable(true);button03.setDisable(true);button04.setDisable(true);button05.setDisable(true);button06.setDisable(true);button07.setDisable(true);button08.setDisable(true);button09.setDisable(true);button10.setDisable(true);button11.setDisable(true);button12.setDisable(true);
+		button01.setDisable(bool);button02.setDisable(bool);button03.setDisable(bool);button04.setDisable(bool);button05.setDisable(bool);button06.setDisable(bool);button07.setDisable(bool);button08.setDisable(bool);button09.setDisable(bool);button10.setDisable(bool);button11.setDisable(bool);button12.setDisable(bool);
 	}
 	
 	@FXML
@@ -376,9 +374,9 @@ public class MainController implements Initializable{
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 		action32.setDisable(true);
-		this.jetonsUtilise++;
 		this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
 		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+		this.bValider.fire();
 	}
 	
 	@FXML
@@ -426,7 +424,6 @@ public class MainController implements Initializable{
 					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1));
 
 					this.jetonSelect = 0;
-					this.jetonsUtilise++;
 					enableTuiles(false);
 					this.tuileSelectionne.clear();
 					System.out.println(this.jetonsUtilise);
@@ -435,12 +432,23 @@ public class MainController implements Initializable{
 					this.tuileSelectionne.get(0).setDisable(true);
 				}
 				System.out.println();
+				this.bValider.fire();
 				break;
 				
 			case 12:
 				//tourner Tuiles
-			
+				enableTuiles(false);
+				((Button)e.getSource()).setDisable(false);
 				
+				int numeroTuile = ((Button)e.getSource()).getId().charAt(((Button)e.getSource()).getId().length()-1)-'0';
+				int nouvelAngle = (this.listeTuiles.get(numeroTuile).getAngle()+1);
+				if (nouvelAngle == 4) {nouvelAngle=0;}
+				if (nouvelAngle == 8) {nouvelAngle=4;}
+				this.listeTuiles.get(numeroTuile).setAngle(nouvelAngle);
+				this.listeTuiles.get(numeroTuile).setImageAffichee(this.listeTuiles.get(numeroTuile).getImage(nouvelAngle));
+				
+				((Button)e.getSource()).getStyleClass().removeAll(((Button)e.getSource()).getStyleClass().get(2));
+				((Button)e.getSource()).getStyleClass().add(this.listeTuiles.get(numeroTuile).getImageAffichee());
 				break;
 				
 			case 21:
@@ -452,6 +460,7 @@ public class MainController implements Initializable{
 				((Button)e.getSource()).getStyleClass().add("Tobi");
 				((Button) borderPane.lookup("#button"+oldPositionTobi)).getStyleClass().removeAll("Tobi");
 				disableTuilesInspect(true);
+				this.bValider.fire();
 				break;
 			case 22:
 				//deplacer Watson
@@ -463,6 +472,7 @@ public class MainController implements Initializable{
 				System.out.println(((Button)e.getSource()).getStyleClass());
 				((Button) borderPane.lookup("#button"+oldPositionWatson)).getStyleClass().removeAll("Watson");
 				disableTuilesInspect(true);
+				this.bValider.fire();
 				break;
 			case 31:
 				// deplacer Sherlock
@@ -473,10 +483,10 @@ public class MainController implements Initializable{
 				((Button)e.getSource()).getStyleClass().add("Sherlock");
 				((Button) borderPane.lookup("#button"+oldPositionSherlock)).getStyleClass().removeAll("Sherlock");
 				disableTuilesInspect(true);
-				break;
-			case 32:
+				this.bValider.fire();
 				break;
 			case 41:
+				//choisir inspecteurs
 				break;	
 		}
 		
