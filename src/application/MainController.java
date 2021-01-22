@@ -73,7 +73,6 @@ public class MainController implements Initializable{
 	private Pioche pioche;
 	private int tours;
 	private int jetonsUtilise;
-
 	private int jetonSelect;
 	private ArrayList<Button> tuileSelectionne;
 
@@ -196,10 +195,16 @@ public class MainController implements Initializable{
 	}
 	
 	@FXML
-	public void utiliserJetons(ActionEvent e){
+	public void Validation(ActionEvent e){
 		enableTuiles(false);
+		utiliserJetons();
+	}
+	
+	@FXML
+	public void utiliserJetons(){
+		System.out.println("B activé");
 		switch(this.jetonsUtilise) {
-		
+			
 			case 0:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
@@ -374,9 +379,9 @@ public class MainController implements Initializable{
 		// If Mr Jack -> Rajouter des sabliers 
 		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
 		action32.setDisable(true);
-		this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
-		this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
-		this.bValider.fire();
+		//this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
+		//this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+		utiliserJetons();
 	}
 	
 	@FXML
@@ -426,14 +431,14 @@ public class MainController implements Initializable{
 					this.jetonSelect = 0;
 					enableTuiles(false);
 					this.tuileSelectionne.clear();
-					System.out.println(this.jetonsUtilise);
+					utiliserJetons();
 				}else{
 					this.tuileSelectionne.add((Button)e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
 				}
 				System.out.println();
-				this.bValider.fire();
 				break;
+				
 				
 			case 12:
 				//tourner Tuiles
@@ -460,7 +465,7 @@ public class MainController implements Initializable{
 				((Button)e.getSource()).getStyleClass().add("Tobi");
 				((Button) borderPane.lookup("#button"+oldPositionTobi)).getStyleClass().removeAll("Tobi");
 				disableTuilesInspect(true);
-				this.bValider.fire();
+				utiliserJetons();
 				break;
 			case 22:
 				//deplacer Watson
@@ -469,10 +474,9 @@ public class MainController implements Initializable{
 				this.Watson.setPosition(newPositionWatson);
 
 				((Button)e.getSource()).getStyleClass().add("Watson");
-				System.out.println(((Button)e.getSource()).getStyleClass());
 				((Button) borderPane.lookup("#button"+oldPositionWatson)).getStyleClass().removeAll("Watson");
 				disableTuilesInspect(true);
-				this.bValider.fire();
+				utiliserJetons();
 				break;
 			case 31:
 				// deplacer Sherlock
@@ -483,7 +487,7 @@ public class MainController implements Initializable{
 				((Button)e.getSource()).getStyleClass().add("Sherlock");
 				((Button) borderPane.lookup("#button"+oldPositionSherlock)).getStyleClass().removeAll("Sherlock");
 				disableTuilesInspect(true);
-				this.bValider.fire();
+				utiliserJetons();
 				break;
 			case 41:
 				//choisir inspecteurs
