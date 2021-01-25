@@ -106,17 +106,17 @@
             </HBox>
             <HBox prefHeight="75.0" prefWidth="150.0">
                <children>
-                  <Button fx:id="action21" mnemonicParsing="false" onAction="#deplacerTobi" prefHeight="75.0" prefWidth="75.0">
+                  <Button fx:id="action21" mnemonicParsing="false" onAction="#Button_deplacerTobi" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton2-1" /><String fx:value="Action" /></styleClass>
                   </Button>
-                  <Button fx:id="action22" mnemonicParsing="false" onAction="#deplacerWatson" prefHeight="75.0" prefWidth="75.0">
+                  <Button fx:id="action22" mnemonicParsing="false" onAction="#Button_deplacerWatson" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton2-2" /><String fx:value="Action" /></styleClass>
                   </Button>
                </children>
             </HBox>
             <HBox prefHeight="75.0" prefWidth="150.0">
                <children>
-                  <Button fx:id="action31" mnemonicParsing="false" onAction="#deplacerSherlock" prefHeight="75.0" prefWidth="75.0">
+                  <Button fx:id="action31" mnemonicParsing="false" onAction="#Button_deplacerSherlock" prefHeight="75.0" prefWidth="75.0">
                      <styleClass><String fx:value="Jeton3-1" /><String fx:value="Action" /></styleClass>
                   </Button>
                   <Button fx:id="action32" mnemonicParsing="false" onAction="#piocherCartes" prefHeight="75.0" prefWidth="75.0">
