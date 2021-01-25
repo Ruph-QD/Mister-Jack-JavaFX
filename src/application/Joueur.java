@@ -7,6 +7,7 @@ public class Joueur {
 	private int temps;			//Le nombre de sablier du joueur
 	
 	public Joueur(String nomJoueur, String role) {
+		//constructeur
 		this.nomJoueur=nomJoueur;
 		this.role=role;
 		this.alibi= null;
@@ -14,10 +15,12 @@ public class Joueur {
 	}
 
 	public void setAlibi(String alibi) {
+		//sert à donner un alibi à MrJAck
 		this.alibi= alibi;
 	}
 
 	public String getNom() {
+		//retourne le nom du joueur
 		return (this.nomJoueur);
 	}
 	
@@ -31,14 +34,17 @@ public class Joueur {
 	}
 	
 	public String getAlibi() {
+		//retourne l'alibi pour MrJack
 		return (this.alibi);
 	}
 
 	public int getTemps(){
+		//sert à obtenir le temps qu'a MrJack
 		return this.temps;
 	}
 
 	public void addTemps(int nombre){
+		//sert à augmenter de "nombre" le temps de MrJack
 		this.temps+=nombre;
 	}
 }

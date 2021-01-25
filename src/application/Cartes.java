@@ -5,7 +5,7 @@ public class Cartes {
     private final int nbTemps; //nombre de sablier sur la carte alibi
 
     public Cartes(String nom, int nbTemps){
-        //constructor
+        //constructeur
         this.nom=nom;
         this.nbTemps=nbTemps;
     }

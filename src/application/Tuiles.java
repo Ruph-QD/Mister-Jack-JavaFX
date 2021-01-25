@@ -1,7 +1,7 @@
 package application;
 
 public class Tuiles {
-	
+	//Nous avons décidé d'enregister les images avec leur rotations car cela est plus simple à gérer au lieu de le faire directement avec l'interface graphique
 	private String recto;
 	private String recto90;
 	private String recto180;
@@ -11,8 +11,8 @@ public class Tuiles {
 	private String verso180;
     private String verso270;
     private String imageAffichee;
-	private int position; //entre 1 et 9 pris aleatoirement
-	private int angle;
+	private int position; //entre 1 et 9 pris aleatoirement pour identifier sur quel case se situe la tuile
+	private int angle;	//l'angle va de 0 à 3 (recto, recto90, recto180, recto270) puis de 4 à 7 (verso, verso90, verso180, verso270). On trouve directement l'image grâce à l'angle
 	
 	public Tuiles(String recto, String recto90, String recto180, String recto270, String verso, String verso90, String verso180, String verso270) {      // On definit le constructeur de la classe Tuiles
 		this.recto = recto;
@@ -23,18 +23,7 @@ public class Tuiles {
 		this.verso90 = verso90;
 		this.verso180 = verso180;
 		this.verso270 = verso270;
-	}
-		
-	public Tuiles(String recto, String recto90, String recto180, String recto270, String verso, String verso90, String verso180, String verso270, int position) {      // On definit le constructeur de la classe Tuiles
-		this.recto = recto;
-		this.recto90 = recto90;
-		this.recto180 = recto180;
-		this.recto270 = recto270;
-		this.verso = verso;
-		this.verso90 = verso90;
-		this.verso180 = verso180;
-		this.verso270 = verso270;
-		this.position = position;
+		position = 0;
 	}
 	
 	public void setPosition(int position) {      	
@@ -54,6 +43,7 @@ public class Tuiles {
 	}
 
 	public String getImage(int num){
+		//retourne l'image correpsondante au numéro demandé
 		switch (num) {
 		case 0:
 			return this.recto;

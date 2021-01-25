@@ -11,9 +11,10 @@ public class Plateau {
 
 
     // Constructeurs 
-	public Plateau() {                    //Creation des elements de la classe plateau qui permettra d'afficher sur le plateau les elements suivants : 
+	public Plateau() {
+		//Creation des elements de la classe plateau qui permettra d'afficher sur le plateau les elements suivants : 
 		this.plateau = new ArrayList<Tuiles>();
-		this.plateau.add(new Tuiles("TLestrade","TLestrade90","TLestrade180","TLestrade270","Verso","Verso90","Verso180","Verso270",0));
+		this.plateau.add(new Tuiles("TLestrade","TLestrade90","TLestrade180","TLestrade270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TBert","TBert90","TBert180","TBert270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TGoodley","TGoodley90","TGoodley180","TGoodley270","Verso","Verso90","Verso180","Verso270"));
 		this.plateau.add(new Tuiles("TGull","TGull90","TGull180","TGull270","Verso","Verso90","Verso180","Verso270"));
@@ -24,22 +25,25 @@ public class Plateau {
 		this.plateau.add(new Tuiles("TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270"));
 		
 		
-		ArrayList<String> positionnement = new ArrayList<String>();									//tableau qui contient les positions (ne sert que pour l'initialisation du tableau)
+		ArrayList<String> positionnement = new ArrayList<String>();							//tableau qui contient les positions (ne sert que pour l'initialisation du tableau)
 		for (int k =1; k<9;k++){positionnement.add(Integer.toString(k));}				
 
 		
 		int indexMax= positionnement.size();
-		for (int k = 1; k<9; k++) { 
-			int index = (int)(Math.random()*indexMax);                                                        		// Parcours le placerTuile, placerTuile.get(k) on a la k-ieme Tuile
+
+		for (int k = 1; k<9; k++) {
+			//on pioche aléatoire dans les positions et on les attributs aux tuiles
+			int index = (int)(Math.random()*indexMax);
 			this.plateau.get(k).setPosition(Integer.parseInt(positionnement.get(index)));
 			positionnement.remove(index);
 			indexMax--;
 		}
 		
 		for (int k = 0; k<9; k++){	
+			//on donne des angles aléatoire aux tuiles
 			if (k!=1 && k!=3 && k!=6){
 				Random r = new Random();
-				this.plateau.get(k).setAngle(r.nextInt(4));																//prend un angle aleatoire entre 0 et 3 inclus
+				this.plateau.get(k).setAngle(r.nextInt(4));			//chiffre aleatoire entre 0 et 3 inclus
 			}
 			this.plateau.get(k).setImageAffichee(this.plateau.get(k).getImage(this.plateau.get(k).getAngle()));		//definis l'image qui doit etre affichee
 		}
@@ -58,24 +62,31 @@ public class Plateau {
 	} 
 	
 	
-	public void PivoterTuiles(Tuiles tuile) {
-		tuile.setAngle((tuile.getAngle()+1)%4);
+	public void PivoterTuiles(Tuiles tuile){
+		//on ajoute +1 à l'angle. On fait bien attenntion de traiter les deux cas possibles (tuile face recto ou face verso)
+		if (tuile.getAngle() < 4){
+			tuile.setAngle((tuile.getAngle()+1)%4);
+		}else{
+			tuile.setAngle(((tuile.getAngle()+1)%4)+4);
+		}
 		tuile.setImageAffichee(tuile.getImage(tuile.getAngle()));
 	}
 
-	public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {   // Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
+	public void IntervertirTuiles(Tuiles tuile1,Tuiles tuile2) {
+		// Methode pour intervertir deux tuiles apres l'utilisation du jeton action "echange" 	
 		int pos1 = tuile1.getPosition();
 		int pos2 = tuile2.getPosition();
-
+		//on switch leur position 
 		plateau.get(pos1).setPosition(pos2);
 		plateau.get(pos2).setPosition(pos1);
 
-		Collections.swap(plateau, pos1, pos2);
+		Collections.swap(plateau, pos1, pos2);	//on switch leur position dans le plateau
 	}
 	
 	public ArrayList<Tuiles> getPlateau() {
+		//Pour récupérer le plateau
 		return plateau;
 	}
 
 	
-}			
+}

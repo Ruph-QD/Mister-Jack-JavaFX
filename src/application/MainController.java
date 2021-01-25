@@ -476,8 +476,14 @@ public class MainController implements Initializable{
 		String[] positionInsp = {this.Watson.getPosition(), this.Tobi.getPosition(), this.Sherlock.getPosition()};
 		ArrayList<Tuiles> tuilesVisibles = new ArrayList<Tuiles>();
 		boolean mrJackVisible = false;
+		//un parcours de boucle sert à faire la vision d'un inspecteur
 		for (int k=0; k<3;k++){
 			switch (Integer.parseInt(positionInsp[k])) {
+				//Suivant la position on a 12 cas possibles
+				/**On regarde à chaque fois s'il y a un mur devant l'inspecteur. Si ce n'est pas le cas, on stoke la tuile dans tuilesVisibles
+				 * On regarde si le mur se trouve à l'opposé de l'inspecteur (donc angle+2) et si le mur de la prochaine tuile ne se toruve pas devant l'inspecteur. On stocke si ce n'est pas le cas
+				 * On refait la même opération que la dernière fois
+				*/
 				case 1:
 					if (this.listeTuiles.get(1).getMur() !=2){
 						tuilesVisibles.add(this.listeTuiles.get(1));
@@ -652,29 +658,34 @@ public class MainController implements Initializable{
 		}
 		String ancienneImage;
 		if (!mrJackVisible){
+			//si MrJack n'ets pas visible
 			for (int k =0; k<tuilesVisibles.size();k++){
 				if(tuilesVisibles.get(k).getAngle()<4){	
-					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle()+4);
+					//si la tuile n'est pas déjà retournée
+					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle()+4);	//on la retourne
 					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
-					tuilesVisibles.get(k).setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle()));
+					tuilesVisibles.get(k).setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle()));	//on change l'image affichée
+
 					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
 					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
 				}
 			}
 		}else{
+			//si MrJack est visible
 			for (int k =0;k<listeTuiles.size();k++){
 				if(!tuilesVisibles.contains(listeTuiles.get(k))){
-					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle()+4);
+					//on ne prends que les tuiles qui ne sont pas visibles
+					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle()+4);//on la retourne
 					ancienneImage = listeTuiles.get(k).getImageAffichee();
-					listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(listeTuiles.get(k).getAngle()));
+					listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(listeTuiles.get(k).getAngle()));	//on change l'image affichée
 					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().removeAll(ancienneImage);
 					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().addAll(listeTuiles.get(k).getImageAffichee());
 				}
 			}
-			this.joueur1.addTemps(1);
+			this.joueur1.addTemps(1);	//MrJack gagne un jeton temps
 		}
-		tuilesVisibles.clear();
-		this.tempsAffiche.setText("x " + this.joueur1.getTemps());
+		tuilesVisibles.clear();		//on nettoie le tableau
+		this.tempsAffiche.setText("x " + this.joueur1.getTemps());	//on met à jour l'affichage du temps
 	}
 
 	private static int RandInt(int min, int max) {
