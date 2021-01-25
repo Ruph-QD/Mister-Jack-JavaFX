@@ -20,6 +20,7 @@ public class MainController implements Initializable{
 	@FXML private TextField fieldJack;
 	@FXML private TextField fieldInspe;
 	@FXML private Button MrJack;
+	@FXML private Label tempsAffiche;
 //on recupere les boutons du plateau
 /*		01|02|03
 	12 |1 |2 |3 |04
@@ -67,6 +68,7 @@ public class MainController implements Initializable{
 	private Inspecteurs Tobi;
 	private Inspecteurs Sherlock;
 	private Inspecteurs Watson;
+
 	private int reset = 0;
 
 	private Plateau plateau;
@@ -136,8 +138,9 @@ public class MainController implements Initializable{
 		this.tuileSelectionne=new ArrayList<Button>();
 		//this.listeTuiles.get(1).setAngle(0);
 		//appelTemoin();
+		this.tempsAffiche.setText("x 0");
 	}
-	@FXML
+	
 	public void nouveauTour(){
 		int[] hazard = {RandInt(0,1),RandInt(0,1),RandInt(0,1),RandInt(0,1)};			//on g�n�re les jetons al�atoirements
 		if (hazard[0] == 0) {action11.setDisable(false);}else {action12.setDisable(false);}
@@ -195,7 +198,6 @@ public class MainController implements Initializable{
 		}
 	}
 
-	@FXML
 	public void disableAll(){
 		/**Disable tous les boutons */
 		button0.setDisable(true);button1.setDisable(true);button2.setDisable(true);button3.setDisable(true);button3.setDisable(true);button4.setDisable(true);button5.setDisable(true);button6.setDisable(true);button7.setDisable(true);button8.setDisable(true);
@@ -205,12 +207,10 @@ public class MainController implements Initializable{
 		MrJack.setDisable(true);
 	}
 
-	@FXML
 	public void enableTuiles(boolean bool){
 		button0.setDisable(!bool);button1.setDisable(!bool);button2.setDisable(!bool);button3.setDisable(!bool);button3.setDisable(!bool);button4.setDisable(!bool);button5.setDisable(!bool);button6.setDisable(!bool);button7.setDisable(!bool);button8.setDisable(!bool);
 	}
 	
-	@FXML
 	public void disableTuilesInspect(boolean bool){
 		button01.setDisable(bool);button02.setDisable(bool);button03.setDisable(bool);button04.setDisable(bool);button05.setDisable(bool);button06.setDisable(bool);button07.setDisable(bool);button08.setDisable(bool);button09.setDisable(bool);button10.setDisable(bool);button11.setDisable(bool);button12.setDisable(bool);
 	}
@@ -331,13 +331,21 @@ public class MainController implements Initializable{
 	@FXML
 	public void piocherCartes(ActionEvent e) {  // Methode pour piocher une carte alibi apres avoir appuye sur le jeton action piocher 
 		this.jetonSelect=32;
-		this.pioche.Piocher(this.joueurActuel);
-		//for(int k=0;k<this.pioche.getCartes().size();k++){System.out.println(this.pioche.getCartes().get(k).getNom());}
-		// If Mr Jack -> Rajouter des sabliers 
-		// If Inspecteur -> On innocente le perso pioche et on tourne sa carte
-		action32.setDisable(true);
-		//this.joueurActuel=(this.jetonsUtilise==1 || this.jetonsUtilise==3 ? (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1) : this.joueurActuel);
-		//this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+		String carte=this.pioche.Piocher(this.joueurActuel);
+		//on retroune la carte si c'est l'inspecteur
+		if (this.joueurActuel==joueur2){
+			for (int k =0;k<this.listeTuiles.size();k++){
+				if (this.listeTuiles.get(k).getImage(0).equals('T'+carte)){
+					this.listeTuiles.get(k).setAngle(this.listeTuiles.get(k).getAngle()+4);	//on change l'angle
+					this.listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(this.listeTuiles.get(k).getAngle()));	//on change l'image affichée par la console
+					//on change l'image affichée
+					((Button) borderPane.lookup("#button"+k)).getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
+					((Button) borderPane.lookup("#button"+k)).getStyleClass().addAll(this.listeTuiles.get(k).getImageAffichee());
+				}
+			}
+		}
+		this.tempsAffiche.setText("x " + joueur1.getTemps()); //on met à jour le temps affiché
+		this.action32.setDisable(true);
 		utiliserJetons();
 	}
 	
@@ -368,6 +376,7 @@ public class MainController implements Initializable{
 		switch(jetonSelect) {
 			case 11:
 				//intervertir Tuiles
+				//On doit appuyer deux fois pour effectuer le changement. La prmeière fois, la tuile est sauvegardée dans tuileSelectionne puis on fait l'inversion des deux styles
 				if (tuileSelectionne.size()>0){
 					this.tuileSelectionne.add((Button)e.getSource());
 					String style0 = this.tuileSelectionne.get(0).getStyleClass().get(2);
@@ -665,7 +674,7 @@ public class MainController implements Initializable{
 			this.joueur1.addTemps(1);
 		}
 		tuilesVisibles.clear();
-		System.out.println("temps : "+this.joueur1.getTemps());
+		this.tempsAffiche.setText("x " + this.joueur1.getTemps());
 	}
 
 	private static int RandInt(int min, int max) {
