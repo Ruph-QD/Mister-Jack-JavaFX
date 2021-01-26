@@ -151,7 +151,7 @@ public class MainController implements Initializable{
 		if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 	}
 	
-	public void finduJeu() { 																					//Voilà la fonction qui célèbre le vainqueur en fonction du résulat de l'ultime test
+	public void finduJeu() { 																					//Voilï¿½ la fonction qui cï¿½lï¿½bre le vainqueur en fonction du rï¿½sulat de l'ultime test
 		System.out.println("GAME OVER");
 		if (this.tours==8) {
 			this.joueurActu.setText("BRAVO aux inspecteurs qui GAGNENT cette partie");
@@ -167,28 +167,28 @@ public class MainController implements Initializable{
 	}
 	
 	public void utiliserJetons(){
-		if (this.joueur1.getTemps()>=8) {finduJeu();}															//on vérifie que Mr.Jack n'est pas gagner après chaque jetons
+		if (this.joueur1.getTemps()>=8) {finduJeu();}															//on vï¿½rifie que Mr.Jack n'est pas gagner aprï¿½s chaque jetons
 		switch(this.jetonsUtilise) {
 		
 			case 0:
-				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion N°1 des joueurs pour l'utilisation du prochain jetons
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion Nï¿½1 des joueurs pour l'utilisation du prochain jetons
 				this.joueurActu.setText("C'est Ã  " + this.joueurActuel.getNom() + " de jouer");
-				this.jetonsUtilise++;																			//chaque jeton est comptabilisé pour savoir comment se déroule de tour
+				this.jetonsUtilise++;																			//chaque jeton est comptabilisï¿½ pour savoir comment se dï¿½roule de tour
 				break;
 			case 1:
 				this.jetonsUtilise++;
 				break;
 			case 2:
-				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion N°2 des joueurs pour l'utilisation du prochain jetons
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion Nï¿½2 des joueurs pour l'utilisation du prochain jetons
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				this.jetonsUtilise++;
 				break;
 			case 3:
-				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion N°3 des joueurs pour l'utilisation du prochain jetons
+				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion Nï¿½3 des joueurs pour l'utilisation du prochain jetons
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
 				this.jetonsUtilise = 0;
 				this.tours++;																					//on passe au tours suivant
-				appelTemoin();																					//on lance l'appel à temoin à la fin de chaque tour
+				appelTemoin();																					//on lance l'appel ï¿½ temoin ï¿½ la fin de chaque tour
 				if (this.tours<8 && this.joueur1.getTemps()<8) {nouveauTour();}else {finduJeu();}				
 				break;
 		}
@@ -212,9 +212,10 @@ public class MainController implements Initializable{
 		enableTuiles(true);
 		action12.setDisable(true);
 	}
-	
-	public void Button_deplacerTobi(ActionEvent e) {deplacerTobi();}
+
 	@FXML
+	public void Button_deplacerTobi(ActionEvent e) {deplacerTobi();}
+	
 	public void deplacerTobi() {  		// Methode pour deplacer inspecteur Tobi de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=21;
 
@@ -243,11 +244,12 @@ public class MainController implements Initializable{
 		((Button) borderPane.lookup("#button"+pos1)).setDisable(false);
 		((Button) borderPane.lookup("#button"+pos2)).setDisable(false);
 
-		if (reset == 0) {action21.setDisable(true);}else {this.reset=0;} // si l'appel résulte du jetons choix de l'inspecteur, alors le jetons 21 ne doit pas être désactiver
+		if (reset == 0) {action21.setDisable(true);}else {this.reset=0;} // si l'appel rï¿½sulte du jetons choix de l'inspecteur, alors le jetons 21 ne doit pas ï¿½tre dï¿½sactiver
 	}
 	
-	public void Button_deplacerWatson(ActionEvent e) {deplacerWatson();}
 	@FXML
+	public void Button_deplacerWatson(ActionEvent e) {deplacerWatson();}
+	
 	public void deplacerWatson() {   // Methode pour deplacer inspecteur Watson de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=22;
 		
@@ -279,8 +281,9 @@ public class MainController implements Initializable{
 		if (reset == 0) {action22.setDisable(true);}else {this.reset=0;} //condition pour le choix des inspecteurs
 	}
 	
-	public void Button_deplacerSherlock(ActionEvent e) {deplacerSherlock();}
 	@FXML
+	public void Button_deplacerSherlock(ActionEvent e) {deplacerSherlock();}
+	
 	public void deplacerSherlock() {  // Methode pour deplacer inspecteur Sherlock de une ou deux cases apres avoir appuye sur son jeton
 		this.jetonSelect=31;
 		
@@ -321,9 +324,9 @@ public class MainController implements Initializable{
 			for (int k =0;k<this.listeTuiles.size();k++){
 				if (this.listeTuiles.get(k).getImage(0).equals('T'+carte)){
 					this.listeTuiles.get(k).setAngle(this.listeTuiles.get(k).getAngle()+4);	//on change l'angle
-					this.listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(this.listeTuiles.get(k).getAngle()));	//on change l'image affichée par la console
+					this.listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(this.listeTuiles.get(k).getAngle()));	//on change l'image affichï¿½e par la console
 					((Button) borderPane.lookup("#button"+k)).getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
-					((Button) borderPane.lookup("#button"+k)).getStyleClass().addAll(this.listeTuiles.get(k).getImageAffichee()); //on change l'image affichée par javaFX
+					((Button) borderPane.lookup("#button"+k)).getStyleClass().addAll(this.listeTuiles.get(k).getImageAffichee()); //on change l'image affichï¿½e par javaFX
 				}
 			}
 		}
@@ -374,7 +377,7 @@ public class MainController implements Initializable{
 					int numero0 = this.tuileSelectionne.get(0).getId().charAt(this.tuileSelectionne.get(0).getId().length()-1) - '0';
 					int numero1 = this.tuileSelectionne.get(1).getId().charAt(this.tuileSelectionne.get(1).getId().length()-1) - '0';
 
-					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1));							//on fait les modifications également sur les classe java (en console)
+					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1));							//on fait les modifications ï¿½galement sur les classe java (en console)
 
 					enableTuiles(false);
 					this.tuileSelectionne.clear();
@@ -384,7 +387,7 @@ public class MainController implements Initializable{
 				}
 				break;
 				
-			case 12://tourner Tuiles : la choix de la tuile à tourner se verouille au premier click mais la tuile peut encore être tounée à chque click jusqu'à validation
+			case 12://tourner Tuiles : la choix de la tuile ï¿½ tourner se verouille au premier click mais la tuile peut encore ï¿½tre tounï¿½e ï¿½ chque click jusqu'ï¿½ validation
 				enableTuiles(false);
 				((Button)e.getSource()).setDisable(false);
 				
@@ -432,16 +435,25 @@ public class MainController implements Initializable{
 				utiliserJetons();
 				break;
 				
-			case 41://choisir inspecteurs : On clique sur l'inspecteur que l'on souhaite déplacer
+			case 41://choisir inspecteurs : On clique sur l'inspecteur que l'on souhaite dï¿½placer
 				String nomInspecteur = ((Button)e.getSource()).getStyleClass().get(2);
 				if (nomInspecteur.equals("Tobi")){
-					this.reset=1;
+					this.reset=1;																			//reset sert Ã  indiquer qu'il ne faut pas dÃ©sactiver l'action de dÃ©placement unique
+					((Button) borderPane.lookup("#button"+this.Tobi.getPosition())).setDisable(true);		//on dÃ©sactive les boutons pour ne pas permettre d'aller sur un inspecteur
+					((Button) borderPane.lookup("#button"+this.Sherlock.getPosition())).setDisable(true);
+					((Button) borderPane.lookup("#button"+this.Watson.getPosition())).setDisable(true);
 					deplacerTobi();
 				}else if(nomInspecteur.equals("Sherlock")){
-					this.reset=1;
+					this.reset=1;																			//reset sert Ã  indiquer qu'il ne faut pas dÃ©sactiver l'action de dÃ©placement unique
+					((Button) borderPane.lookup("#button"+this.Tobi.getPosition())).setDisable(true);		//on dÃ©sactive les boutons pour ne pas permettre d'aller sur un inspecteur
+					((Button) borderPane.lookup("#button"+this.Sherlock.getPosition())).setDisable(true);
+					((Button) borderPane.lookup("#button"+this.Watson.getPosition())).setDisable(true);
 					deplacerSherlock();
 				}else{
-					this.reset=1;
+					this.reset=1;																			//reset sert Ã  indiquer qu'il ne faut pas dÃ©sactiver l'action de dÃ©placement unique
+					((Button) borderPane.lookup("#button"+this.Tobi.getPosition())).setDisable(true);		//on dÃ©sactive les boutons pour ne pas permettre d'aller sur un inspecteur
+					((Button) borderPane.lookup("#button"+this.Sherlock.getPosition())).setDisable(true);
+					((Button) borderPane.lookup("#button"+this.Watson.getPosition())).setDisable(true);
 					deplacerWatson();
 				}
 				break;	
@@ -681,7 +693,7 @@ public class MainController implements Initializable{
 		button01.setDisable(bool);button02.setDisable(bool);button03.setDisable(bool);button04.setDisable(bool);button05.setDisable(bool);button06.setDisable(bool);button07.setDisable(bool);button08.setDisable(bool);button09.setDisable(bool);button10.setDisable(bool);button11.setDisable(bool);button12.setDisable(bool);
 	}
 
-	private static int RandInt(int min, int max) { 	//génère un nombre aléatoire entier entre min et max
+	private static int RandInt(int min, int max) { 	//gï¿½nï¿½re un nombre alï¿½atoire entier entre min et max
 
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");}
