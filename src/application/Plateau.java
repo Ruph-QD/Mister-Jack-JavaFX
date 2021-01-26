@@ -63,7 +63,7 @@ public class Plateau {
 	
 	
 	public void PivoterTuiles(Tuiles tuile){
-		//on ajoute +1 à l'angle. On fait bien attenntion de traiter les deux cas possibles (tuile face recto ou face verso)
+		//on ajoute +1 a l'angle. On fait bien attenntion de traiter les deux cas possibles (tuile face recto ou face verso)
 		if (tuile.getAngle() < 4){
 			tuile.setAngle((tuile.getAngle()+1)%4);
 		}else{
@@ -80,7 +80,7 @@ public class Plateau {
 		plateau.get(pos1).setPosition(pos2);
 		plateau.get(pos2).setPosition(pos1);
 
-		Collections.swap(plateau, pos1, pos2);	//on switch leur position dans le plateau
+		Collections.swap(plateau, pos1, pos2);	//on echange leurs position dans le plateau
 	}
 	
 	public ArrayList<Tuiles> getPlateau() {

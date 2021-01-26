@@ -16,7 +16,7 @@ public class Main extends Application {
 		//on charge le fichier css
 		Scene Mainscene = new Scene(root);
 		Mainscene.getStylesheets().add(getClass().getResource("application.css").toString());
-		//on affiche la fenêtre
+		//on affiche la fenetre
 		primaryStage.setScene(Mainscene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
