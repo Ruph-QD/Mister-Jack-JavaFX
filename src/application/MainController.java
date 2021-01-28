@@ -148,7 +148,7 @@ public class MainController implements Initializable{
 		if (hazard[2] == 0) {action31.setDisable(false);}else {action32.setDisable(false);}
 		if (hazard[3] == 0) {action41.setDisable(false);}else {action42.setDisable(false);}
 		
-		if (this.tours%2 == 0) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
+		if (this.tours%2 == 1) {joueurActuel = joueur1;}else {joueurActuel = joueur2;}
 	}
 	
 	public void finduJeu() { 																					//Voil� la fonction qui c�l�bre le vainqueur en fonction du r�sulat de l'ultime test
@@ -164,6 +164,7 @@ public class MainController implements Initializable{
 	public void Validation(ActionEvent e){
 		enableTuiles(false);
 		utiliserJetons();
+		this.bValider.setDisable(true);
 	}
 	
 	public void utiliserJetons(){
@@ -322,7 +323,7 @@ public class MainController implements Initializable{
 		String carte=this.pioche.Piocher(this.joueurActuel);
 		if (this.joueurActuel==joueur2){					//on retroune la carte si c'est l'inspecteur
 			for (int k =0;k<this.listeTuiles.size();k++){
-				if (this.listeTuiles.get(k).getImage(0).equals('T'+carte)){
+				if (this.listeTuiles.get(k).getImage(0).equals('T'+carte) && this.listeTuiles.get(k).getAngle()<4 ){
 					this.listeTuiles.get(k).setAngle(this.listeTuiles.get(k).getAngle()+4);	//on change l'angle
 					this.listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(this.listeTuiles.get(k).getAngle()));	//on change l'image affich�e par la console
 					((Button) borderPane.lookup("#button"+k)).getStyleClass().removeAll("TBert","TBert90","TBert180","TBert270","TGoodley","TGoodley90","TGoodley180","TGoodley270","TGull","TGull90","TGull180","TGull270","TLane","TLane90","TLane180","TLane270","TLestrade","TLestrade90","TLestrade180","TLestrade270","TMadame","TMadame90","TMadame180","TMadame270","TPizer","TPizer90","TPizer180","TPizer270","TSmith","TSmith90","TSmith180","TSmith270","TStealthy","TStealthy90","TStealthy180","TStealthy270","Verso","Verso90","Verso180","Verso270","Middle_verso");
@@ -477,13 +478,13 @@ public class MainController implements Initializable{
 				case 1:
 					if (this.listeTuiles.get(1).getMur() !=2){
 						tuilesVisibles.add(this.listeTuiles.get(1));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(1).getMur() !=0 && this.listeTuiles.get(8).getMur() !=2){
 							tuilesVisibles.add(this.listeTuiles.get(8));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(8).getMur() !=0 && this.listeTuiles.get(7).getMur() !=2){
 								tuilesVisibles.add(this.listeTuiles.get(7));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -491,13 +492,13 @@ public class MainController implements Initializable{
 				case 2:
 					if (this.listeTuiles.get(2).getMur() !=2){
 						tuilesVisibles.add(this.listeTuiles.get(2));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(2).getMur() !=0 && this.listeTuiles.get(0).getMur() !=2){
 							tuilesVisibles.add(this.listeTuiles.get(0));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(0).getMur() !=0 && this.listeTuiles.get(6).getMur() !=2){
 								tuilesVisibles.add(this.listeTuiles.get(6));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -505,13 +506,13 @@ public class MainController implements Initializable{
 				case 3:
 					if (this.listeTuiles.get(3).getMur() !=2){
 						tuilesVisibles.add(this.listeTuiles.get(3));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(3).getMur() !=0 && this.listeTuiles.get(4).getMur() !=2){
 							tuilesVisibles.add(this.listeTuiles.get(4));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(4).getMur() !=0 && this.listeTuiles.get(5).getMur() !=2){
 								tuilesVisibles.add(this.listeTuiles.get(5));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -519,13 +520,13 @@ public class MainController implements Initializable{
 				case 4:
 					if (this.listeTuiles.get(3).getMur() !=3){
 						tuilesVisibles.add(this.listeTuiles.get(3));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(3).getMur() !=1 && this.listeTuiles.get(2).getMur() !=3){
 							tuilesVisibles.add(this.listeTuiles.get(2));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(2).getMur() !=1 && this.listeTuiles.get(1).getMur() !=3){
 								tuilesVisibles.add(this.listeTuiles.get(1));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -533,13 +534,13 @@ public class MainController implements Initializable{
 				case 5:
 					if (this.listeTuiles.get(4).getMur() !=3){
 						tuilesVisibles.add(this.listeTuiles.get(4));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(4).getMur() !=1 && this.listeTuiles.get(0).getMur() !=3){
 							tuilesVisibles.add(this.listeTuiles.get(0));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(01).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(0).getMur() !=1 && this.listeTuiles.get(8).getMur() !=3){
 								tuilesVisibles.add(this.listeTuiles.get(8));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -547,13 +548,13 @@ public class MainController implements Initializable{
 				case 6:
 					if (this.listeTuiles.get(5).getMur() !=3){
 						tuilesVisibles.add(this.listeTuiles.get(5));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(5).getMur() !=1 && this.listeTuiles.get(6).getMur() !=3){
 							tuilesVisibles.add(this.listeTuiles.get(6));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(6).getMur() !=1 && this.listeTuiles.get(7).getMur() !=3){
 								tuilesVisibles.add(this.listeTuiles.get(7));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -561,13 +562,13 @@ public class MainController implements Initializable{
 				case 7:
 					if (this.listeTuiles.get(5).getMur() !=0){
 						tuilesVisibles.add(this.listeTuiles.get(5));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(5).getMur() !=2 && this.listeTuiles.get(4).getMur() !=0){
 							tuilesVisibles.add(this.listeTuiles.get(4));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(4).getMur() !=2 && this.listeTuiles.get(3).getMur() !=0){
 								tuilesVisibles.add(this.listeTuiles.get(3));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(3).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -575,13 +576,13 @@ public class MainController implements Initializable{
 				case 8:
 					if (this.listeTuiles.get(6).getMur() !=0){
 						tuilesVisibles.add(this.listeTuiles.get(6));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(6).getMur() !=2 && this.listeTuiles.get(0).getMur() !=0){
 							tuilesVisibles.add(this.listeTuiles.get(0));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(0).getMur() !=2 && this.listeTuiles.get(2).getMur() !=0){
 								tuilesVisibles.add(this.listeTuiles.get(2));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(2).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -589,13 +590,13 @@ public class MainController implements Initializable{
 				case 9:
 					if (this.listeTuiles.get(7).getMur() !=0){
 						tuilesVisibles.add(this.listeTuiles.get(7));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(7).getMur() !=2 && this.listeTuiles.get(8).getMur() !=0){
 							tuilesVisibles.add(this.listeTuiles.get(8));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(8).getMur() !=2 && this.listeTuiles.get(1).getMur() !=0){
 								tuilesVisibles.add(this.listeTuiles.get(1));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(1).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -603,13 +604,13 @@ public class MainController implements Initializable{
 				case 10:
 					if (this.listeTuiles.get(7).getMur() !=1){
 						tuilesVisibles.add(this.listeTuiles.get(7));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(7).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(7).getMur() !=3 && this.listeTuiles.get(6).getMur() !=1){
 							tuilesVisibles.add(this.listeTuiles.get(6));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(6).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(6).getMur() !=3 && this.listeTuiles.get(5).getMur() !=1){
 								tuilesVisibles.add(this.listeTuiles.get(5));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(5).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
@@ -617,13 +618,13 @@ public class MainController implements Initializable{
 				case 11:
 					if (this.listeTuiles.get(8).getMur() !=1){
 						tuilesVisibles.add(this.listeTuiles.get(8));
-						mrJackVisible = (!mrJackVisible && this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()));
+						mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(8).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 						if (this.listeTuiles.get(8).getMur() !=3 && this.listeTuiles.get(0).getMur() !=1){
 							tuilesVisibles.add(this.listeTuiles.get(0));
-							mrJackVisible = (!mrJackVisible && this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()));
+							mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(0).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							if (this.listeTuiles.get(0).getMur() !=3 && this.listeTuiles.get(4).getMur() !=1){
 								tuilesVisibles.add(this.listeTuiles.get(4));
-								mrJackVisible = (!mrJackVisible && this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()));
+								mrJackVisible = (mrJackVisible==false ? this.listeTuiles.get(4).getImage(0).equals("T"+joueur1.getAlibi()) : true);
 							}
 						}
 					}
