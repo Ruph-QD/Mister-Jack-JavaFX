@@ -321,6 +321,7 @@ public class MainController implements Initializable{
 		this.jetonSelect=32;
 		
 		String carte=this.pioche.Piocher(this.joueurActuel);
+		System.out.println(carte);
 		if (this.joueurActuel==joueur2){					//on retroune la carte si c'est l'inspecteur
 			for (int k =0;k<this.listeTuiles.size();k++){
 				if (this.listeTuiles.get(k).getImage(0).equals('T'+carte) && this.listeTuiles.get(k).getAngle()<4 ){
@@ -382,6 +383,7 @@ public class MainController implements Initializable{
 
 					enableTuiles(false);
 					this.tuileSelectionne.clear();
+					utiliserJetons();
 				}else{
 					this.tuileSelectionne.add((Button)e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
@@ -660,10 +662,11 @@ public class MainController implements Initializable{
 					((Button) borderPane.lookup("#button"+ Integer.toString(tuilesVisibles.get(k).getPosition()))).getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
 				}
 			}
+			this.joueur1.addTemps(1);				//MrJack gagne un jeton temps
 		}else{ 										//si MrJack est visible
 			for (int k =0;k<listeTuiles.size();k++){
-				if(!tuilesVisibles.contains(listeTuiles.get(k))){
-													//on ne prends que les tuiles qui ne sont pas visibles
+				if(!tuilesVisibles.contains(listeTuiles.get(k)) && listeTuiles.get(k).getAngle()<4){
+													//on ne prends que les tuiles qui ne sont pas visibles et pas retournées
 					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle()+4);//on la retourne
 					ancienneImage = listeTuiles.get(k).getImageAffichee();
 					listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(listeTuiles.get(k).getAngle()));	//on change l'image affichée
@@ -671,7 +674,6 @@ public class MainController implements Initializable{
 					((Button) borderPane.lookup("#button"+ Integer.toString(listeTuiles.get(k).getPosition()))).getStyleClass().addAll(listeTuiles.get(k).getImageAffichee());
 				}
 			}
-			this.joueur1.addTemps(1);				//MrJack gagne un jeton temps
 		}
 		tuilesVisibles.clear();						//on nettoie le tableau
 		this.tempsAffiche.setText("x " + this.joueur1.getTemps());	//on meta jour l'affichage du temps
