@@ -1,124 +1,506 @@
 /*Pour l'arrière plan du jeu*/
 #BorderPane {
-    -fx-background-image: url('../districts/background.jpg');
-    background-image: url('../districts/background.jpg');
-    -fx-background-position: center center;
-    background-position: center center;
-    -fx-background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    -fx-background-size: cover;
-    background-size: cover;
+	-fx-background-image: url('../districts/background.jpg');
+	background-image: url('../districts/background.jpg');
+	-fx-background-position: center center;
+	background-position: center center;
+	-fx-background-repeat: no-repeat;
+	background-repeat: no-repeat;
+	-fx-background-size: cover;
+	background-size: cover;
 }
 
 
 /*Permet de rendre les tuiles moins visibles quand elles sont désactivées*/
-.tuileButton:disabled{
-    -fx-opacity: 0.7;
-    opacity: 0.7;
+.tuileButton:disabled {
+	-fx-opacity: 0.7;
+	opacity: 0.7;
 }
 
 
 /*Styles des cartes alibi*/
-.Alibi{-fx-background-image: url('../alibis/alibi-card.png');    background-image: url('../alibis/alibi-card.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Lestrade{-fx-background-image: url('../alibis/InspLestrade-alibi.png');    background-image: url('../alibis/InspLestrade-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Bert{-fx-background-image: url('../alibis/JeremyBert-alibi.png');    background-image: url('../alibis/JeremyBert-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Pizer{-fx-background-image: url('../alibis/JohnPizer-alibi.png');    background-image: url('../alibis/JohnPizer-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Smith{-fx-background-image: url('../alibis/JohnSmith-alibi.png');    background-image: url('../alibis/JohnSmith-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Lane{-fx-background-image: url('../alibis/JosephLane-alibi.png');    background-image: url('../alibis/JosephLane-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Madame{-fx-background-image: url('../alibis/Madame-alibi.png');    background-image: url('../alibis/Madame-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Stealthy{-fx-background-image: url('../alibis/MissStealthy-alibi.png');    background-image: url('../alibis/MissStealthy-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Goodley{-fx-background-image: url('../alibis/SgtGoodley-alibi.png');    background-image: url('../alibis/SgtGoodley-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
-.Gull{-fx-background-image: url('../alibis/WilliamGull-alibi.png');    background-image: url('../alibis/WilliamGull-alibi.png');  -fx-background-size: cover;   background-size:    cover;  -fx-opacity: 0.7;   opacity: 0.7;}
+.Alibi {
+	-fx-background-image: url('../alibis/alibi-card.png');
+	background-image: url('../alibis/alibi-card.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Lestrade {
+	-fx-background-image: url('../alibis/InspLestrade-alibi.png');
+	background-image: url('../alibis/InspLestrade-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Bert {
+	-fx-background-image: url('../alibis/JeremyBert-alibi.png');
+	background-image: url('../alibis/JeremyBert-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Pizer {
+	-fx-background-image: url('../alibis/JohnPizer-alibi.png');
+	background-image: url('../alibis/JohnPizer-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Smith {
+	-fx-background-image: url('../alibis/JohnSmith-alibi.png');
+	background-image: url('../alibis/JohnSmith-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Lane {
+	-fx-background-image: url('../alibis/JosephLane-alibi.png');
+	background-image: url('../alibis/JosephLane-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Madame {
+	-fx-background-image: url('../alibis/Madame-alibi.png');
+	background-image: url('../alibis/Madame-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Stealthy {
+	-fx-background-image: url('../alibis/MissStealthy-alibi.png');
+	background-image: url('../alibis/MissStealthy-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Goodley {
+	-fx-background-image: url('../alibis/SgtGoodley-alibi.png');
+	background-image: url('../alibis/SgtGoodley-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.Gull {
+	-fx-background-image: url('../alibis/WilliamGull-alibi.png');
+	background-image: url('../alibis/WilliamGull-alibi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+	-fx-opacity: 0.7;
+	opacity: 0.7;
+}
 
 
 
 /*Styles des boutons inspecteurs*/
 .inspecteurButton:focused {
-    -fx-border-color: transparent, black;
-    border-color: transparent, black;
+	-fx-border-color: transparent, black;
+	border-color: transparent, black;
 }
+
 .inspecteurButton:pressed {
-    -fx-background-color: black;
-    background-color: black;
+	-fx-background-color: black;
+	background-color: black;
 }
-.inspecteurButton:disabled{
-    -fx-background-color: transparent;
-    background-color: transparent;
-    -fx-opacity:1;
-    opacity: 1;
+
+.inspecteurButton:disabled {
+	-fx-background-color: transparent;
+	background-color: transparent;
+	-fx-opacity: 1;
+	opacity: 1;
 }
-.Sherlock{-fx-background-image: url('../detectives/Sherlock.png');    background-image: url('../detectives/Sherlock.png');  -fx-background-size: cover;   background-size: cover;}
-.Tobi{-fx-background-image: url('../detectives/Tobi.png');    background-image: url('../detectives/Tobi.png');  -fx-background-size: cover;   background-size: cover;}
-.Watson{-fx-background-image: url('../detectives/Watson.png');    background-image: url('../detectives/Watson.png');  -fx-background-size: cover;   background-size: cover;}
+
+.Sherlock {
+	-fx-background-image: url('../detectives/Sherlock.png');
+	background-image: url('../detectives/Sherlock.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Tobi {
+	-fx-background-image: url('../detectives/Tobi.png');
+	background-image: url('../detectives/Tobi.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Watson {
+	-fx-background-image: url('../detectives/Watson.png');
+	background-image: url('../detectives/Watson.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
 
 
 /*Styles des différentes tuiles pour les boutons tuiles*/
-.TBert {-fx-background-image: url('../districts/TBert.png');    background-image: url('../districts/TBert.png');  -fx-background-size: cover;   background-size: cover; }
-.TBert90 {-fx-background-image: url('../districts/TBertR90.png');   background-image: url('../districts/TBertR90.png');  -fx-background-size: cover;    background-size: cover; }
-.TBert180 {-fx-background-image: url('../districts/TBertR180.png'); background-image: url('../districts/TBertR180.png');  -fx-background-size: cover;   background-size: cover; }
-.TBert270 {-fx-background-image: url('../districts/TBertR270.png'); background-image: url('../districts/TBertR270.png');  -fx-background-size: cover;   background-size: cover; }
+.TBert {
+	-fx-background-image: url('../districts/TBert.png');
+	background-image: url('../districts/TBert.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TGoodley {    -fx-background-image: url('../districts/TGoodley.png');    background-image: url('../districts/TGoodley.png');      -fx-background-size: cover;    background-size: cover; }
-.TGoodley90 {    -fx-background-image: url('../districts/TGoodleyR90.png');    background-image: url('../districts/TGoodleyR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TGoodley180 {    -fx-background-image: url('../districts/TGoodleyR180.png');    background-image: url('../districts/TGoodleyR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TGoodley270 {    -fx-background-image: url('../districts/TGoodleyR270.png');    background-image: url('../districts/TGoodleyR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TBert90 {
+	-fx-background-image: url('../districts/TBertR90.png');
+	background-image: url('../districts/TBertR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TGull {    -fx-background-image: url('../districts/TGull.png');    background-image: url('../districts/TGull.png');      -fx-background-size: cover;    background-size: cover; }
-.TGull90 {    -fx-background-image: url('../districts/TGullR90.png');    background-image: url('../districts/TGullR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TGull180 {    -fx-background-image: url('../districts/TGullR180.png');    background-image: url('../districts/TGullR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TGull270 {    -fx-background-image: url('../districts/TGullR270.png');    background-image: url('../districts/TGullR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TBert180 {
+	-fx-background-image: url('../districts/TBertR180.png');
+	background-image: url('../districts/TBertR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TLane {    -fx-background-image: url('../districts/TLane.png');    background-image: url('../districts/TLane.png');      -fx-background-size: cover;    background-size: cover; }
-.TLane90 {    -fx-background-image: url('../districts/TLaneR90.png');    background-image: url('../districts/TLaneR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TLane180 {    -fx-background-image: url('../districts/TLaneR180.png');    background-image: url('../districts/TLaneR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TLane270 {    -fx-background-image: url('../districts/TLaneR270.png');    background-image: url('../districts/TLaneR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TBert270 {
+	-fx-background-image: url('../districts/TBertR270.png');
+	background-image: url('../districts/TBertR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TLestrade {    -fx-background-image: url('../districts/TLestrade.png');    background-image: url('../districts/TLestrade.png');      -fx-background-size: cover;    background-size: cover; }
-.TLestrade90 {    -fx-background-image: url('../districts/TLestradeR90.png');    background-image: url('../districts/TLestradeR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TLestrade180 {    -fx-background-image: url('../districts/TLestradeR180.png');    background-image: url('../districts/TLestradeR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TLestrade270 {    -fx-background-image: url('../districts/TLestradeR270.png');    background-image: url('../districts/TLestradeR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley {
+	-fx-background-image: url('../districts/TGoodley.png');
+	background-image: url('../districts/TGoodley.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TMadame {    -fx-background-image: url('../districts/TMadame.png');    background-image: url('../districts/TMadame.png');      -fx-background-size: cover;    background-size: cover; }
-.TMadame90 {    -fx-background-image: url('../districts/TMadameR90.png');    background-image: url('../districts/TMadameR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TMadame180 {    -fx-background-image: url('../districts/TMadameR180.png');    background-image: url('../districts/TMadameR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TMadame270 {    -fx-background-image: url('../districts/TMadameR270.png');    background-image: url('../districts/TMadameR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley90 {
+	-fx-background-image: url('../districts/TGoodleyR90.png');
+	background-image: url('../districts/TGoodleyR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TPizer {    -fx-background-image: url('../districts/TPizer.png');    background-image: url('../districts/TPizer.png');      -fx-background-size: cover;    background-size: cover; }
-.TPizer90 {    -fx-background-image: url('../districts/TPizerR90.png');    background-image: url('../districts/TPizerR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TPizer180 {    -fx-background-image: url('../districts/TPizerR180.png');    background-image: url('../districts/TPizerR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TPizer270 {    -fx-background-image: url('../districts/TPizerR270.png');    background-image: url('../districts/TPizerR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley180 {
+	-fx-background-image: url('../districts/TGoodleyR180.png');
+	background-image: url('../districts/TGoodleyR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TSmith {    -fx-background-image: url('../districts/TSmith.png');    background-image: url('../districts/TSmith.png');      -fx-background-size: cover;    background-size: cover; }
-.TSmith90 {    -fx-background-image: url('../districts/TSmithR90.png');    background-image: url('../districts/TSmithR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TSmith180 {    -fx-background-image: url('../districts/TSmithR180.png');    background-image: url('../districts/TSmithR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TSmith270 {    -fx-background-image: url('../districts/TSmithR270.png');    background-image: url('../districts/TSmithR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TGoodley270 {
+	-fx-background-image: url('../districts/TGoodleyR270.png');
+	background-image: url('../districts/TGoodleyR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.TStealthy {    -fx-background-image: url('../districts/TStealthy.png');    background-image: url('../districts/TStealthy.png');      -fx-background-size: cover;    background-size: cover; }
-.TStealthy90 {    -fx-background-image: url('../districts/TStealthyR90.png');    background-image: url('../districts/TStealthyR90.png');      -fx-background-size: cover;    background-size: cover; }
-.TStealthy180 {    -fx-background-image: url('../districts/TStealthyR180.png');    background-image: url('../districts/TStealthyR180.png');      -fx-background-size: cover;    background-size: cover; }
-.TStealthy270 {    -fx-background-image: url('../districts/TStealthyR270.png');    background-image: url('../districts/TStealthyR270.png');      -fx-background-size: cover;    background-size: cover; }
+.TGull {
+	-fx-background-image: url('../districts/TGull.png');
+	background-image: url('../districts/TGull.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.Verso {    -fx-background-image: url('../districts/Verso.png');    background-image: url('../districts/Verso.png');      -fx-background-size: cover;    background-size: cover; }
-.Verso90 {    -fx-background-image: url('../districts/VersoR90.png');    background-image: url('../districts/VersoR90.png');      -fx-background-size: cover;    background-size: cover; }
-.Verso180 {    -fx-background-image: url('../districts/VersoR180.png');    background-image: url('../districts/VersoR180.png');      -fx-background-size: cover;    background-size: cover; }
-.Verso270 {    -fx-background-image: url('../districts/VersoR270.png');    background-image: url('../districts/VersoR270.png');      -fx-background-size: cover;    background-size: cover; }
-.Middle_verso {    -fx-background-image: url('../districts/Middle_verso.png');    background-image: url('../districts/Middle_verso.png');      -fx-background-size: cover;    background-size: cover; }
+.TGull90 {
+	-fx-background-image: url('../districts/TGullR90.png');
+	background-image: url('../districts/TGullR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TGull180 {
+	-fx-background-image: url('../districts/TGullR180.png');
+	background-image: url('../districts/TGullR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TGull270 {
+	-fx-background-image: url('../districts/TGullR270.png');
+	background-image: url('../districts/TGullR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLane {
+	-fx-background-image: url('../districts/TLane.png');
+	background-image: url('../districts/TLane.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLane90 {
+	-fx-background-image: url('../districts/TLaneR90.png');
+	background-image: url('../districts/TLaneR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLane180 {
+	-fx-background-image: url('../districts/TLaneR180.png');
+	background-image: url('../districts/TLaneR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLane270 {
+	-fx-background-image: url('../districts/TLaneR270.png');
+	background-image: url('../districts/TLaneR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLestrade {
+	-fx-background-image: url('../districts/TLestrade.png');
+	background-image: url('../districts/TLestrade.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLestrade90 {
+	-fx-background-image: url('../districts/TLestradeR90.png');
+	background-image: url('../districts/TLestradeR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLestrade180 {
+	-fx-background-image: url('../districts/TLestradeR180.png');
+	background-image: url('../districts/TLestradeR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TLestrade270 {
+	-fx-background-image: url('../districts/TLestradeR270.png');
+	background-image: url('../districts/TLestradeR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TMadame {
+	-fx-background-image: url('../districts/TMadame.png');
+	background-image: url('../districts/TMadame.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TMadame90 {
+	-fx-background-image: url('../districts/TMadameR90.png');
+	background-image: url('../districts/TMadameR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TMadame180 {
+	-fx-background-image: url('../districts/TMadameR180.png');
+	background-image: url('../districts/TMadameR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TMadame270 {
+	-fx-background-image: url('../districts/TMadameR270.png');
+	background-image: url('../districts/TMadameR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TPizer {
+	-fx-background-image: url('../districts/TPizer.png');
+	background-image: url('../districts/TPizer.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TPizer90 {
+	-fx-background-image: url('../districts/TPizerR90.png');
+	background-image: url('../districts/TPizerR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TPizer180 {
+	-fx-background-image: url('../districts/TPizerR180.png');
+	background-image: url('../districts/TPizerR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TPizer270 {
+	-fx-background-image: url('../districts/TPizerR270.png');
+	background-image: url('../districts/TPizerR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TSmith {
+	-fx-background-image: url('../districts/TSmith.png');
+	background-image: url('../districts/TSmith.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TSmith90 {
+	-fx-background-image: url('../districts/TSmithR90.png');
+	background-image: url('../districts/TSmithR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TSmith180 {
+	-fx-background-image: url('../districts/TSmithR180.png');
+	background-image: url('../districts/TSmithR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TSmith270 {
+	-fx-background-image: url('../districts/TSmithR270.png');
+	background-image: url('../districts/TSmithR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TStealthy {
+	-fx-background-image: url('../districts/TStealthy.png');
+	background-image: url('../districts/TStealthy.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TStealthy90 {
+	-fx-background-image: url('../districts/TStealthyR90.png');
+	background-image: url('../districts/TStealthyR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TStealthy180 {
+	-fx-background-image: url('../districts/TStealthyR180.png');
+	background-image: url('../districts/TStealthyR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.TStealthy270 {
+	-fx-background-image: url('../districts/TStealthyR270.png');
+	background-image: url('../districts/TStealthyR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Verso {
+	-fx-background-image: url('../districts/Verso.png');
+	background-image: url('../districts/Verso.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Verso90 {
+	-fx-background-image: url('../districts/VersoR90.png');
+	background-image: url('../districts/VersoR90.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Verso180 {
+	-fx-background-image: url('../districts/VersoR180.png');
+	background-image: url('../districts/VersoR180.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Verso270 {
+	-fx-background-image: url('../districts/VersoR270.png');
+	background-image: url('../districts/VersoR270.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Middle_verso {
+	-fx-background-image: url('../districts/Middle_verso.png');
+	background-image: url('../districts/Middle_verso.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
 
 
 
 /*Style pour les boutons actions*/
-.Jeton1-1{    -fx-background-image: url('../actions/Jeton1-Face1.png');    background-image: url('../actions/Jeton1-Face1.png');    -fx-background-size: cover;    background-size: cover;}
-.Jeton1-2{    -fx-background-image: url('../actions/Jeton1-Face2.png');    background-image: url('../actions/Jeton1-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton1-1 {
+	-fx-background-image: url('../actions/Jeton1-Face1.png');
+	background-image: url('../actions/Jeton1-Face1.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.Jeton2-1{    -fx-background-image: url('../actions/Jeton2-Face1.png');    background-image: url('../actions/Jeton2-Face1.png');    -fx-background-size: cover;    background-size: cover;}
-.Jeton2-2{    -fx-background-image: url('../actions/Jeton2-Face2.png');    background-image: url('../actions/Jeton2-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton1-2 {
+	-fx-background-image: url('../actions/Jeton1-Face2.png');
+	background-image: url('../actions/Jeton1-Face2.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.Jeton3-1{    -fx-background-image: url('../actions/Jeton3-Face1.png');    background-image: url('../actions/Jeton3-Face1.png');    -fx-background-size: cover;    background-size: cover;}
-.Jeton3-2{    -fx-background-image: url('../actions/Jeton3-Face2.png');    background-image: url('../actions/Jeton3-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton2-1 {
+	-fx-background-image: url('../actions/Jeton2-Face1.png');
+	background-image: url('../actions/Jeton2-Face1.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.Jeton4-1{    -fx-background-image: url('../actions/Jeton4-Face1.png');    background-image: url('../actions/Jeton4-Face1.png');    -fx-background-size: cover;    background-size: cover;}
-.Jeton4-2{    -fx-background-image: url('../actions/Jeton4-Face2.png');    background-image: url('../actions/Jeton4-Face2.png');    -fx-background-size: cover;    background-size: cover;}
+.Jeton2-2 {
+	-fx-background-image: url('../actions/Jeton2-Face2.png');
+	background-image: url('../actions/Jeton2-Face2.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
 
-.Action:disabled{    -fx-opacity: 0;    opacity: 0;}
+.Jeton3-1 {
+	-fx-background-image: url('../actions/Jeton3-Face1.png');
+	background-image: url('../actions/Jeton3-Face1.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Jeton3-2 {
+	-fx-background-image: url('../actions/Jeton3-Face2.png');
+	background-image: url('../actions/Jeton3-Face2.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Jeton4-1 {
+	-fx-background-image: url('../actions/Jeton4-Face1.png');
+	background-image: url('../actions/Jeton4-Face1.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Jeton4-2 {
+	-fx-background-image: url('../actions/Jeton4-Face2.png');
+	background-image: url('../actions/Jeton4-Face2.png');
+	-fx-background-size: cover;
+	background-size: cover;
+}
+
+.Action:disabled {
+	-fx-opacity: 0;
+	opacity: 0;
+}
