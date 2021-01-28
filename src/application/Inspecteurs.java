@@ -2,7 +2,7 @@ package application;
 
 public class Inspecteurs {
 	
-	// ICI variables à definir pour les inspecteurs 
+	// ICI variables a definir pour les inspecteurs 
 	private String position;
 	private String nom;       
 	

@@ -39,12 +39,12 @@ public class Joueur {
 	}
 
 	public int getTemps(){
-		//sert à obtenir le temps qu'a MrJack
+		//sert a obtenir le temps qu'a MrJack
 		return this.temps;
 	}
 
 	public void addTemps(int nombre){
-		//sert à augmenter de "nombre" le temps de MrJack
+		//sert a augmenter de "nombre" le temps de MrJack
 		this.temps+=nombre;
 	}
 }

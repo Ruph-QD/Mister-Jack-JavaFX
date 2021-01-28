@@ -20,16 +20,16 @@ public class Pioche {
     }
     
     public String Piocher(Joueur joueur){
-        /**Sert à piocher une carte dans le paquet. S'il s'agit de la première fois, la carte est l'identité de MrJack.
+        /**Sert à piocher une carte dans le paquet. S'il s'agit de la premiere fois, la carte est l'identite de MrJack.
          * Sinon on ajoute le temps sur la carte (MRJack) ou retourne le nom d'une tuile (Inspecteur)*/
-        int indexMax= this.enJeu.size();                //on récupère la taille du paquet
+        int indexMax= this.enJeu.size();                //on recupere la taille du paquet
         int index = (int)(Math.random()*indexMax);      //on prendsd un entier aléatoire
 
         int temps=this.enJeu.get(index).getTemps();     //on recupere le temps de la carte
         String nom = this.enJeu.get(index).getNom();    //on recupere le nom de la carte
 
         this.enJeu.remove(index);       //on enleve la carte du paquet
-        if (indexMax==9) {              //première fois qu'on pioche dans le paquet
+        if (indexMax==9) {              //premiere fois qu'on pioche dans le paquet
             joueur.setAlibi(nom);       //on definit le nom de carte du joueur MrJack
             return null;
         }

@@ -1,7 +1,7 @@
 package application;
 
 public class Tuiles {
-	//Nous avons décidé d'enregister les images avec leur rotations car cela est plus simple à gérer au lieu de le faire directement avec l'interface graphique
+	//Nous avons decide d'enregister les images avec leur rotations car cela est plus simple a gerer au lieu de le faire directement avec l'interface graphique
 	private String recto;
 	private String recto90;
 	private String recto180;
@@ -12,7 +12,7 @@ public class Tuiles {
     private String verso270;
     private String imageAffichee;
 	private int position; //entre 1 et 9 pris aleatoirement pour identifier sur quel case se situe la tuile
-	private int angle;	//l'angle va de 0 à 3 (recto, recto90, recto180, recto270) puis de 4 à 7 (verso, verso90, verso180, verso270). On trouve directement l'image grâce à l'angle
+	private int angle;	//l'angle va de 0 a 3 (recto, recto90, recto180, recto270) puis de 4 à 7 (verso, verso90, verso180, verso270). On trouve directement l'image grace a l'angle
 	
 	public Tuiles(String recto, String recto90, String recto180, String recto270, String verso, String verso90, String verso180, String verso270) {      // On definit le constructeur de la classe Tuiles
 		this.recto = recto;
@@ -43,7 +43,7 @@ public class Tuiles {
 	}
 
 	public String getImage(int num){
-		//retourne l'image correpsondante au numéro demandé
+		//retourne l'image correpsondante au numero demande
 		switch (num) {
 		case 0:
 			return this.recto;
@@ -74,7 +74,7 @@ public class Tuiles {
 	}
 
 	public int getMur(){
-		/**Return la position du mur qui marche de la même manière que l'angle (de 0 à 4), 4 étant pas de mur */
+		/**Return la position du mur qui marche de la meme maniere que l'angle (de 0 a 4), 4 etant pas de mur */
 		return (this.verso == "TLane" && this.angle > 3 ? 4 : this.angle%4);
 	}
 
