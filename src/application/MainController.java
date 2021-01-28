@@ -173,7 +173,7 @@ public class MainController implements Initializable{
 		
 			case 0:
 				this.joueurActuel = (this.joueurActuel==this.joueur1 ? this.joueur2 : this.joueur1);			//inversion des joueurs pour l'utilisation du prochain jetons
-				this.joueurActu.setText("C'est Ã  " + this.joueurActuel.getNom() + " de jouer");
+				this.joueurActu.setText("C'est a  " + this.joueurActuel.getNom() + " de jouer");
 				this.jetonsUtilise++;																			//chaque jeton est comptabilisï¿½ pour savoir comment se deroule de tour
 				break;
 			case 1:
