@@ -186,7 +186,7 @@ public class MainController implements Initializable {
 			action42.setDisable(false);
 		}
 
-		if (this.tours % 2 == 0) {
+		if (this.tours % 2 == 1) {
 			joueurActuel = joueur1;
 		} else {
 			joueurActuel = joueur2;
@@ -196,13 +196,13 @@ public class MainController implements Initializable {
 	public void finduJeu1() { // Voilà la fonction qui célèbre le vainqueur en fonction du résulat de l'ultime
 								// test
 		System.out.println("GAME OVER");
-		this.joueurActu.setText("BRAVO à Mr Jack qui GAGNE cette partie");
+		this.joueurActu.setText("BRAVO à " + this.joueur1.getNom() + " qui GAGNE cette partie");
 	}
 
 	public void finduJeu2() { // Voilà la fonction qui célèbre le vainqueur en fonction du résulat de l'ultime
 								// test
 		System.out.println("GAME OVER");
-		this.joueurActu.setText("BRAVO aux inspecteurs qui GAGNENT cette partie");
+		this.joueurActu.setText("BRAVO à " + this.joueur2.getNom() + " qui GAGNE cette partie");
 
 	}
 
@@ -210,6 +210,7 @@ public class MainController implements Initializable {
 	public void Validation(ActionEvent e) {
 		enableTuiles(false);
 		utiliserJetons();
+		this.bValider.setDisable(true);
 	}
 
 	public void utiliserJetons() {
@@ -500,6 +501,7 @@ public class MainController implements Initializable {
 
 					enableTuiles(false);
 					this.tuileSelectionne.clear();
+					utiliserJetons();
 				} else {
 					this.tuileSelectionne.add((Button) e.getSource());
 					this.tuileSelectionne.get(0).setDisable(true);
@@ -874,9 +876,10 @@ public class MainController implements Initializable {
 							.getStyleClass().addAll(tuilesVisibles.get(k).getImageAffichee());
 				}
 			}
+			this.joueur1.addTemps(1); // MrJack gagne un jeton temps
 		} else { // si MrJack est visible
 			for (int k = 0; k < listeTuiles.size(); k++) {
-				if (!tuilesVisibles.contains(listeTuiles.get(k))) {
+				if (!tuilesVisibles.contains(listeTuiles.get(k)) && listeTuiles.get(k).getAngle()<4) {
 					// on ne prends que les tuiles qui ne sont pas visibles
 					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle() + 4);// on la retourne
 					ancienneImage = listeTuiles.get(k).getImageAffichee();
@@ -890,7 +893,6 @@ public class MainController implements Initializable {
 							.getStyleClass().addAll(listeTuiles.get(k).getImageAffichee());
 				}
 			}
-			this.joueur1.addTemps(1); // MrJack gagne un jeton temps
 		}
 		tuilesVisibles.clear(); // on nettoie le tableau
 		this.tempsAffiche.setText("x " + this.joueur1.getTemps()); // on met à jour l'affichage du temps
