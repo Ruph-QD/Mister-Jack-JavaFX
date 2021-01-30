@@ -1,6 +1,9 @@
 package application;
 
 public class Tuiles {
+	
+	
+	// Variables pour la classe Tuile
 	//Nous avons decide d'enregister les images avec leur rotations car cela est plus simple a gerer au lieu de le faire directement avec l'interface graphique
 	private String recto;
 	private String recto90;
@@ -11,8 +14,8 @@ public class Tuiles {
 	private String verso180;
     private String verso270;
     private String imageAffichee;
-	private int position; //entre 1 et 9 pris aleatoirement pour identifier sur quel case se situe la tuile
-	private int angle;	//l'angle va de 0 a 3 (recto, recto90, recto180, recto270) puis de 4 à 7 (verso, verso90, verso180, verso270). On trouve directement l'image grace a l'angle
+	private int position; //variable dont les valeurs sont entre 1 et 9 pris aleatoirement pour identifier sur quel case se situe la tuile
+	private int angle;	//l'angle va de 0 a 3 (recto, recto90, recto180, recto270) puis de 4 a 7 (verso, verso90, verso180, verso270). On trouve directement l'image grace a l'angle
 	
 	public Tuiles(String recto, String recto90, String recto180, String recto270, String verso, String verso90, String verso180, String verso270) {      // On definit le constructeur de la classe Tuiles
 		this.recto = recto;
@@ -25,6 +28,9 @@ public class Tuiles {
 		this.verso270 = verso270;
 		position = 0;
 	}
+	
+	
+	// Setters et Getters
 	
 	public void setPosition(int position) {      	
 		this.position = position;

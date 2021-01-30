@@ -50,7 +50,7 @@ public class MainController implements Initializable {
 	@FXML private Button button10;
 	@FXML private Button button11;
 	@FXML private Button button12;
-	// on récupère les boutons actions
+	// on recupere les boutons actions qui correspondent aux jetons actions
 	@FXML private Button action11; // bouton intervertir tuiles
 	@FXML private Button action12; // bouton tourner tuiles
 	@FXML private Button action21; // bouton deplacer tobi
@@ -61,7 +61,7 @@ public class MainController implements Initializable {
 	@FXML private Button action42; // bouton tourner tuile
 	// bouton de validation d'action
 	@FXML private Button bValider;
-	// poour stocker les joueurs
+	// pour stocker les joueurs
 	private Joueur joueur1; // MrJack
 	private Joueur joueur2; // Inspecteur
 	private Joueur joueurActuel;
@@ -103,31 +103,20 @@ public class MainController implements Initializable {
 		disableAll(); // on desactive tous les boutons
 
 		// Creation des joueurs
-		this.joueur1 = new Joueur(((this.fieldJack.getText() == "") ? "MrJack" : this.fieldJack.getText()), "MrJack"); // si
-																														// le
-																														// champs
-																														// est
-																														// vide,
-																														// on
-																														// donne
-																														// le
-																														// nom
-																														// par
-																														// défault
-		this.joueur2 = new Joueur(((this.fieldInspe.getText() == "") ? "Inspecteur" : this.fieldInspe.getText()),
-				"Inspecteur"); // si le champs est vide, on donne le nom par défault
+		this.joueur1 = new Joueur(((this.fieldJack.getText() == "") ? "MrJack" : this.fieldJack.getText()), "MrJack"); // Si le champ pour rentrer le nom de MrJack est vide, on attribue le nom de MrJack par default
+		this.joueur2 = new Joueur(((this.fieldInspe.getText() == "") ? "Inspecteur" : this.fieldInspe.getText()),"Inspecteur"); // si le champ pour rentrer le nom de l'inspecteur est vide, on attribue le nom de Inspecteur par default
 
 		// Creation de la pioche
 		this.pioche = new Pioche();
-		this.pioche.Piocher(this.joueur1); // pour donner la carte alibi sous lequel MrJack est cachée
+		this.pioche.Piocher(this.joueur1); // pour donner la carte alibi sous lequel MrJack est cachee
 		this.MrJack.setDisable(false);
 		// Creation du jeu
-		this.plateau = new Plateau(); // créer le plateau
+		this.plateau = new Plateau(); // creer le plateau
 		this.listeTuiles = this.plateau.getPlateau();
 		for (int k = 0; k < 9; k++) {
 			/*
-			 * on est oblige de remove tous les style possible puis d'ajouter le style
-			 * souhaite
+			 * on est oblige d'enlever tous les style possible puis d'ajouter le style qu'on souhaite
+			 * 
 			 */
 			((Button) borderPane.lookup("#button" + Integer.toString(k))).getStyleClass().removeAll("TBert", "TBert90",
 					"TBert180", "TBert270", "TGoodley", "TGoodley90", "TGoodley180", "TGoodley270", "TGull", "TGull90",
@@ -139,7 +128,7 @@ public class MainController implements Initializable {
 			((Button) borderPane.lookup("#button" + Integer.toString(k))).getStyleClass()
 					.add(listeTuiles.get(k).getImageAffichee());
 		}
-		// partie creation des inspecteurs et des boutons associés
+		// creation des inspecteurs et des boutons associes au cours de la nouvelle partie
 		this.Tobi = new Inspecteurs("Tobi");
 		this.Sherlock = new Inspecteurs("Sherlock");
 		this.Watson = new Inspecteurs("Watson");
@@ -163,8 +152,8 @@ public class MainController implements Initializable {
 	}
 
 	public void nouveauTour() {
-		int[] hazard = { RandInt(0, 1), RandInt(0, 1), RandInt(0, 1), RandInt(0, 1) }; // on génère les jetons
-																						// aléatoirements
+		int[] hazard = { RandInt(0, 1), RandInt(0, 1), RandInt(0, 1), RandInt(0, 1) }; // on genere les 4 jetons du tour
+																						// aleatoirement
 		if (hazard[0] == 0) {
 			action11.setDisable(false);
 		} else {
@@ -193,16 +182,16 @@ public class MainController implements Initializable {
 		}
 	}
 
-	public void finduJeu1() { // Voilà la fonction qui célèbre le vainqueur en fonction du résulat de l'ultime
-								// test
-		System.out.println("GAME OVER");
-		this.joueurActu.setText("BRAVO à " + this.joueur1.getNom() + " qui GAGNE cette partie");
+	public void finduJeu1() { // Fonction qui correspond au scenario numero 1 de fin du jeu (Mr Jack a echappe a l'inspecteur)
+								
+		System.out.println("GAME OVER"); // Imprime Game Over dans la console pour la fin du jeu 
+		this.joueurActu.setText("BRAVO a� " + this.joueur1.getNom() + " qui GAGNE cette partie"); // Affiche le nom du gagnant sur l'interface graphique
 	}
 
-	public void finduJeu2() { // Voilà la fonction qui célèbre le vainqueur en fonction du résulat de l'ultime
-								// test
+	public void finduJeu2() { // Fonction qui correspond au scenario numero 2 de fin du jeu (Mr Jack a ete trouve par les inspecteurs)
+								
 		System.out.println("GAME OVER");
-		this.joueurActu.setText("BRAVO à " + this.joueur2.getNom() + " qui GAGNE cette partie");
+		this.joueurActu.setText("BRAVO a� " + this.joueur2.getNom() + " qui GAGNE cette partie");  // Affiche le nom du gagnant sur l'interface graphique
 
 	}
 
@@ -216,43 +205,43 @@ public class MainController implements Initializable {
 	public void utiliserJetons() {
 		if (this.joueur1.getTemps() >= 6) {
 			finduJeu1();
-		} // on vérifie que Mr.Jack n'est pas gagner après chaque jetons
+		} // on verifie que Mr Jack n'ait pas gagne apres l'utilisation de chaque jetons
 		switch (this.jetonsUtilise) {
 
 			case 0:
-				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion N°1
+				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion numero 1
 																										// des joueurs
 																										// pour
 																										// l'utilisation
 																										// du prochain
 																										// jetons
-				this.joueurActu.setText("C'est à " + this.joueurActuel.getNom() + " de jouer");
-				this.jetonsUtilise++; // chaque jeton est comptabilisé pour savoir comment se déroule de tour
+				this.joueurActu.setText("C'est a " + this.joueurActuel.getNom() + " de jouer");
+				this.jetonsUtilise++; // chaque jeton est pris en compte pour savoir comment se deroule de tour
 				break;
 			case 1:
 				this.jetonsUtilise++;
 				break;
 			case 2:
-				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion N°2
+				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion numero 2
 																										// des joueurs
 																										// pour
 																										// l'utilisation
 																										// du prochain
 																										// jetons
-				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 				this.jetonsUtilise++;
 				break;
 			case 3:
-				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion N°3
+				this.joueurActuel = (this.joueurActuel == this.joueur1 ? this.joueur2 : this.joueur1); // inversion numero 3
 																										// des joueurs
 																										// pour
 																										// l'utilisation
 																										// du prochain
 																										// jetons
-				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est entrain de jouer");
+				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 				this.jetonsUtilise = 0;
-				this.tours++; // on passe au tours suivant
-				appelTemoin(); // on lance l'appel à temoin à la fin de chaque tour
+				this.tours++; // on incr�mente et on passe au tour suivant
+				appelTemoin(); // on lance l'appel a temoin a la fin de chaque tour
 				if (this.tours < 8) {
 					nouveauTour();
 				} else {
@@ -319,8 +308,8 @@ public class MainController implements Initializable {
 			action21.setDisable(true);
 		} else {
 			this.reset = 0;
-		} // si l'appel résulte du jetons choix de l'inspecteur, alors le jetons 21 ne
-			// doit pas être désactiver
+		} // si l'appel resulte du jetons de choix de l'inspecteur pour le deplacement (action qui correspond au jeton 41), alors le jetons 21 ne
+			// doit pas etre desactive
 	}
 
 	public void Button_deplacerWatson(ActionEvent e) {
@@ -361,7 +350,7 @@ public class MainController implements Initializable {
 			action22.setDisable(true);
 		} else {
 			this.reset = 0;
-		} // condition pour le choix des inspecteurs
+		} // condition pour le choix des inspecteurs pour le deplacement
 	}
 
 	public void Button_deplacerSherlock(ActionEvent e) {
@@ -402,7 +391,7 @@ public class MainController implements Initializable {
 			action31.setDisable(true);
 		} else {
 			this.reset = 0;
-		} // condition pour le choix des inspecteurs
+		} // condition pour le choix des inspecteurs pour le deplacement
 	}
 
 	@FXML
@@ -411,7 +400,7 @@ public class MainController implements Initializable {
 		this.jetonSelect = 32;
 
 		String carte = this.pioche.Piocher(this.joueurActuel);
-		if (this.joueurActuel == joueur2) { // on retroune la carte si c'est l'inspecteur
+		if (this.joueurActuel == joueur2) { // on retourne la carte correspondante sur le plateau si c'est l'inspecteur qui a pioche une carte
 			for (int k = 0; k < this.listeTuiles.size(); k++) {
 				if (this.listeTuiles.get(k).getImage(0).equals('T' + carte)) {
 					this.listeTuiles.get(k).setAngle(this.listeTuiles.get(k).getAngle() + 4); // on change l'angle
@@ -419,7 +408,7 @@ public class MainController implements Initializable {
 							.setImageAffichee(listeTuiles.get(k).getImage(this.listeTuiles.get(k).getAngle())); // on
 																												// change
 																												// l'image
-																												// affichée
+																												// affichee
 																												// par
 																												// la
 																												// console
@@ -431,18 +420,18 @@ public class MainController implements Initializable {
 							"TSmith180", "TSmith270", "TStealthy", "TStealthy90", "TStealthy180", "TStealthy270",
 							"Verso", "Verso90", "Verso180", "Verso270", "Middle_verso");
 					((Button) borderPane.lookup("#button" + k)).getStyleClass()
-							.addAll(this.listeTuiles.get(k).getImageAffichee()); // on change l'image affichée par
+							.addAll(this.listeTuiles.get(k).getImageAffichee()); // on change l'image affichee par
 																					// javaFX
 				}
 			}
 		}
-		this.tempsAffiche.setText("x " + joueur1.getTemps()); // on met à jour le temps affiché
+		this.tempsAffiche.setText("x " + joueur1.getTemps()); // on met a jour le temps affiche par JavaFX
 		this.action32.setDisable(true);
 		utiliserJetons();
 	}
 
 	@FXML
-	public void choixDeplacement(ActionEvent e) { // Methode pour deplacer au choix un des trois inspecteurs
+	public void choixDeplacement(ActionEvent e) { // Methode pour deplacer au choix un des trois inspecteurs apres appui sur le bouton de choix des inspecteurs pour le deplacement
 		this.jetonSelect = 41;
 
 		String positionS = this.Sherlock.getPosition();
@@ -470,8 +459,8 @@ public class MainController implements Initializable {
 		switch (jetonSelect) {
 
 			case 11:// intervertir Tuiles : On doit appuyer deux fois pour effectuer le changement.
-					// La prmeière fois, la tuile est sauvegardée dans tuileSelectionne puis on fait
-					// l'inversion des deux styles
+					// La premiere tuile sur laquelle on appuie est sauvegardee dans tuileSelectionne puis on fait
+					// l'inversion des deux styles de tuiles
 				if (tuileSelectionne.size() > 0) {
 					this.tuileSelectionne.add((Button) e.getSource());
 					String style0 = this.tuileSelectionne.get(0).getStyleClass().get(2);
@@ -491,7 +480,7 @@ public class MainController implements Initializable {
 					plateau.IntervertirTuiles(this.listeTuiles.get(numero0), this.listeTuiles.get(numero1)); // on fait
 																												// les
 																												// modifications
-																												// également
+																												// egalement
 																												// sur
 																												// les
 																												// classe
@@ -508,8 +497,8 @@ public class MainController implements Initializable {
 				}
 				break;
 
-			case 12:// tourner Tuiles : la choix de la tuile à tourner se verouille au premier click
-					// mais la tuile peut encore être tounée à chaque click jusqu'à validation
+			case 12:// tourner Tuiles : la choix de la tuile a tourner se verouille lorque l'on clique dessus (pas de possibilites de changer de tuiles si on se trompe)
+					// la tuile peut etre tournee a chaque clic jusqu'a ce qu'on decide de la fixer en appuyant sur le bouton valider
 				enableTuiles(false);
 				((Button) e.getSource()).setDisable(false);
 
@@ -530,7 +519,7 @@ public class MainController implements Initializable {
 				((Button) e.getSource()).getStyleClass().add(this.listeTuiles.get(numeroTuile).getImageAffichee());
 				break;
 
-			case 21:// deplacer Tobi : Il s'agit de cliquer sur l'une des deux positions possibles
+			case 21:// deplacer Tobi : Il s'agit de cliquer sur l'une des deux positions possibles pour Tobi 
 					// qui apparaissent
 				String oldPositionTobi = this.Tobi.getPosition();
 				String newPositionTobi = Integer.toString(
@@ -546,7 +535,7 @@ public class MainController implements Initializable {
 				utiliserJetons();
 				break;
 
-			case 22:// deplacer Watson : Il s'agit de cliquer sur l'une des deux positions possibles
+			case 22:// deplacer Watson : Il s'agit de cliquer sur l'une des deux positions possibles pour Watson
 					// qui apparaissent
 				String oldPositionWatson = this.Watson.getPosition();
 				String newPositionWatson = Integer.toString(
@@ -562,7 +551,7 @@ public class MainController implements Initializable {
 				utiliserJetons();
 				break;
 
-			case 31:// deplacer Sherlock : Il s'agit de cliquer sur l'une des deux positions
+			case 31:// deplacer Sherlock : Il s'agit de cliquer sur l'une des deux positions pour Sherlock
 					// possibles qui apparaissent
 				String oldPositionSherlock = this.Sherlock.getPosition();
 				String newPositionSherlock = Integer.toString(
@@ -578,7 +567,7 @@ public class MainController implements Initializable {
 				utiliserJetons();
 				break;
 
-			case 41:// choisir inspecteurs : On clique sur l'inspecteur que l'on souhaite déplacer
+			case 41:// choisir inspecteurs : On clique sur l'inspecteur que l'on souhaite deplacer et on affiche ensuite les cases disponibles de deplacement pour ce dernier
 				String nomInspecteur = ((Button) e.getSource()).getStyleClass().get(2);
 				if (nomInspecteur.equals("Tobi")) {
 					this.reset = 1;
@@ -595,23 +584,23 @@ public class MainController implements Initializable {
 
 	}
 
-	public void appelTemoin() { // Réalise l'appel à témoin
+	public void appelTemoin() { // Realise l'appel a temoin
 		// On parcourt les positions des inspecteurs et on regarde suivant leur position
 		// si la tuile est visible et si Mr est sur cette carte donc visible
 		String[] positionInsp = { this.Watson.getPosition(), this.Tobi.getPosition(), this.Sherlock.getPosition() };
 		ArrayList<Tuiles> tuilesVisibles = new ArrayList<Tuiles>();
 		boolean mrJackVisible = false;
-		// un parcours de boucle sert à faire la vision d'un inspecteur
+		// un parcours de boucle sert a determiner le champ de vision d'un inspecteur
 
 		for (int k = 0; k < 3; k++) {
 			switch (Integer.parseInt(positionInsp[k])) {
 				/*
-				 * Suivant la position on a 12 cas possibles On regarde à chaque fois s'il y a
+				 * Suivant la position on a 12 cas possibles (representes dans ce switch) On regarde a chaque fois s'il y a
 				 * un mur devant l'inspecteur. Si ce n'est pas le cas, on stoke la tuile dans
-				 * tuilesVisibles On regarde si le mur se trouve à l'opposé de l'inspecteur
-				 * (donc angle+2) et si le mur de la prochaine tuile ne se toruve pas devant
-				 * l'inspecteur. On stocke si ce n'est pas le cas On refait la même opération
-				 * que la dernière fois
+				 * tuilesVisibles On regarde si le mur se trouve a l'oppose de l'inspecteur
+				 * (donc angle+2) et si le mur de la prochaine tuile ne se trouve pas devant
+				 * l'inspecteur. On stocke si ce n'est pas le cas On refait la meme operation
+				 * que precedemment
 				 */
 				case 1:
 					if (this.listeTuiles.get(1).getMur() != 2) {
@@ -858,17 +847,17 @@ public class MainController implements Initializable {
 			}
 		}
 		String ancienneImage;
-		if (!mrJackVisible) { // si MrJack n'ets pas visible
+		if (!mrJackVisible) { // si MrJack n'est pas visible
 			for (int k = 0; k < tuilesVisibles.size(); k++) {
 				if (tuilesVisibles.get(k).getAngle() < 4) {
-					// si la tuile n'est pas déjà retournée
+					// si la tuile n'est pas deja�retournee on peut alors la retourner
 					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle() + 4); // on la retourne
 					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
 					tuilesVisibles.get(k)
 							.setImageAffichee(tuilesVisibles.get(k).getImage(tuilesVisibles.get(k).getAngle())); // on
 																													// change
 																													// l'image
-																													// affichée
+																													// affichee
 
 					((Button) borderPane.lookup("#button" + Integer.toString(tuilesVisibles.get(k).getPosition())))
 							.getStyleClass().removeAll(ancienneImage);
@@ -881,12 +870,12 @@ public class MainController implements Initializable {
 			for (int k = 0; k < listeTuiles.size(); k++) {
 				if (!tuilesVisibles.contains(listeTuiles.get(k)) && listeTuiles.get(k).getAngle()<4) {
 					// on ne prends que les tuiles qui ne sont pas visibles
-					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle() + 4);// on la retourne
+					listeTuiles.get(k).setAngle(listeTuiles.get(k).getAngle() + 4);// on retourne la tuile
 					ancienneImage = listeTuiles.get(k).getImageAffichee();
 					listeTuiles.get(k).setImageAffichee(listeTuiles.get(k).getImage(listeTuiles.get(k).getAngle())); // on
 																														// change
 																														// l'image
-																														// affichée
+																														// affichee
 					((Button) borderPane.lookup("#button" + Integer.toString(listeTuiles.get(k).getPosition())))
 							.getStyleClass().removeAll(ancienneImage);
 					((Button) borderPane.lookup("#button" + Integer.toString(listeTuiles.get(k).getPosition())))
@@ -895,20 +884,20 @@ public class MainController implements Initializable {
 			}
 		}
 		tuilesVisibles.clear(); // on nettoie le tableau
-		this.tempsAffiche.setText("x " + this.joueur1.getTemps()); // on met à jour l'affichage du temps
+		this.tempsAffiche.setText("x " + this.joueur1.getTemps()); // on met a jour l'affichage du temps
 		int nbCartesNonRetournee = 0;
-		for (int k = 0; k < this.listeTuiles.size(); k++) { // on regarde le nombre de cartes qui sont retournées
+		for (int k = 0; k < this.listeTuiles.size(); k++) { // on regarde le nombre de cartes qui sont retournes
 			nbCartesNonRetournee = (this.listeTuiles.get(k).getAngle() < 4 ? nbCartesNonRetournee + 1
 					: nbCartesNonRetournee);
 		}
 		if (nbCartesNonRetournee == 1) {
-			this.tours = 8; // on change la valeur qui permet de finir le jeue t faire gagner les
+			this.tours = 8; // on change la valeur qui permet de finir le jeu et de faire gagner les
 							// inspecteurs
 		}
 	}
 
-	public void disableAll() { // désactive l'interface graphique
-		/** Disable tous les boutons */
+	public void disableAll() { // desactive l'interface graphique
+		/** desactive tous les boutons */
 		button0.setDisable(true);
 		button1.setDisable(true);
 		button2.setDisable(true);
@@ -943,7 +932,7 @@ public class MainController implements Initializable {
 		MrJack.setDisable(true);
 	}
 
-	public void enableTuiles(boolean bool) { // désactive les boutons tuiles
+	public void enableTuiles(boolean bool) { // active ou desactive les boutons tuiles
 		button0.setDisable(!bool);
 		button1.setDisable(!bool);
 		button2.setDisable(!bool);
@@ -956,7 +945,7 @@ public class MainController implements Initializable {
 		button8.setDisable(!bool);
 	}
 
-	public void disableTuilesInspect(boolean bool) { // désactive ou active les boutons inspecteurs
+	public void disableTuilesInspect(boolean bool) { // desactive ou active les boutons inspecteurs
 		button01.setDisable(bool);
 		button02.setDisable(bool);
 		button03.setDisable(bool);
@@ -971,7 +960,7 @@ public class MainController implements Initializable {
 		button12.setDisable(bool);
 	}
 
-	private static int RandInt(int min, int max) { // génère un nombre aléatoire entier entre min et max
+	private static int RandInt(int min, int max) { // generere un nombre aleatoire entier entre min et max (pour generer les 4 jetons actions aleatoirement)
 
 		if (min >= max) {
 			throw new IllegalArgumentException("max must be greater than min");

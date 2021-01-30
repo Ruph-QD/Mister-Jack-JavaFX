@@ -1,10 +1,13 @@
 package application;
 
 public class Joueur {
-	private String nomJoueur;	// le pseudo du joueur
-	private String role; 		// Le role du joueur (MrJack ou Inspecteur)
-	private String alibi; 		// Le nom sous lequel est cache MrJack
-	private int temps; 			// Le nombre de sablier du joueur
+	
+	//Variables de la classe Joueur
+	
+	private String nomJoueur;	// Variable qui stocke le pseudo du joueur
+	private String role; 		// Variable qui stocke le role du joueur (MrJack ou Inspecteur)
+	private String alibi; 		// Variable qui stocke le nom sous lequel est cache MrJack
+	private int temps; 			// Variable qui stocke le nombre de sablier du joueur
 
 	public Joueur(String nomJoueur, String role) {
 		// constructeur
@@ -14,8 +17,11 @@ public class Joueur {
 		this.temps = 0;
 	}
 
+	
+	// Setters et Getters
+	
 	public void setAlibi(String alibi) {
-		// sert à donner un alibi à MrJAck
+		// sert a attribuer un alibi a MrJAck
 		this.alibi = alibi;
 	}
 
@@ -26,7 +32,7 @@ public class Joueur {
 
 	public boolean isMrJack() {
 		/**
-		 * Return true si le joueur en question est MrJack et false s'il s'agot d'un
+		 * Return true si le joueur en question est MrJack et false s'il s'agit d'un
 		 * inspecteur
 		 */
 		return this.role == "MrJack";

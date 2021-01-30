@@ -2,9 +2,10 @@ package application;
 
 public class Inspecteurs {
 
-	// ICI variables a definir pour les inspecteurs
-	private String position;
-	private String nom;
+	// Variable pour les inspecteurs
+	
+	private String position;   // sert a stocker la position de l'inspecteur
+	private String nom;       // sert a stocker le nom de l'inspecteur
 
 	public Inspecteurs(String nom) { // On definit ici le constructeur de la classe Inspecteurs
 		this.nom = nom;
@@ -17,6 +18,8 @@ public class Inspecteurs {
 		}
 	}
 
+	// Setters et Getters
+	
 	public void setPosition(String position) {
 		this.position = position;
 	}

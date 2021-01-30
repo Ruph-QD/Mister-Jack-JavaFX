@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.Random;
 
 public class Plateau {
-	// Variables
+	// Variables de la classe plateau
 	private ArrayList<Tuiles> plateau; // listera les tuiles dans le but de les positionner sur le plateau
 
 	// Constructeurs
@@ -42,7 +42,7 @@ public class Plateau {
 		int indexMax = positionnement.size();
 
 		for (int k = 1; k < 9; k++) {
-			// on pioche aléatoire dans les positions et on les attributs aux tuiles
+			// on pioche aleatoirement dans les positions et on les attributs aux tuiles
 			int index = (int) (Math.random() * indexMax);
 			this.plateau.get(k).setPosition(Integer.parseInt(positionnement.get(index)));
 			positionnement.remove(index);
@@ -50,7 +50,7 @@ public class Plateau {
 		}
 
 		for (int k = 0; k < 9; k++) {
-			// on donne des angles aléatoire aux tuiles
+			// on donne des angles aleatoire aux tuiles pour la repartition par default sur le plateau
 			if (k != 1 && k != 3 && k != 6) {
 				Random r = new Random();
 				this.plateau.get(k).setAngle(r.nextInt(4)); // chiffre aleatoire entre 0 et 3 inclus
@@ -77,7 +77,7 @@ public class Plateau {
 		this.plateau.get(6).setImageAffichee(this.plateau.get(6).getImage(this.plateau.get(6).getAngle()));
 	}
 
-	public void PivoterTuiles(Tuiles tuile) {
+	public void PivoterTuiles(Tuiles tuile) {   //methode de pivot des tuiles
 		// on ajoute +1 a l'angle. On fait bien attenntion de traiter les deux cas
 		// possibles (tuile face recto ou face verso)
 		if (tuile.getAngle() < 4) {
@@ -88,7 +88,7 @@ public class Plateau {
 		tuile.setImageAffichee(tuile.getImage(tuile.getAngle()));
 	}
 
-	public void IntervertirTuiles(Tuiles tuile1, Tuiles tuile2) {
+	public void IntervertirTuiles(Tuiles tuile1, Tuiles tuile2) { // methode d'interversion des tuiles
 		// Methode pour intervertir deux tuiles apres l'utilisation du jeton action
 		// "echange"
 		int pos1 = tuile1.getPosition();
@@ -101,7 +101,7 @@ public class Plateau {
 	}
 
 	public ArrayList<Tuiles> getPlateau() {
-		// Pour récupérer le plateau
+		// Pour recuperer le plateau
 		return plateau;
 	}
 

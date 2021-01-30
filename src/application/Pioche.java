@@ -3,10 +3,13 @@ package application;
 import java.util.ArrayList;
 
 public class Pioche {
+	
+	// Variables de la classe Pioche
+	
     private ArrayList<Cartes> enJeu; // listera le nom des cartes encore en jeu
 
     public Pioche() {
-        // on créé notre pioche qui contient toutes les cartes possibles
+        // on cree notre pioche qui contient toutes les cartes possibles
         this.enJeu = new ArrayList<Cartes>();
         this.enJeu.add(new Cartes("Lestrade", 0));
         this.enJeu.add(new Cartes("Bert", 1));
@@ -21,14 +24,14 @@ public class Pioche {
 
     public String Piocher(Joueur joueur) {
         /**
-         * Sert à piocher une carte dans le paquet. S'il s'agit de la premiere fois, la
+         * Sert a piocher une carte dans le paquet. S'il s'agit de la premiere fois, la
          * carte est l'identite de MrJack. Sinon on ajoute le temps sur la carte
          * (MRJack) ou retourne le nom d'une tuile (Inspecteur)
          */
         int indexMax = this.enJeu.size(); // on recupere la taille du paquet
-        int index = (int) (Math.random() * indexMax); // on prendsd un entier aléatoire
+        int index = (int) (Math.random() * indexMax); // on prendsd un entier aleatoire
 
-        int temps = this.enJeu.get(index).getTemps(); // on recupere le temps de la carte
+        int temps = this.enJeu.get(index).getTemps(); // on recupere le temps de la carte (dans le but de l'ajouter au compteur de temps de MrJack)
         String nom = this.enJeu.get(index).getNom(); // on recupere le nom de la carte
 
         this.enJeu.remove(index); // on enleve la carte du paquet
