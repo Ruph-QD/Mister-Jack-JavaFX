@@ -185,13 +185,13 @@ public class MainController implements Initializable {
 	public void finduJeu1() { // Fonction qui correspond au scenario numero 1 de fin du jeu (Mr Jack a echappe a l'inspecteur)
 								
 		System.out.println("GAME OVER"); // Imprime Game Over dans la console pour la fin du jeu 
-		this.joueurActu.setText("BRAVO a  " + this.joueur1.getNom() + " qui GAGNE cette partie"); // Affiche le nom du gagnant sur l'interface graphique
+		this.joueurActu.setText("BRAVO aÂ  " + this.joueur1.getNom() + " qui GAGNE cette partie"); // Affiche le nom du gagnant sur l'interface graphique
 	}
 
 	public void finduJeu2() { // Fonction qui correspond au scenario numero 2 de fin du jeu (Mr Jack a ete trouve par les inspecteurs)
 								
 		System.out.println("GAME OVER");
-		this.joueurActu.setText("BRAVO a  " + this.joueur2.getNom() + " qui GAGNE cette partie");  // Affiche le nom du gagnant sur l'interface graphique
+		this.joueurActu.setText("BRAVO aÂ  " + this.joueur2.getNom() + " qui GAGNE cette partie");  // Affiche le nom du gagnant sur l'interface graphique
 
 	}
 
@@ -240,7 +240,7 @@ public class MainController implements Initializable {
 																										// jetons
 				this.joueurActu.setText("le joueur " + this.joueurActuel.getNom() + " est en train de jouer");
 				this.jetonsUtilise = 0;
-				this.tours++; // on incrémente et on passe au tour suivant
+				this.tours++; // on incrÃ©mente et on passe au tour suivant
 				appelTemoin(); // on lance l'appel a temoin a la fin de chaque tour
 				if (this.tours < 8) {
 					nouveauTour();
@@ -850,7 +850,7 @@ public class MainController implements Initializable {
 		if (!mrJackVisible) { // si MrJack n'est pas visible
 			for (int k = 0; k < tuilesVisibles.size(); k++) {
 				if (tuilesVisibles.get(k).getAngle() < 4) {
-					// si la tuile n'est pas deja retournee on peut alors la retourner
+					// si la tuile n'est pas dejaÂ retournee on peut alors la retourner
 					tuilesVisibles.get(k).setAngle(tuilesVisibles.get(k).getAngle() + 4); // on la retourne
 					ancienneImage = tuilesVisibles.get(k).getImageAffichee();
 					tuilesVisibles.get(k)
@@ -960,7 +960,7 @@ public class MainController implements Initializable {
 		button12.setDisable(bool);
 	}
 
-	private static int RandInt(int min, int max) { // generere un nombre aleatoire entier entre min et max (pour generer les 4 jetons actions aleatoirement)
+	private static int RandInt(int min, int max) { // genere un nombre aleatoire entier entre min et max (pour generer les 4 jetons actions aleatoirement)
 
 		if (min >= max) {
 			throw new IllegalArgumentException("max must be greater than min");
